@@ -39,12 +39,32 @@
     {% endblock %}
 
     {% block extra_js %}
+    {% endblock %}
 
     <title>A to PC {% block extra_title %}{% endblock %}</title>
 </head>
 
 <body>
+    <header class="container-fluid fixed-top">
+        <div class="row">
+            <div class="col-12">
+                <div class="logo">
 
+                </div>
+                <div class="search">
+
+                </div>
+                <div class="icons">
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="content-wrapper" class="container-fluid">
+        {% block content %}
+        {% endblock %}
+    </div>
 </body>
 
 </html>
