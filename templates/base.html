@@ -36,6 +36,8 @@
     <!-- Minified jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <!-- Font Awesome Script -->
+    <script src="https://kit.fontawesome.com/9918a76ce2.js" crossorigin="anonymous"></script>
     {% endblock %}
 
     {% block extra_js %}
@@ -46,25 +48,42 @@
 
 <body>
     <header class="container-fluid fixed-top">
-        <div class="row">
-            <div class="col-12">
-                <div class="logo">
-
+        <div class="d-flex justify-content-center top-header pt-1">
+                <div class="logo px-3">
+                    <a href="{% url 'home' %}">
+                        <img src="../media/logo-removebg.png" class="logo-img" alt="A to PC" aria-label="Go to home page">
+                    </a>
                 </div>
-                <div class="search">
-
+                <div class="search px-3">
+                    <form method="GET" action="">
+                        <div class="input-group border-black">
+                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            <input class="form-control border" type="search" name="q" id="" placeholder="Search for products">
+                        </div>
+                    </form>
                 </div>
-                <div class="icons">
-
+                <div class="icons px-3">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item"><i class="fa-solid fa-heart fa-xl"></i><p>Wishlist</p></li>
+                        <li class="list-inline-item"><i class="fas fa-user fa-xl"></i><p>Account</p></li>
+                        <li class="list-inline-item"><i class="fas fa-shopping-bag fa-xl"></i><p>Bag</p></li>
+                    </ul>
                 </div>
-            </div>
         </div>
     </header>
 
-    <div id="content-wrapper" class="container-fluid">
+    <div id="content-wrapper" class="container-fluid pt-3">
         {% block content %}
         {% endblock %}
     </div>
+
+    <footer class="container-fluid pt-3">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4"></div>
+            <div class="col-4"></div>
+        </div>
+    </footer>
 </body>
 
 </html>

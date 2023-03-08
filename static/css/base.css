@@ -1,0 +1,39 @@
+body {
+    font-family: 'Lato', sans-serif !important;
+    background-color: #fff !important;
+    padding-top: 50px;
+    min-height: 100vh;
+}
+
+#content-wrapper {
+    background-color: #fff;
+    max-width: 1400px;
+}
+
+.top-header {
+    max-height: 100px;
+}
+
+.logo {
+    max-width: 200px;
+}
+
+.logo-img {
+    max-height: 100%;
+}
+
+.search {
+    padding-top: 30px;
+    width: 70vw;
+    max-width: 800px;
+    min-width: 300px;
+}
+
+.border-black {
+    border: 1px solid #000 !important;
+    border-radius: 0.375rem;
+}
+
+.icons {
+    padding-top: 30px;
+}
