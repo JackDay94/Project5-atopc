@@ -48,27 +48,43 @@
 
 <body>
     <header class="container-fluid fixed-top">
-        <div class="d-flex justify-content-center top-header pt-1">
-                <div class="logo px-3">
+        <div class="row pt-1 top-header">
+            <div class="d-flex justify-content-center col-12">
+                <div class="logo">
                     <a href="{% url 'home' %}">
-                        <img src="../media/logo-removebg.png" class="logo-img" alt="A to PC" aria-label="Go to home page">
+                        <img src="../media/logo-removebg.png" class="logo-img mx-0" alt="A to PC"
+                            aria-label="Go to home page">
                     </a>
                 </div>
                 <div class="search px-3">
                     <form method="GET" action="">
                         <div class="input-group border-black">
                             <span class="input-group-text"><i class="fas fa-search"></i></span>
-                            <input class="form-control border" type="search" name="q" id="" placeholder="Search for products">
+                            <input class="form-control border" type="search" name="q" id=""
+                                placeholder="Search for products">
                         </div>
                     </form>
                 </div>
-                <div class="icons px-3">
+                <div class="icons">
                     <ul class="list-inline text-center">
-                        <li class="list-inline-item"><i class="fa-solid fa-heart fa-xl"></i><p>Wishlist</p></li>
-                        <li class="list-inline-item"><i class="fas fa-user fa-xl"></i><p>Account</p></li>
-                        <li class="list-inline-item"><i class="fas fa-shopping-bag fa-xl"></i><p>Bag</p></li>
+                        <li class="list-inline-item">
+                            <a href="#"><i class="fa-solid fa-heart fa-lg"></i>
+                                <p>Wishlist</p>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#"><i class="fas fa-user fa-lg"></i>
+                                <p>Account</p>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#"><i class="fas fa-shopping-bag fa-lg"></i>
+                                <p>Bag</p>
+                            </a>
+                        </li>
                     </ul>
                 </div>
+            </div>
         </div>
     </header>
 
