@@ -48,15 +48,15 @@
 
 <body>
     <header class="container-fluid fixed-top">
-        <div class="row pt-1 top-header">
+        <div class="row pt-1 top-header d-none d-md-flex">
             <div class="d-flex justify-content-center col-12 px-0">
-                <div class="logo d-none d-md-flex">
+                <div class="logo">
                     <a href="{% url 'home' %}" class="nav-link">
                         <img src="../media/logo-removebg.png" class="logo-img mx-0" alt="A to PC"
                             aria-label="Go to home page">
                     </a>
                 </div>
-                <div class="search d-none d-md-block px-1">
+                <div class="search px-1">
                     <form method="GET" action="">
                         <div class="input-group border-black nav-item">
                             <button class="input-group-text" type="submit"><i class="fas fa-search"></i></button>
@@ -87,12 +87,13 @@
             </div>
         </div>
         <div class="row">
-            <nav class="navbar navbar-expand-md w-100 ">
+            <nav class="navbar navbar-expand-md mx-2">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
                     aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 {% include 'includes/main-nav.html' %}
+                {% include 'includes/mobile-header.html' %}
             </nav>
         </div>
     </header>
