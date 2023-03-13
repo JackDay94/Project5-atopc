@@ -10,11 +10,7 @@ body {
     max-width: 1400px;
 }
 
-.top-header {
-    max-height: 100px;
-}
-
-
+.top-header,
 .logo-img {
     max-height: 100px;
 }

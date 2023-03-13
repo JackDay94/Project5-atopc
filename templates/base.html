@@ -49,17 +49,17 @@
 <body>
     <header class="container-fluid fixed-top">
         <div class="row pt-1 top-header">
-            <div class="d-flex justify-content-center col-12">
-                <div class="logo">
-                    <a href="{% url 'home' %}">
+            <div class="d-flex justify-content-center col-12 px-0">
+                <div class="logo d-none d-md-flex">
+                    <a href="{% url 'home' %}" class="nav-link">
                         <img src="../media/logo-removebg.png" class="logo-img mx-0" alt="A to PC"
                             aria-label="Go to home page">
                     </a>
                 </div>
-                <div class="search px-3">
+                <div class="search d-none d-md-block px-1">
                     <form method="GET" action="">
-                        <div class="input-group border-black">
-                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                        <div class="input-group border-black nav-item">
+                            <button class="input-group-text" type="submit"><i class="fas fa-search"></i></button>
                             <input class="form-control border" type="search" name="q" id=""
                                 placeholder="Search for products">
                         </div>
@@ -68,23 +68,32 @@
                 <div class="icons">
                     <ul class="list-inline text-center">
                         <li class="list-inline-item">
-                            <a href="#"><i class="fa-solid fa-heart fa-lg"></i>
+                            <a href="#" class="nav-link"><i class="fa-solid fa-heart fa-lg"></i>
                                 <p>Wishlist</p>
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#"><i class="fas fa-user fa-lg"></i>
+                            <a href="#" class="nav-link"><i class="fas fa-user fa-lg"></i>
                                 <p>Account</p>
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#"><i class="fas fa-shopping-bag fa-lg"></i>
+                            <a href="#" class="nav-link"><i class="fas fa-shopping-bag fa-lg"></i>
                                 <p>Bag</p>
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <nav class="navbar navbar-expand-md w-100 ">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
+                    aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                {% include 'includes/main-nav.html' %}
+            </nav>
         </div>
     </header>
 
@@ -95,9 +104,9 @@
 
     <footer class="container-fluid pt-3">
         <div class="row">
-            <div class="col-4"></div>
-            <div class="col-4"></div>
-            <div class="col-4"></div>
+            <div class="col-md-4 col-sm-12"></div>
+            <div class="col-md-4 col-sm-12"></div>
+            <div class="col-md-4 col-sm-12"></div>
         </div>
     </footer>
 </body>
