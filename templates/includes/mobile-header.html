@@ -1,21 +1,16 @@
 <li class="list-inline-item">
     <a class="text-black nav-link d-block d-md-none" href="#" id="mobile-search" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <div class="text-center">
-            <div><i class="fas fa-search"></i></div>
+        <div class="text-center ps-2">
+            <i class="fas fa-search"></i>
             <p class="my-0">Search</p>
         </div>
     </a>
-    <div class="dropdown-menu border-0 w-100 p-3 my-0" aria-labelledby="mobile-search">
-        <form class="form" method="GET" action="">
-            <div class="input-group w-100">
-                <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search for products">
-                <div class="input-group-append">
-                    <button class="form-control btn btn-black border border-black rounded-0" type="submit">
-                        <span class="icon">
-                            <i class="fas fa-search"></i>
-                        </span>
-                    </button>
-                </div>
+    <div class="dropdown-menu rounded-0 border-0 w-100 p-3 my-0" aria-labelledby="mobile-search">
+        <form class="d-flex nav-item d-md-none" role="search" method="get" action="">
+            <div class="input-group border-black nav-item">
+                <input class="form-control" type="search" name="q" placeholder="Search for products"
+                    aria-label="Search">
+                <button class="input-group-text" type="submit"><i class="fas fa-search"></i></button>
             </div>
         </form>
     </div>
@@ -23,7 +18,7 @@
 <li class="list-inline-item">
     <a class="text-black nav-link d-block d-md-none" href="#">
         <div class="text-center">
-            <div><i class="fas fa-heart"></i></div>
+            <i class="fas fa-heart"></i>
             <p class="my-0">
                 Wishlist
             </p>
@@ -33,7 +28,7 @@
 <li class="list-inline-item dropdown">
     <a class="text-black nav-link d-block d-md-none" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
-            <div><i class="fas fa-user"></i></div>
+            <i class="fas fa-user"></i>
             <p class="my-0">Account</p>
         </div>
     </a>
@@ -52,7 +47,7 @@
 </li>
 <li class="list-inline-item">
     <a class="text-black nav-link d-block d-md-none" href="#">
-        <div class="text-center me-3">
+        <div class="text-center me-4">
             <i class="fas fa-shopping-bag"></i>
             <p class="my-0">
                 Bag

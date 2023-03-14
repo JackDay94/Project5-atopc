@@ -35,7 +35,16 @@ body {
     padding: 0 5px;
 }
 
-.icons a {
-    text-decoration: none;
-    color: #000;
+.nav-link:hover,
+.nav-link a:hover {
+    transition: ease-in 0.3s !important;
+    color: slategray !important
+}
+
+#deals-link:hover {
+    color: darkred !important;
+}
+
+.banner-text {
+    font-size: clamp(10px, calc(10px + 0.5vw), 18px);
 }
