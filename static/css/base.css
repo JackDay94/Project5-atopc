@@ -37,7 +37,8 @@ body {
 
 .nav-link:hover,
 .nav-link a:hover,
-#social-icons a:hover {
+#social-icons a:hover,
+#site-info-links a:hover {
     transition: ease-in 0.3s !important;
     color: slategray !important
 }
@@ -50,6 +51,17 @@ body {
     font-size: clamp(10px, calc(10px + 0.5vw), 18px);
 }
 
-#social-icons a {
+#social-icons a,
+#site-info-links a {
     color: #fff;
+    text-decoration: none;
+}
+
+#site-info-links ul {
+    list-style: none;
+    text-decoration: none;
+}
+
+#footer-container {
+    max-width: 1800px;
 }
