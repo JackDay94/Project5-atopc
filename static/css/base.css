@@ -36,7 +36,8 @@ body {
 }
 
 .nav-link:hover,
-.nav-link a:hover {
+.nav-link a:hover,
+#social-icons a:hover {
     transition: ease-in 0.3s !important;
     color: slategray !important
 }
@@ -47,4 +48,8 @@ body {
 
 .banner-text {
     font-size: clamp(10px, calc(10px + 0.5vw), 18px);
+}
+
+#social-icons a {
+    color: #fff;
 }
