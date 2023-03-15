@@ -39,7 +39,7 @@ body {
 #social-icons a:hover,
 #site-info-links a:hover {
     transition: ease-in 0.3s !important;
-    color: slategray !important
+    color: #006bb4 !important
 }
 
 #deals-link:hover {

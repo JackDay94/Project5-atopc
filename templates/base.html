@@ -43,19 +43,21 @@
     {% block extra_js %}
     {% endblock %}
 
-    <title>A to PC {% block extra_title %}{% endblock %}</title>
+    <title>{% block extra_title %}{% endblock %} | A to PC</title>
 </head>
 
 <body>
     <header class="container-fluid sticky-top">
         <div class="row pt-1 top-header d-none d-md-flex bg-white">
             <div class="d-flex justify-content-center col-12 px-0">
-                <div class="logo">
+                <!-- Logo -->
+                <div>
                     <a href="{% url 'home' %}" class="nav-link">
                         <img src="../media/logo-removebg.png" class="logo-img mx-0" alt="A to PC"
                             aria-label="Go to home page">
                     </a>
                 </div>
+                <!-- Search -->
                 <div class="search px-1">
                     <form method="get" action="">
                         <div class="input-group border-black nav-item">
@@ -65,6 +67,7 @@
                         </div>
                     </form>
                 </div>
+                <!-- Wishlist, Account & Bag -->
                 <div class="icons">
                     <ul class="list-inline text-center">
                         <li class="list-inline-item">
@@ -86,6 +89,7 @@
                 </div>
             </div>
         </div>
+        <!-- Site nav links -->
         <div class="row bg-white">
             <nav class="navbar navbar-expand-md ps-2">
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#main-nav"
@@ -96,6 +100,7 @@
                 {% include 'includes/mobile-header.html' %}
             </nav>
         </div>
+        <!-- Info Banner -->
         <div class="row bg-black text-white py-2">
             <div class="text-center fw-bold col-4">
                 <i class="fa-solid fa-truck fa-lg"></i>
@@ -114,12 +119,15 @@
 
     <div id="content-wrapper" class="container-fluid pt-2 pb-2">
         {% block content %}
+        <!-- Page Content Goes Here -->
         {% endblock %}
     </div>
 
+    <!-- Footer -->
     <footer class="pt-3 bg-dark text-white">
         <div class="container-fluid" id="footer-container">
             <div class="row">
+                <!-- Social Media links -->
                 <div class="col-lg-4 col-md-12 text-center">
                     <h1 class="text-uppercase fw-bold fs-3 font-monospace">Stay Connected!</h1>
                     <ul class="list-inline" id="social-icons">
@@ -137,6 +145,7 @@
                                     class="fa-brands fa-instagram fa-xl"></i></a></li>
                     </ul>
                 </div>
+                <!-- Site Information Links -->
                 <div class="col-lg-4 col-md-12 text-center" id="site-info-links">
                     <h1 class="text-uppercase fw-bold fs-3 font-monospace">Information</h1>
                     <ul class="ps-0 text-white">
@@ -147,6 +156,7 @@
                         <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
+                <!-- Newsletter Signup -->
                 <div class="col-lg-4 col-md-12 text-center">
                     <h1 class="text-uppercase fs-3 fw-bold font-monospace">Sign up to our Newsletter!</h2>
                 </div>
