@@ -1,13 +1,12 @@
 body {
     font-family: 'Lato', sans-serif !important;
     background-color: #fff !important;
-    padding-top: 100px;
-    min-height: 100vh;
 }
 
 #content-wrapper {
     background-color: #fff;
     max-width: 1400px;
+    min-height: calc(100vh - 155px);
 }
 
 .top-header,

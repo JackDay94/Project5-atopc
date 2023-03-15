@@ -47,8 +47,8 @@
 </head>
 
 <body>
-    <header class="container-fluid fixed-top">
-        <div class="row pt-1 top-header d-none d-md-flex">
+    <header class="container-fluid sticky-top">
+        <div class="row pt-1 top-header d-none d-md-flex bg-white">
             <div class="d-flex justify-content-center col-12 px-0">
                 <div class="logo">
                     <a href="{% url 'home' %}" class="nav-link">
@@ -86,7 +86,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row bg-white">
             <nav class="navbar navbar-expand-md ps-2">
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#main-nav"
                     aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -112,7 +112,7 @@
         </div>
     </header>
 
-    <div id="content-wrapper" class="container-fluid pt-3">
+    <div id="content-wrapper" class="container-fluid pt-2 pb-2">
         {% block content %}
         {% endblock %}
     </div>

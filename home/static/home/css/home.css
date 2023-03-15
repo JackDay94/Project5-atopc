@@ -1,0 +1,6 @@
+.welcome-img {
+    height: auto;
+    max-height: 60vh;
+    min-height: 150px;
+    max-width: 100%;
+}
