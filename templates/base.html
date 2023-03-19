@@ -163,7 +163,12 @@
                 <div class="col-lg-4 col-md-12 text-center" id="site-info-links">
                     <h1 class="text-uppercase fw-bold fs-3 font-monospace">Information</h1>
                     <ul class="ps-0 text-white">
-                        <li class=""><a href="#" class="">Account</a></li>
+                        {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                        <li><a href="{% url 'admin:index' %}">Admin</a></li>
+                        {% endif %}
+                        <li><a href="{% url 'profile' user.profile.id %}">My Profile</a></li>
+                        {% endif %}
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">Brands</a></li>
