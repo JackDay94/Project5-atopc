@@ -13,7 +13,7 @@ My Profile
 
 {% block content %}
 <div class="text-center">
-    <h2 class="fw-bold">{{ user.username }}'s Profile</h2>
+    <h2 class="fw-bold">{{ profile.user }}'s Profile</h2>
 </div>
 <div class="row">
     <div class="col-lg-6 col-md-12 pb-3">
@@ -34,4 +34,9 @@ My Profile
     </div>
 </div>
 
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
 {% endblock %}
