@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'profiles/css/profiles.css' %}">
@@ -11,10 +13,10 @@ My Profile
 
 {% block content %}
 <div class="text-center">
-    <h2 class="fw-bold">My Profile</h2>
+    <h2 class="fw-bold">{{ user.username }}'s Profile</h2>
 </div>
 <div class="row">
-    <div class="col-lg-6 col-md-12">
+    <div class="col-lg-6 col-md-12 pb-3">
         <h3 class="text-muted">Delivery Information</h3>
         <p class="text-muted">This is your default delivery Information.</p>
         <form action="" method="post" id="default-profile-form">
@@ -25,6 +27,10 @@ My Profile
     </div>
     <div class="col-lg-6 col-md-12">
         <h3 class="text-muted">Order History</h3>
+        <p class="text-muted">This is a list of your past orders.</p>
+        <div class="order-history">
+
+        </div>
     </div>
 </div>
 
