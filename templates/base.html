@@ -183,35 +183,36 @@
         </div>
     </footer>
 
+    <!-- Messages (From CI Boutique Ado walkthrough) -->
     {% if messages %}
-  <div class="message-container">
+    <div class="message-container">
     {% for message in messages %}
-      {% with message.level as level %}
-        {% if level == 40 %}
-          {% include 'includes/toasts/toast-error.html' %}
-        {% elif level == 30 %}
-          {% include 'includes/toasts/toast-warning.html' %}
-        {% elif level == 25 %}
-          {% include 'includes/toasts/toast-success.html' %}
-        {% else %}
-          {% include 'includes/toasts/toast-info.html' %}
-        {% endif %}
-      {% endwith %}
+        {% with message.level as level %}
+            {% if level == 40 %}
+                {% include 'includes/toasts/toast-error.html' %}
+            {% elif level == 30 %}
+                {% include 'includes/toasts/toast-warning.html' %}
+            {% elif level == 25 %}
+                {% include 'includes/toasts/toast-success.html' %}
+            {% else %}
+                {% include 'includes/toasts/toast-info.html' %}
+            {% endif %}
+        {% endwith %}
     {% endfor %}
-  </div>
-  {% endif %}
+    </div>
+    {% endif %}
   
 </body>
 
 {% block postloadjs %}
-
+<!-- Messages/Toast js -->
 <script type="text/javascript">
     const toasElList = $('.toast');
     for(let toastEl of toasElList){
         const toast = new bootstrap.Toast(toastEl);
         toast.show();
     }
-  </script>
+</script>
 
 {% endblock %}
 
