@@ -9,6 +9,8 @@ body {
     min-height: calc(100vh - 155px);
 }
 
+/* Navbar and header */
+
 .top-header,
 .logo-img {
     max-height: 100px;
@@ -50,6 +52,8 @@ body {
     font-size: clamp(10px, calc(10px + 0.5vw), 18px);
 }
 
+/* Site Footer */
+
 #social-icons a,
 #site-info-links a {
     color: #fff;
@@ -63,4 +67,22 @@ body {
 
 #footer-container {
     max-width: 1800px;
+}
+
+/* Toasts */
+
+.message-container {
+    position: fixed;
+    max-width: 300px;
+    top: 150px;
+    right: calc(50vw - 150px);
+    z-index: 999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 4px;
 }
