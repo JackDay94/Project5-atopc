@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Product
+from .models import Category, Product, Review
 
 
 @admin.register(Category)
@@ -32,3 +32,25 @@ class ProductAdmin(admin.ModelAdmin):
     )
 
     ordering = ('sku',)
+
+
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = (
+        'author',
+        'product',
+        'rating',
+        'created_on',
+        'edited_on',
+    )
+
+    list_filter = (
+        'author',
+        'product',
+        'created_on',
+    )
+
+    search_fields = (
+        'product',
+        'author',
+    )
