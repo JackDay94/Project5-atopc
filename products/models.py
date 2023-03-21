@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
 RATING = (
     (0, 0),
     (1, 1),
@@ -10,6 +9,7 @@ RATING = (
     (4, 4),
     (5, 5),
 )
+
 
 class Category(models.Model):
     """Category model (from CI Boutique Ado Walkthrough)"""
@@ -38,6 +38,7 @@ class Product(models.Model):
                                          null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
+    date_added = models.DateTimeField(auto_now_add=True)
     specification = models.TextField()
 
     def __str__(self):
