@@ -35,7 +35,7 @@ class Product(models.Model):
     description = models.TextField(max_length=500)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     average_rating = models.DecimalField(max_digits=6, decimal_places=1,
-                                         null=True, blank=True)
+                                         null=True, blank=True, default=0)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
@@ -46,12 +46,12 @@ class Product(models.Model):
 
     def update_review_fields(self):
         """
-        Updates the average_star field depending on average user rating.
+        Updates the average_rating field depending on average user rating.
         Taken from:
         https://www.reddit.com/r/django/comments/kp6rz4/which_is_the_proper_way_of_calculating_average/
         """
         reviews = self.reviews.all()
-        self.rating = reviews.aggregate(models.Avg('average_rating')).get(
+        self.rating = reviews.aggregate(models.Avg('rating')).get(
             'rating__avg'
             )
         self.save(update_fields=['average_rating'])

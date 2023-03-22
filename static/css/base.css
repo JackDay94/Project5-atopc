@@ -39,7 +39,8 @@ body {
 .nav-link:hover,
 .nav-link a:hover,
 #social-icons a:hover,
-#site-info-links a:hover {
+#site-info-links a:hover,
+.category-tag:hover {
     transition: ease-in 0.3s !important;
     color: #006bb4 !important
 }
@@ -86,3 +87,8 @@ body {
 .toast-capper {
     height: 4px;
 }
+
+.product-name {
+    font-size: clamp(16px, 1vw, 20px);
+}
+
