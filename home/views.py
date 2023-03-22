@@ -14,6 +14,11 @@ class HomeView(ListView):
     def get_queryset(self):
         queryset = {
             'new_products': Product.objects.order_by(
-                '-date_added')[0:4]
+                '-date_added')[0:4],
+            'top_peripherals': (Product.objects.filter(
+                category__name="keyboards") | Product.objects.filter(
+                category__name="mice") | Product.objects.filter(
+                category__name="headphones")).order_by('-average_rating')[0:4],
+            
         }
         return queryset

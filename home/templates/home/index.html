@@ -22,9 +22,9 @@ Welcome!
     <h2 class="fw-bold">New In Store</h2>
     {% for product in products.new_products %}
     <div class="col-md-6 col-6 col-lg-3 pb-3">
-        <div class="card h-100 text-center">
+        <div class="card h-100 text-center border-0">
             <a href="#">
-                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-responsive">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid">
             </a>
             <p class="card-body product-name mb-0">{{ product.name }}</p>
             <p class="text-start ps-2 fw-bold lead mb-0">£{{ product.price }}</p>
@@ -32,7 +32,7 @@ Welcome!
                     class="fa-solid fa-star star-rating text-warning"></i></p>
             <p class="text-start ps-2"><a href="#" class="text-decoration-none text-muted fs-6 category-tag"><i
                         class="fa-solid fa-tags mr-2"></i> {{ product.category.friendly_name }}</a></p>
-            <div class="card-footer pt-2 border-0">
+            <div class="card-footer bg-white pt-2 border-0">
                 <a href="#" class="btn btn-success w-100">Add to bag</a>
             </div>
         </div>
@@ -42,6 +42,24 @@ Welcome!
 <!-- Top Peripherals -->
 <div class="row">
     <h2 class="fw-bold">Top Peripherals</h2>
+    {% for product in products.top_peripherals %}
+    <div class="col-md-6 col-6 col-lg-3 pb-3">
+        <div class="card h-100 text-center border-0">
+            <a href="#">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid">
+            </a>
+            <p class="card-body product-name mb-0">{{ product.name }}</p>
+            <p class="text-start ps-2 fw-bold lead mb-0">£{{ product.price }}</p>
+            <p class="text-start ps-2 fs-6 mb-0">{{ product.average_rating }} / 5 <i
+                    class="fa-solid fa-star star-rating text-warning"></i></p>
+            <p class="text-start ps-2"><a href="#" class="text-decoration-none text-muted fs-6 category-tag"><i
+                        class="fa-solid fa-tags mr-2"></i> {{ product.category.friendly_name }}</a></p>
+            <div class="card-footer bg-white pt-2 border-0">
+                <a href="#" class="btn btn-success w-100">Add to bag</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 </div>
 <!-- Top Monitors -->
 <div class="row">
