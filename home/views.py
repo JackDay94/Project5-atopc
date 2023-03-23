@@ -19,6 +19,14 @@ class HomeView(ListView):
                 category__name="keyboards") | Product.objects.filter(
                 category__name="mice") | Product.objects.filter(
                 category__name="headphones")).order_by('-average_rating')[0:4],
-            
+            'top_monitors': (Product.objects.filter(
+                category__name="1080p_monitors") | Product.objects.filter(
+                category__name="1440p_monitors") | Product.objects.filter(
+                category__name="4k_monitors")).order_by(
+                    '-average_rating')[0:4],
+            'top_storage': (Product.objects.filter(
+                category__name="hard_drives") | Product.objects.filter(
+                category__name="solid_state_drives")).order_by(
+                    '-average_rating')[0:4],
         }
         return queryset
