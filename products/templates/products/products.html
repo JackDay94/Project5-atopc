@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
 {% block extra_title %}
 Browse Our Store
 {% endblock %}
@@ -10,12 +14,17 @@ Browse Our Store
             Products
         </h2>
         <div class="row">
-            <div class="col text-center mt-2">
+            <div class="col text-center mt-2 mb-2">
                 {% for c in current_categories %}
                     <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
-                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ c.friendly_name }}</span>
+                        <span class="p-2 mt-2 badge bg-dark text-white border-0">{{ c.friendly_name }}</span>
                     </a>
                 {% endfor %}
+            </div>
+        </div>
+        <div class="row justify-content-center d-none d-md-flex">
+            <div class="col-6">
+                <hr class="w-100">
             </div>
         </div>
         <div class="row">
@@ -23,7 +32,7 @@ Browse Our Store
                 <div class="row mt-1 mb-2">
                     <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                         <div class="sort-select-wrapper w-50">
-                            <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                            <select id="sort-selector" class="w-100 form-select form-select-sm border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                                 <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
                                 <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
@@ -37,14 +46,21 @@ Browse Our Store
                         </div>
                     </div>
                     <div class="col-12 col-md-6 order-md-first">
-                        <p class="text-muted mt-3 text-center text-md-left">
+                        <p class="text-muted mt-3 text-center text-md-start">
                             {% if search_term or current_categories or current_sorting != 'None_None' %}
-                                <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
+                                <span class="small"><a href="{% url 'products' %}" class="text-decoration-none">Products Home</a> | </span>
                             {% endif %}
                             {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
                         </p>
                     </div>
                 </div>
+                {% if products.count == 0 %}
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <h2 class="fw-bold text-center">Sorry! No products found.</h2>
+                    </div>
+                </div>
+                {% endif %}
                 <div class="row">
                     {% for product in products %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
@@ -56,10 +72,10 @@ Browse Our Store
                                 <p class="text-start ps-2 fw-bold lead mb-0">£{{ product.price }}</p>
                                 <p class="text-start ps-2 fs-6 mb-0">{{ product.average_rating }} / 5 <i
                                             class="fa-solid fa-star star-rating text-warning"></i></p>
-                                <p class="text-start ps-2"><a href="#" class="text-decoration-none text-muted fs-6 category-tag"><i
+                                <p class="text-start ps-2 mb-0"><a href="#" class="text-decoration-none text-muted fs-6 category-tag"><i
                                             class="fa-solid fa-tags mr-2"></i> {{ product.category.friendly_name }}</a></p>
                                 {% if request.user.is_superuser %}
-                                    <small class="ml-3">
+                                    <small>
                                         <a href="#">Edit</a>
                                         <a href="#" class="text-danger">Delete</a>
                                     </small>
