@@ -4,7 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Product, Category
+from .models import Product, Category, Review
+from .forms import ReviewForm
 
 
 def all_products(request):
@@ -78,9 +79,13 @@ def product_detail(request, product_id):
     """
 
     product = get_object_or_404(Product, pk=product_id)
+    reviews = Review.objects.filter(product_id=product.id).order_by(
+        '-created_on')
 
     context = {
         'product': product,
+        'reviews': reviews,
+        'review_form': ReviewForm(),
     }
 
     return render(request, 'products/product_detail.html', context)

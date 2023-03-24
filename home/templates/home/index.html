@@ -25,18 +25,23 @@ Welcome!
     {% for product in products.new_products %}
     <div class="col-6 col-lg-3 pb-4">
         <div class="card h-100 text-center border-0">
-            <a href="#">
+            <a href="{% url 'product_detail' product.id %}">
                 <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid">
             </a>
             <p class="card-body product-name mb-0">{{ product.name }}</p>
             <p class="text-start ps-2 fw-bold lead mb-0">£{{ product.price }}</p>
+            {% if product.average_rating %}
             <p class="text-start ps-2 fs-6 mb-0">{{ product.average_rating }} / 5 <i
                     class="fa-solid fa-star star-rating text-warning"></i></p>
+            {% else %}
+            <small class="text-muted text-start ps-2">No Rating</small>
+            {% endif %}
             <p class="text-start ps-2 mb-0"><a href="#" class="text-decoration-none text-muted fs-6 category-tag"><i
                         class="fa-solid fa-tags mr-2"></i> {{ product.category.friendly_name }}</a></p>
             {% if request.user.is_superuser %}
             <small>
                 <a href="#">Edit</a>
+                |
                 <a href="#" class="text-danger">Delete</a>
             </small>
             {% endif %}
@@ -65,13 +70,17 @@ Welcome!
     {% for product in products.top_peripherals %}
     <div class="col-6 col-lg-3 pb-4">
         <div class="card h-100 text-center border-0">
-            <a href="#">
+            <a href="{% url 'product_detail' product.id %}">
                 <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid">
             </a>
             <p class="card-body product-name mb-0">{{ product.name }}</p>
             <p class="text-start ps-2 fw-bold lead mb-0">£{{ product.price }}</p>
+            {% if product.average_rating %}
             <p class="text-start ps-2 fs-6 mb-0">{{ product.average_rating }} / 5 <i
                     class="fa-solid fa-star star-rating text-warning"></i></p>
+            {% else %}
+            <small class="text-muted text-start ps-2">No Rating</small>
+            {% endif %}
             <p class="text-start ps-2"><a href="#" class="text-decoration-none text-muted fs-6 category-tag"><i
                         class="fa-solid fa-tags mr-2"></i> {{ product.category.friendly_name }}</a></p>
             {% if request.user.is_superuser %}
@@ -105,13 +114,17 @@ Welcome!
     {% for product in products.top_monitors %}
     <div class="col-6 col-lg-3 pb-4">
         <div class="card h-100 text-center border-0">
-            <a href="#">
+            <a href="{% url 'product_detail' product.id %}">
                 <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid">
             </a>
             <p class="card-body product-name mb-0">{{ product.name }}</p>
             <p class="text-start ps-2 fw-bold lead mb-0">£{{ product.price }}</p>
+            {% if product.average_rating %}
             <p class="text-start ps-2 fs-6 mb-0">{{ product.average_rating }} / 5 <i
                     class="fa-solid fa-star star-rating text-warning"></i></p>
+            {% else %}
+            <small class="text-muted text-start ps-2">No Rating</small>
+            {% endif %}
             <p class="text-start ps-2"><a href="#" class="text-decoration-none text-muted fs-6 category-tag"><i
                         class="fa-solid fa-tags mr-2"></i> {{ product.category.friendly_name }}</a></p>
             {% if request.user.is_superuser %}
@@ -145,13 +158,17 @@ Welcome!
     {% for product in products.top_storage %}
     <div class="col-6 col-lg-3 pb-4">
         <div class="card h-100 text-center border-0">
-            <a href="#">
+            <a href="{% url 'product_detail' product.id %}">
                 <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid">
             </a>
             <p class="card-body product-name mb-0">{{ product.name }}</p>
             <p class="text-start ps-2 fw-bold lead mb-0">£{{ product.price }}</p>
+            {% if product.average_rating %}
             <p class="text-start ps-2 fs-6 mb-0">{{ product.average_rating }} / 5 <i
                     class="fa-solid fa-star star-rating text-warning"></i></p>
+            {% else %}
+            <small class="text-muted text-start ps-2">No Rating</small>
+            {% endif %}
             <p class="text-start ps-2"><a href="#" class="text-decoration-none text-muted fs-6 category-tag"><i
                         class="fa-solid fa-tags mr-2"></i> {{ product.category.friendly_name }}</a></p>
             {% if request.user.is_superuser %}
