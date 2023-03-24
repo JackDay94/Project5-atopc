@@ -21,7 +21,7 @@ Welcome!
 <div class="row pt-4">
     <h2 class="fw-bold">New In Store</h2>
     {% for product in products.new_products %}
-    <div class="col-md-6 col-6 col-lg-3 pb-3">
+    <div class="col-6 col-lg-3 pb-4">
         <div class="card h-100 text-center border-0">
             <a href="#">
                 <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid">
@@ -30,20 +30,38 @@ Welcome!
             <p class="text-start ps-2 fw-bold lead mb-0">£{{ product.price }}</p>
             <p class="text-start ps-2 fs-6 mb-0">{{ product.average_rating }} / 5 <i
                     class="fa-solid fa-star star-rating text-warning"></i></p>
-            <p class="text-start ps-2"><a href="#" class="text-decoration-none text-muted fs-6 category-tag"><i
+            <p class="text-start ps-2 mb-0"><a href="#" class="text-decoration-none text-muted fs-6 category-tag"><i
                         class="fa-solid fa-tags mr-2"></i> {{ product.category.friendly_name }}</a></p>
+            {% if request.user.is_superuser %}
+            <small>
+                <a href="#">Edit</a>
+                <a href="#" class="text-danger">Delete</a>
+            </small>
+            {% endif %}
             <div class="card-footer bg-white pt-2 border-0">
                 <a href="#" class="btn btn-success w-100">Add to bag</a>
             </div>
         </div>
     </div>
+    {% if forloop.counter|divisibleby:2 %}
+    <div class="row justify-content-center d-sm-flex d-md-flex d-lg-none">
+        <div class="col-8 mb-3">
+            <hr>
+        </div>
+    </div>
+    {% endif %}    
     {% endfor %}
+</div>
+<div class="row justify-content-center d-none d-lg-flex">
+    <div class="col-8">
+        <hr>
+    </div>
 </div>
 <!-- Top Peripherals -->
 <div class="row">
     <h2 class="fw-bold">Top Peripherals</h2>
     {% for product in products.top_peripherals %}
-    <div class="col-md-6 col-6 col-lg-3 pb-3">
+    <div class="col-6 col-lg-3 pb-4">
         <div class="card h-100 text-center border-0">
             <a href="#">
                 <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid">
@@ -54,18 +72,36 @@ Welcome!
                     class="fa-solid fa-star star-rating text-warning"></i></p>
             <p class="text-start ps-2"><a href="#" class="text-decoration-none text-muted fs-6 category-tag"><i
                         class="fa-solid fa-tags mr-2"></i> {{ product.category.friendly_name }}</a></p>
+            {% if request.user.is_superuser %}
+            <small>
+                <a href="#">Edit</a>
+                <a href="#" class="text-danger">Delete</a>
+            </small>
+            {% endif %}
             <div class="card-footer bg-white pt-2 border-0">
                 <a href="#" class="btn btn-success w-100">Add to bag</a>
             </div>
         </div>
     </div>
+    {% if forloop.counter|divisibleby:2 %}
+    <div class="row justify-content-center d-sm-flex d-md-flex d-lg-none">
+        <div class="col-8 mb-3">
+            <hr>
+        </div>
+    </div>
+    {% endif %}
     {% endfor %}
+</div>
+<div class="row justify-content-center d-none d-lg-flex">
+    <div class="col-8">
+        <hr>
+    </div>
 </div>
 <!-- Top Monitors -->
 <div class="row">
     <h2 class="fw-bold">Top Monitors</h2>
     {% for product in products.top_monitors %}
-    <div class="col-md-6 col-6 col-lg-3 pb-3">
+    <div class="col-6 col-lg-3 pb-4">
         <div class="card h-100 text-center border-0">
             <a href="#">
                 <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid">
@@ -76,18 +112,36 @@ Welcome!
                     class="fa-solid fa-star star-rating text-warning"></i></p>
             <p class="text-start ps-2"><a href="#" class="text-decoration-none text-muted fs-6 category-tag"><i
                         class="fa-solid fa-tags mr-2"></i> {{ product.category.friendly_name }}</a></p>
+            {% if request.user.is_superuser %}
+            <small>
+                <a href="#">Edit</a>
+                <a href="#" class="text-danger">Delete</a>
+            </small>
+            {% endif %}
             <div class="card-footer bg-white pt-2 border-0">
                 <a href="#" class="btn btn-success w-100">Add to bag</a>
             </div>
         </div>
     </div>
+    {% if forloop.counter|divisibleby:2 %}
+    <div class="row justify-content-center d-sm-flex d-md-flex d-lg-none">
+        <div class="col-8 mb-3">
+            <hr>
+        </div>
+    </div>
+    {% endif %}
     {% endfor %}
+</div>
+<div class="row justify-content-center d-none d-lg-flex">
+    <div class="col-8">
+        <hr>
+    </div>
 </div>
 <!-- Top Storage -->
 <div class="row">
     <h2 class="fw-bold">Top Storage</h2>
     {% for product in products.top_storage %}
-    <div class="col-md-6 col-6 col-lg-3 pb-3">
+    <div class="col-6 col-lg-3 pb-4">
         <div class="card h-100 text-center border-0">
             <a href="#">
                 <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid">
@@ -98,12 +152,30 @@ Welcome!
                     class="fa-solid fa-star star-rating text-warning"></i></p>
             <p class="text-start ps-2"><a href="#" class="text-decoration-none text-muted fs-6 category-tag"><i
                         class="fa-solid fa-tags mr-2"></i> {{ product.category.friendly_name }}</a></p>
+            {% if request.user.is_superuser %}
+            <small>
+                <a href="#">Edit</a>
+                <a href="#" class="text-danger">Delete</a>
+            </small>
+            {% endif %}
             <div class="card-footer bg-white pt-2 border-0">
                 <a href="#" class="btn btn-success w-100">Add to bag</a>
             </div>
         </div>
     </div>
+    {% if forloop.counter|divisibleby:2 %}
+    <div class="row justify-content-center d-sm-flex d-md-flex d-lg-none">
+        <div class="col-8 mb-3">
+            <hr>
+        </div>
+    </div>
+    {% endif %}
     {% endfor %}
+</div>
+<div class="row justify-content-center d-none d-lg-flex">
+    <div class="col-8">
+        <hr>
+    </div>
 </div>
 <!-- Blog -->
 <div class="row">

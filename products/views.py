@@ -10,7 +10,7 @@ from .models import Product, Category
 def all_products(request):
     """
     A view to show all products, including sorting and search queries.
-    From CI Boutique Ado Walkthrough.
+    From CI Boutique Ado Walkthrough. Modified for rating sorting.
     """
 
     products = Product.objects.all()
@@ -28,6 +28,9 @@ def all_products(request):
                 products = products.annotate(lower_name=Lower('name'))
             if sortkey == 'category':
                 sortkey = 'category__name'
+            if sortkey == 'rating':
+                sortkey == 'average_rating'
+                products = products.annotate(rating=Lower('average_rating'))
 
             if 'direction' in request.GET:
                 direction = request.GET['direction']
@@ -43,10 +46,14 @@ def all_products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(
+                    request, "You didn't enter any search criteria!"
+                    )
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = (
+                Q(name__icontains=query) | Q(description__icontains=query)
+            )
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
