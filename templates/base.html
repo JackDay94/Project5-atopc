@@ -59,11 +59,10 @@
                 </div>
                 <!-- Search -->
                 <div class="search px-1">
-                    <form method="get" action="">
+                    <form method="get" action="{% url 'products' %}">
                         <div class="input-group border-black nav-item">
                             <button class="input-group-text" type="submit"><i class="fas fa-search"></i></button>
-                            <input class="form-control border" type="search" name="q" id=""
-                                placeholder="Search for products">
+                            <input class="form-control border" type="search" name="q" placeholder="Search for products">
                         </div>
                     </form>
                 </div>
@@ -186,29 +185,29 @@
     <!-- Messages (From CI Boutique Ado walkthrough) -->
     {% if messages %}
     <div class="message-container">
-    {% for message in messages %}
+        {% for message in messages %}
         {% with message.level as level %}
-            {% if level == 40 %}
-                {% include 'includes/toasts/toast-error.html' %}
-            {% elif level == 30 %}
-                {% include 'includes/toasts/toast-warning.html' %}
-            {% elif level == 25 %}
-                {% include 'includes/toasts/toast-success.html' %}
-            {% else %}
-                {% include 'includes/toasts/toast-info.html' %}
-            {% endif %}
+        {% if level == 40 %}
+        {% include 'includes/toasts/toast-error.html' %}
+        {% elif level == 30 %}
+        {% include 'includes/toasts/toast-warning.html' %}
+        {% elif level == 25 %}
+        {% include 'includes/toasts/toast-success.html' %}
+        {% else %}
+        {% include 'includes/toasts/toast-info.html' %}
+        {% endif %}
         {% endwith %}
-    {% endfor %}
+        {% endfor %}
     </div>
     {% endif %}
-  
+
 </body>
 
 {% block postloadjs %}
 <!-- Messages/Toast js -->
 <script type="text/javascript">
     const toasElList = $('.toast');
-    for(let toastEl of toasElList){
+    for (let toastEl of toasElList) {
         const toast = new bootstrap.Toast(toastEl);
         toast.show();
     }
