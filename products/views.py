@@ -74,13 +74,32 @@ def all_products(request):
 
 def product_detail(request, product_id):
     """
-    A view to show individual product details.
+    A view to show individual product details and display
+    customer reviews.
     From CI Boutique Ado Walkthrough.
+    Modified to include customer reviews.
     """
 
     product = get_object_or_404(Product, pk=product_id)
-    reviews = Review.objects.filter(product_id=product.id).order_by(
-        '-created_on')
+    reviews = Review.objects.filter(product_id=product.id)
+
+    if request.method == 'POST':
+        review_form = ReviewForm(request.POST)
+        if review_form.is_valid():
+            model = Review()
+            model.review_content = review_form.cleaned_data['review_content']
+            model.rating = review_form.cleaned_data['rating']
+            model.author = request.user
+            model.product = product
+            model.user_id = request.user.id
+            model.save()
+            messages.success(request, 'Your Review has been added!')
+            return redirect(reverse('product_detail', args=[product.id]))
+        else:
+            messages.error(request, 'Error! Your review was not submitted.')
+            return redirect(reverse('product_detail', args=[product.id]))
+    else:
+        review_form = ReviewForm()
 
     context = {
         'product': product,

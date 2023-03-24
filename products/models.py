@@ -51,7 +51,7 @@ class Product(models.Model):
         https://www.reddit.com/r/django/comments/kp6rz4/which_is_the_proper_way_of_calculating_average/
         """
         reviews = self.reviews.all()
-        self.rating = reviews.aggregate(models.Avg('rating')).get(
+        self.average_rating = reviews.aggregate(models.Avg('rating')).get(
             'rating__avg'
             )
         self.save(update_fields=['average_rating'])
@@ -68,7 +68,7 @@ class Review(models.Model):
     edited_on = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ['created_on']
+        ordering = ['-created_on']
 
     def __str__(self):
         return f"Product review for {self.product} by {self.author}"

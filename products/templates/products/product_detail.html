@@ -29,7 +29,7 @@
             </p>
             {% endif %}
             {% if product.average_rating %}
-            <small><i class="fas fa-star mr-1 text-warning"></i>{{ product.average_rating }} / 5</small>
+            <small><i class="fas fa-star mr-1 text-warning"></i>{{ product.average_rating }} / 5 ({{ reviews.count }})</small>
             {% else %}
             <small class="text-muted">No Rating</small>
             {% endif %}
@@ -105,6 +105,7 @@
             <hr>
     </div>
 </div>
+{% endif %}
 <div class="row">
     <h4 class="text-start fw-semibold">Reviews</h4>
     {% if reviews.count == 0 %}
@@ -112,17 +113,17 @@
     {% else %}
     <div class="col-12">
         {% for review in reviews %}
-        <div class="card pb-3">
+        <div class="card mb-3">
             <div class="card-body">
                 <div class="row">
-                    <h5 class="col-md-2 col-6 fw-semibold">{{ review.author }}</h5>
-                    <h5 class="col-md-2 col-6">Rating: {{ review.rating }} <i
-                            class="fa-solid fa-star text-warning"></i></h5>
-                    <h5 class="col-md-2 col-6">Created: {{ review.created_on }}</h5>
-                    <h5 class="col-md-2 col-6">Edited: {{ review.edited_on }}</h5>
+                    <p class="col-md-2 col-6 fw-semibold">{{ review.author }}</p>
+                    <p class="col-md-2 col-6">Rating: {{ review.rating }} <i
+                            class="fa-solid fa-star text-warning"></i></p>
+                    <p class="col-md-2 col-6"><span class="fw-bold">Created:</span> {{ review.created_on }}</p>
+                    <p class="col-md-2 col-6"><span class="fw-bold">Edited:</span> {{ review.edited_on }}</p>
                     {% if request.user == review.author or request.user.is_superuser %}
-                    <h5 class="col-md-2 col-6"><a href="#">Edit</a></h5>
-                    <h5 class="col-md-2 col-6 text-danger"><a href="#">Delete</a></h5>
+                    <p class="col-md-2 col-6"><a href="#" class="text-decoration-none">Edit</a></p>
+                    <p class="col-md-2 col-6"><a href="#" class="text-decoration-none text-danger">Delete</a></p>
                     {% endif %}
                 </div>
                 <hr>
@@ -137,5 +138,4 @@
     </div>
     {% endif %}
 </div>
-{% endif %}
 {% endblock %}
