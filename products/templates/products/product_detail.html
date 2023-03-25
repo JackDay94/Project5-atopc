@@ -124,7 +124,7 @@
                     <p class="col-md-2 col-6"><span class="fw-bold">Created:</span> {{ review.created_on }}</p>
                     <p class="col-md-2 col-6"><span class="fw-bold">Edited:</span> {{ review.edited_on }}</p>
                     {% if request.user == review.author or request.user.is_superuser %}
-                    <p class="col-md-2 col-6"><a href="#" class="">Edit</a></p>
+                    <p class="col-md-2 col-6"><a href="{% url 'edit_review' review.id %}" class="">Edit</a></p>
                     <p class="col-md-2 col-6"><a href="#" class=" text-danger">Delete</a></p>
                     {% endif %}
                 </div>
