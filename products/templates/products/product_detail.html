@@ -43,7 +43,7 @@
             </small>
             {% endif %}
             <hr>
-            <p class="mt-1">{{ product.description }}</p>
+            <p class="mt-1">{{ product.description | safe }}</p>
             <form class="form" action="#" method="POST">
                 {% csrf_token %}
                 <div class="col-12">
@@ -90,7 +90,7 @@
 <div class="row">
     <div class="col-12">
         <h3 class="text-start fw-bold fs-4">Technical Specification</h3>
-        {{ product.specification }}
+        {{ product.specification | safe }}
     </div>
 </div>
 <hr>

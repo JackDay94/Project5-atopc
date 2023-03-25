@@ -2,6 +2,7 @@ from .models import Review, Product, Category
 from django.forms import ModelForm
 from django import forms
 from .widgets import CustomClearableFileInput
+from django_summernote.widgets import SummernoteWidget
 
 
 class ReviewForm(ModelForm):
@@ -25,6 +26,10 @@ class ProductForm(ModelForm):
         model = Product
         fields = '__all__'
         exclude = ('average_rating',)
+        widgets = {
+            'description': SummernoteWidget(),
+            'specification': SummernoteWidget(),
+        }
 
     image = forms.ImageField(label='Image', required=False,
                              widget=CustomClearableFileInput)

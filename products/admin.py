@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Category, Product, Review
+from django_summernote.admin import SummernoteModelAdmin
 
 
 @admin.register(Category)
@@ -11,7 +12,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 @admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(SummernoteModelAdmin):
     list_display = (
         'sku',
         'name',
@@ -32,6 +33,11 @@ class ProductAdmin(admin.ModelAdmin):
     )
 
     ordering = ('sku',)
+
+    summernote_fields = (
+        'description',
+        'specification',
+    )
 
 
 @admin.register(Review)
