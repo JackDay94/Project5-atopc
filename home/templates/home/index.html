@@ -36,13 +36,13 @@ Welcome!
             {% else %}
             <small class="text-muted text-start ps-2">No Rating</small>
             {% endif %}
-            <p class="text-start ps-2 mb-0"><a href="#" class="text-decoration-none text-muted fs-6 category-tag"><i
+            <p class="text-start ps-2 mb-0"><a href="#" class="text-muted fs-6 category-tag"><i
                         class="fa-solid fa-tags mr-2"></i> {{ product.category.friendly_name }}</a></p>
             {% if request.user.is_superuser %}
             <small>
-                <a href="#" class="text-decoration-none">Edit</a>
+                <a href="{% url 'edit_product' product.id %}">Edit</a>
                 |
-                <a href="#" class="text-danger text-decoration-none">Delete</a>
+                <a href="#" class="text-danger">Delete</a>
             </small>
             {% endif %}
             <div class="card-footer bg-white pt-2 border-0">
@@ -81,13 +81,13 @@ Welcome!
             {% else %}
             <small class="text-muted text-start ps-2">No Rating</small>
             {% endif %}
-            <p class="text-start ps-2"><a href="#" class="text-decoration-none text-muted fs-6 category-tag"><i
+            <p class="text-start ps-2"><a href="#" class="text-muted fs-6 category-tag"><i
                         class="fa-solid fa-tags mr-2"></i> {{ product.category.friendly_name }}</a></p>
             {% if request.user.is_superuser %}
             <small>
-                <a href="#" class="text-decoration-none">Edit</a>
+                <a href="{% url 'edit_product' product.id %}">Edit</a>
                 |
-                <a href="#" class="text-danger text-decoration-none">Delete</a>
+                <a href="#" class="text-danger">Delete</a>
             </small>
             {% endif %}
             <div class="card-footer bg-white pt-2 border-0">
@@ -126,13 +126,13 @@ Welcome!
             {% else %}
             <small class="text-muted text-start ps-2">No Rating</small>
             {% endif %}
-            <p class="text-start ps-2"><a href="#" class="text-decoration-none text-muted fs-6 category-tag"><i
+            <p class="text-start ps-2"><a href="#" class=" text-muted fs-6 category-tag"><i
                         class="fa-solid fa-tags mr-2"></i> {{ product.category.friendly_name }}</a></p>
             {% if request.user.is_superuser %}
             <small>
-                <a href="#" class="text-decoration-none">Edit</a>
+                <a href="{% url 'edit_product' product.id %}">Edit</a>
                 |
-                <a href="#" class="text-danger text-decoration-none">Delete</a>
+                <a href="#" class="text-danger">Delete</a>
             </small>
             {% endif %}
             <div class="card-footer bg-white pt-2 border-0">
@@ -171,13 +171,13 @@ Welcome!
             {% else %}
             <small class="text-muted text-start ps-2">No Rating</small>
             {% endif %}
-            <p class="text-start ps-2"><a href="#" class="text-decoration-none text-muted fs-6 category-tag"><i
+            <p class="text-start ps-2"><a href="#" class=" text-muted fs-6 category-tag"><i
                         class="fa-solid fa-tags mr-2"></i> {{ product.category.friendly_name }}</a></p>
             {% if request.user.is_superuser %}
             <small>
-                <a href="#" class="text-decoration-none">Edit</a>
+                <a href="{% url 'edit_product' product.id %}">Edit</a>
                 |
-                <a href="#" class="text-danger text-decoration-none">Delete</a>
+                <a href="#" class="text-danger">Delete</a>
             </small>
             {% endif %}
             <div class="card-footer bg-white pt-2 border-0">

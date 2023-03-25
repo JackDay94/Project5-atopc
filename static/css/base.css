@@ -9,6 +9,10 @@ body {
     min-height: calc(100vh - 155px);
 }
 
+a {
+    text-decoration: none !important;
+}
+
 /* Navbar and header */
 
 .top-header,
@@ -58,12 +62,10 @@ body {
 #social-icons a,
 #site-info-links a {
     color: #fff;
-    text-decoration: none;
 }
 
 #site-info-links ul {
     list-style: none;
-    text-decoration: none;
 }
 
 #footer-container {

@@ -206,8 +206,8 @@
 {% block postloadjs %}
 <!-- Messages/Toast js -->
 <script type="text/javascript">
-    const toasElList = $('.toast');
-    for (let toastEl of toasElList) {
+    const toastElList = $('.toast');
+    for (let toastEl of toastElList) {
         const toast = new bootstrap.Toast(toastEl);
         toast.show();
     }

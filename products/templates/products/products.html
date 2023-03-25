@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
 {% block extra_title %}
 Browse Our Store
 {% endblock %}
@@ -12,7 +16,7 @@ Browse Our Store
         <div class="row">
             <div class="col text-center mt-2 mb-2">
                 {% for c in current_categories %}
-                    <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
+                    <a class="category-badge" href="{% url 'products' %}?category={{ c.name }}">
                         <span class="p-2 mt-2 badge bg-dark text-white border-0">{{ c.friendly_name }}</span>
                     </a>
                 {% endfor %}
@@ -44,7 +48,7 @@ Browse Our Store
                     <div class="col-12 col-md-6 order-md-first">
                         <p class="text-muted mt-3 text-center text-md-start">
                             {% if search_term or current_categories or current_sorting != 'None_None' %}
-                                <span class="small"><a href="{% url 'products' %}" class="text-decoration-none">Products Home</a> | </span>
+                                <span class="small"><a href="{% url 'products' %}" class="">Products Home</a> | </span>
                             {% endif %}
                             {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
                         </p>
@@ -53,7 +57,7 @@ Browse Our Store
                 {% if products.count == 0 %}
                 <div class="row mt-2">
                     <div class="col-12">
-                        <h2 class="fw-bold text-center">Sorry! No products found.</h2>
+                        <h2 class="fw-bold text-center">No Products Found!</h2>
                     </div>
                 </div>
                 {% endif %}
@@ -72,13 +76,13 @@ Browse Our Store
                                 {% else %}
                                 <small class="text-muted text-start ps-2">No Rating</small>
                                 {% endif %}
-                                <p class="text-start ps-2 mb-0"><a href="#" class="text-decoration-none text-muted fs-6 category-tag"><i
+                                <p class="text-start ps-2 mb-0"><a href="#" class="text-muted fs-6 category-tag"><i
                                             class="fa-solid fa-tags mr-2"></i> {{ product.category.friendly_name }}</a></p>
                                 {% if request.user.is_superuser %}
                                     <small>
-                                        <a href="#" class="text-decoration-none">Edit</a>
+                                        <a href="{% url 'edit_product' product.id %}">Edit</a>
                                         |
-                                        <a href="#" class="text-danger text-decoration-none">Delete</a>
+                                        <a href="#" class="text-danger">Delete</a>
                                     </small>
                                 {% endif %}    
                                 <div class="card-footer bg-white pt-2 border-0">
@@ -110,7 +114,7 @@ Browse Our Store
                 </div>
             </div>
         </div>
-    <div class="btt-button shadow-sm rounded-0 border border-black">
+    <div class="btt-button shadow-sm border border-black">
         <a class="btt-link d-flex h-100">
             <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
         </a>	
