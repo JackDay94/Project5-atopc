@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %}
+Delete Product
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 text-center">
+        <h2 class="fw-bold mb-4 text-center">Product Management</h2>
+        <h5 class="text-muted">You are about to delete {{ product.name }}.
+        <p class="mt-2 text-black">Are you sure? This <strong class="text-danger text-uppercase">cannot</strong> be undone!</p>
+        <form action="{% url 'delete_product' product.id%}" method="post">
+            {% csrf_token %}
+            <div class="text-center">
+                <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">Cancel</a>
+                <button class="btn btn-danger" type="submit">Delete</button>
+            </div>
+        </form>
+        <hr>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 col-md-6 col-lg-6">
+        <div class="image-container mt-2">
+            <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-6">
+        <div class="mb-5 mt-md-5">
+            <p class="mb-0 fw-bold fs-4">{{ product.name }}</p>
+            {% if product.sku %}
+            <small class="text-muted">SKU: {{ product.sku }}</small>
+            {% endif %}
+            <p class="lead mb-0 text-left fw-bold">£{{ product.price }}</p>
+            {% if product.category %}
+            <p class="small mt-1 mb-0">
+                <i class="text-muted fas fa-tag me-1"></i><span class="text-muted">{{ product.category.friendly_name }}</span>
+            </p>
+            {% endif %}
+            {% if product.average_rating %}
+            <small><i class="fas fa-star me-1 text-warning"></i>{{ product.average_rating }} / 5 ({{ reviews.count }})</small>
+            {% else %}
+            <small class="text-muted">No Rating</small>
+            {% endif %}
+            <hr>
+            <p class="mt-1">{{ product.description | safe }}</p>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-12">
+        <h3 class="text-start fw-bold fs-4">Technical Specification</h3>
+        {{ product.specification | safe }}
+    </div>
+</div>
+
+{% endblock %}
