@@ -20,6 +20,7 @@ My Profile
     <div class="col-lg-6 col-md-12 pb-3">
         <h3 class="text-muted">Delivery Information</h3>
         <p class="text-muted">This is your default delivery Information.</p>
+        <hr>
         <form action="" method="post" id="default-profile-form">
             {% csrf_token %}
             {{ form|crispy }}
@@ -30,6 +31,7 @@ My Profile
     <div class="col-lg-6 col-md-12">
         <h3 class="text-muted">Order History</h3>
         <p class="text-muted">This is a list of your past orders.</p>
+        <hr>
         <div class="order-history">
 
         </div>
