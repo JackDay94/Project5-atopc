@@ -16,9 +16,11 @@
         </div>
     </div>
     <div class="col-12 col-md-6 col-lg-6">
-        <div class="product-details-container mb-5 mt-md-5">
+        <div class="mb-5 mt-md-5">
             <p class="mb-0 fw-bold fs-4">{{ product.name }}</p>
+            {% if product.sku %}
             <small class="text-muted">SKU: {{ product.sku }}</small>
+            {% endif %}
             <p class="lead mb-0 text-left fw-bold">£{{ product.price }}</p>
             {% if product.category %}
             <p class="small mt-1 mb-0">

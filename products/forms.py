@@ -1,4 +1,4 @@
-from .models import Review, Product
+from .models import Review, Product, Category
 from django.forms import ModelForm
 from django import forms
 from .widgets import CustomClearableFileInput
