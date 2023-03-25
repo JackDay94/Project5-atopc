@@ -220,7 +220,8 @@ def edit_review(request, review_id):
 
     if not request.user == review.author and not request.user.is_superuser:
         messages.error(
-            request, 'Sorry, you do not have permission access to this.')
+            request, 'Sorry, you do not have permission to access this.'
+            )
         return redirect(reverse('product_detail', args=[product.id]))
 
     if request.method == 'POST':
@@ -242,6 +243,39 @@ def edit_review(request, review_id):
     template = 'products/edit_review.html'
     context = {
         'review_form': form,
+        'product': product,
+        'review': review,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def delete_review(request, review_id):
+    """
+    A view to delete an existing product review.
+    """
+
+    review = get_object_or_404(Review, pk=review_id)
+    product = review.product
+
+    if not request.user == review.author and not request.user.is_superuser:
+        messages.error(
+            request, 'Sorry, you do not have permission to access this.'
+            )
+        return redirect(reverse('product_detail', args=[product.id]))
+
+    if request.method == 'POST':
+        review.delete()
+        messages.success(request, 'Successfully deleted review!')
+        return redirect(reverse('product_detail', args=[product.id]))
+    else:
+        messages.info(
+            request, f'You are about to delete your review for {product.name}'
+            )
+
+    template = 'products/delete_review.html'
+    context = {
         'product': product,
         'review': review,
     }

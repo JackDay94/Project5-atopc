@@ -9,8 +9,9 @@ Delete Product
 <div class="row">
     <div class="col-12 text-center">
         <h2 class="fw-bold mb-4 text-center">Product Management</h2>
-        <h5 class="text-muted">You are about to delete {{ product.name }}.
-        <p class="mt-2 text-black">Are you sure? This <strong class="text-danger text-uppercase">cannot</strong> be undone!</p>
+        <h5 class="text-muted">You are about to delete {{ product.name }}.</h5>
+        <p class="mt-2 text-black">Are you sure? This <strong class="text-danger text-uppercase">cannot</strong> be
+            undone!</p>
         <form action="{% url 'delete_product' product.id%}" method="post">
             {% csrf_token %}
             <div class="text-center">
@@ -36,7 +37,8 @@ Delete Product
             <p class="lead mb-0 text-left fw-bold">£{{ product.price }}</p>
             {% if product.category %}
             <p class="small mt-1 mb-0">
-                <i class="text-muted fas fa-tag me-1"></i><span class="text-muted">{{ product.category.friendly_name }}</span>
+                <i class="text-muted fas fa-tag me-1"></i><span
+                    class="text-muted">{{ product.category.friendly_name }}</span>
             </p>
             {% endif %}
             {% if product.average_rating %}
