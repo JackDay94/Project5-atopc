@@ -82,7 +82,7 @@ Browse Our Store
                                     <small>
                                         <a href="{% url 'edit_product' product.id %}">Edit</a>
                                         |
-                                        <a href="#" class="text-danger">Delete</a>
+                                        <a href="{% url 'delete_product' product.id %}" class="text-danger">Delete</a>
                                     </small>
                                 {% endif %}    
                                 <div class="card-footer bg-white pt-2 border-0">
