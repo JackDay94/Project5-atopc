@@ -14,7 +14,7 @@ Welcome!
 <div class="row">
     <div class="col-12 text-center">
         <a href="{% url 'products' %}" aria-label="Go to products page">
-            <img src="../../../media/home-splash-img.png" class="welcome-img"
+            <img src="{{ MEDIA_URL }}home-splash-img.png" class="welcome-img"
                 alt="Shop the latest tech deals with A to PC">
         </a>
     </div>
@@ -26,7 +26,11 @@ Welcome!
     <div class="col-6 col-lg-3 pb-4">
         <div class="card h-100 text-center border-0">
             <a href="{% url 'product_detail' product.id %}">
+                {% if product.image %}
                 <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid">
+                {% else %}
+                <img src="{{ MEDIA_URL }}placeholder-img.png" alt="{{ product.name }}" class="card-img-top img-fluid">
+                {% endif %}
             </a>
             <p class="card-body product-name mb-0">{{ product.name }}</p>
             <p class="text-start ps-2 fw-bold lead mb-0">£{{ product.price }}</p>
@@ -76,7 +80,11 @@ Welcome!
     <div class="col-6 col-lg-3 pb-4">
         <div class="card h-100 text-center border-0">
             <a href="{% url 'product_detail' product.id %}">
+                {% if product.image %}
                 <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid">
+                {% else %}
+                <img src="{{ MEDIA_URL }}placeholder-img.png" alt="{{ product.name }}" class="card-img-top img-fluid">
+                {% endif %}
             </a>
             <p class="card-body product-name mb-0">{{ product.name }}</p>
             <p class="text-start ps-2 fw-bold lead mb-0">£{{ product.price }}</p>
@@ -126,7 +134,11 @@ Welcome!
     <div class="col-6 col-lg-3 pb-4">
         <div class="card h-100 text-center border-0">
             <a href="{% url 'product_detail' product.id %}">
+                {% if product.image %}
                 <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid">
+                {% else %}
+                <img src="{{ MEDIA_URL }}placeholder-img.png" alt="{{ product.name }}" class="card-img-top img-fluid">
+                {% endif %}
             </a>
             <p class="card-body product-name mb-0">{{ product.name }}</p>
             <p class="text-start ps-2 fw-bold lead mb-0">£{{ product.price }}</p>
@@ -176,7 +188,11 @@ Welcome!
     <div class="col-6 col-lg-3 pb-4">
         <div class="card h-100 text-center border-0">
             <a href="{% url 'product_detail' product.id %}">
+                {% if product.image %}
                 <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid">
+                {% else %}
+                <img src="{{ MEDIA_URL }}placeholder-img.png" alt="{{ product.name }}" class="card-img-top img-fluid">
+                {% endif %}
             </a>
             <p class="card-body product-name mb-0">{{ product.name }}</p>
             <p class="text-start ps-2 fw-bold lead mb-0">£{{ product.price }}</p>
