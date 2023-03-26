@@ -37,7 +37,7 @@ a {
 }
 
 .icons li {
-    padding: 0 5px;
+    padding: 0;
 }
 
 .nav-link:hover,
@@ -129,4 +129,10 @@ a {
     position: fixed;
     bottom: 10px;
     right: 10px;
+}
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
 }

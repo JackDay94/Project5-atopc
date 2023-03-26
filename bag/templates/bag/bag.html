@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load bag_tools %}
 
 {% block extra_title %}
 My bag
@@ -80,7 +81,7 @@ My bag
                             {% include "bag/quantity_form.html" %}
                         </td>
                         <td class="py-3 align-middle">
-                            <p class="my-0">£</p>
+                            <p class="my-0">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </td>
                     </tr>
                     {% endfor %}
@@ -117,6 +118,7 @@ My bag
         window.scrollTo(0,0)
     })
 </script>
+{% include 'products/includes/quantity_input_script.html' %}
 
 <script type="text/javascript">
     // Update quantity on click
