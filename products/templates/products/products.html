@@ -66,9 +66,13 @@ Browse Our Store
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                             <div class="card h-100 text-center border-0">
                                 {% if product.image %}
-                                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid">
+                                <a href="{% url 'product_detail' product.id %}">
+                                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid">
+                                </a>
                                 {% else %}
-                                <img src="{{ MEDIA_URL }}placeholder-img.png" alt="{{ product.name }}" class="card-img-top img-fluid">
+                                <a href="{% url 'product_detail' product.id %}">
+                                    <img src="{{ MEDIA_URL }}placeholder-img.png" alt="{{ product.name }}" class="card-img-top img-fluid">
+                                </a>
                                 {% endif %}
                                 <p class="card-body product-name mb-0">{{ product.name }}</p>
                                 <p class="text-start ps-2 fw-bold lead mb-0">£{{ product.price }}</p>
