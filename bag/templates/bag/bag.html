@@ -40,7 +40,7 @@ My bag
                         </div>
                         <div class="col-12 col-sm-6 order-sm-last">
                             <p class="my-0">Price Each: £{{ item.product.price }}</p>
-                            <p><strong>Subtotal: </strong>£</p>
+                            <p><strong>Subtotal: </strong>£{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </div>
                         <div class="col-12 col-sm-6">
                             {% include "bag/quantity_form.html" %}
@@ -86,25 +86,27 @@ My bag
                     </tr>
                     {% endfor %}
                     <tr>
-                        <td colspan="5" class="pt-5 text-end">
+                        <td colspan="5" class="pt-5 text-end border-0">
                             {% include "bag/bag_total.html" %}
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="5" class="text-end">
+                        <td colspan="5" class="text-end border-0">
                             {% include "bag/checkout_buttons.html" %}
                         </td>
                     </tr>
                 </table>
             </div>
             {% else %}
-            <p class="lead mb-5">Your bag is empty.</p>
-            <a href="{% url 'products' %}" class="btn btn-primary btn-lg">
-                <span class="icon">
-                    <i class="fas fa-chevron-left"></i>
-                </span>
-                <span class="text-uppercase">Keep Shopping</span>
-            </a>
+            <div class="text-center">
+                <p class="lead mb-5">Your bag is empty.</p>
+                <a href="{% url 'products' %}" class="btn btn-primary btn-lg">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="text-uppercase">Keep Shopping</span>
+                </a>
+            </div>
             {% endif %}
         </div>
     </div>

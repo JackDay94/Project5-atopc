@@ -1,4 +1,6 @@
-from django.shortcuts import render, get_object_or_404, reverse, redirect
+from django.shortcuts import (
+    render, get_object_or_404, reverse, redirect, HttpResponse
+    )
 from django.contrib import messages
 
 from products.models import Product
@@ -64,3 +66,24 @@ def adjust_bag(request, item_id):
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
+
+
+def remove_from_bag(request, item_id):
+    """
+    A view to remove items from the shopping bag.
+    From CI Boutique Ado walkthrough.
+    """
+
+    try:
+        product = get_object_or_404(Product, pk=item_id)
+        bag = request.session.get('bag', {})
+
+        bag.pop(item_id)
+        messages.success(request, f'Removed {product.name} from your bag')
+
+        request.session['bag'] = bag
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        messages.error(request, f'Error removing item: {e}')
+        return HttpResponse(status=500)
