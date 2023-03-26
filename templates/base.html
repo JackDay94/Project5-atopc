@@ -94,8 +94,14 @@
                             </div>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#" class="nav-link"><i class="fas fa-shopping-bag fa-lg"></i>
-                                <p>Bag</p>
+                            <a href="{% url 'view_bag' %}" class="nav-link"><i class="fas fa-shopping-bag fa-lg"></i>
+                                <p>
+                                    {% if grand_total %}
+                                    £{{ grand_total|floatformat:2 }}
+                                    {% else %}
+                                    Bag
+                                    {% endif %}
+                                </p>
                             </a>
                         </li>
                     </ul>
