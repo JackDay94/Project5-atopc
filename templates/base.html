@@ -85,7 +85,7 @@
                                 <a href="{% url 'admin:index' %}" class="dropdown-item">Admin</a>
                                 <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
                                 {% endif %}
-                                <a href="{% url 'profile' user.profile.id %}" class="dropdown-item">My Profile</a>
+                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                                 <a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a>
                                 {% else %}
                                 <a href="{% url 'account_login' %}" class="dropdown-item">Sign In</a>
@@ -172,7 +172,7 @@
                         {% if request.user.is_superuser %}
                         <li><a href="{% url 'admin:index' %}">Admin</a></li>
                         {% endif %}
-                        <li><a href="{% url 'profile' user.profile.id %}">My Profile</a></li>
+                        <li><a href="{% url 'profile' %}">My Profile</a></li>
                         {% endif %}
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Blog</a></li>
@@ -190,21 +190,19 @@
 
     <!-- Messages (From CI Boutique Ado walkthrough) -->
     {% if messages %}
-    <div class="message-container">
         {% for message in messages %}
-        {% with message.level as level %}
-        {% if level == 40 %}
-        {% include 'includes/toasts/toast-error.html' %}
-        {% elif level == 30 %}
-        {% include 'includes/toasts/toast-warning.html' %}
-        {% elif level == 25 %}
-        {% include 'includes/toasts/toast-success.html' %}
-        {% else %}
-        {% include 'includes/toasts/toast-info.html' %}
-        {% endif %}
-        {% endwith %}
+            {% with message.level as level %}
+                {% if level == 40 %}
+                    {% include 'includes/toasts/toast-error.html' %}
+                {% elif level == 30 %}
+                    {% include 'includes/toasts/toast-warning.html' %}
+                {% elif level == 25 %}
+                    {% include 'includes/toasts/toast-success.html' %}
+                {% else %}
+                    {% include 'includes/toasts/toast-info.html' %}
+                {% endif %}
+            {% endwith %}
         {% endfor %}
-    </div>
     {% endif %}
 
 </body>

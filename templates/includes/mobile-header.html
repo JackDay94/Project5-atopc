@@ -1,6 +1,6 @@
-<li class="list-inline-item">
+<li class="list-inline-item mx-0">
     <a class="text-black nav-link d-block d-md-none" href="#" id="mobile-search" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <div class="text-center ps-2">
+        <div class="text-center">
             <i class="fas fa-search"></i>
             <p class="my-0">
                 Search
@@ -17,7 +17,7 @@
         </form>
     </div>
 </li>
-<li class="list-inline-item">
+<li class="list-inline-item mx-0">
     <a class="text-black nav-link d-block d-md-none" href="#">
         <div class="text-center">
             <i class="fas fa-heart"></i>
@@ -42,7 +42,7 @@
             <li><a href="{% url 'admin:index' %}" class="dropdown-item">Admin</a></li>
             <li><a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a></li>
         {% endif %}
-            <li><a href="{% url 'profile' user.profile.id %}" class="dropdown-item">My Profile</a></li>
+            <li><a href="{% url 'profile' %}" class="dropdown-item">My Profile</a></li>
             <li><a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a></li>
         {% else %}
             <li><a href="{% url 'account_login' %}" class="dropdown-item">Sign In</a></li>

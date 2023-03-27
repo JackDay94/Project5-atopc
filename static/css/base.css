@@ -94,6 +94,21 @@ a {
     font-size: clamp(16px, 1vw, 20px);
 }
 
+.bag-notification-container {
+    position: fixed;
+    max-width: 300px;
+    top: 80px;
+    right: calc(25vw - 150px);
+    z-index: 999999;
+}
+
+.bag-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
 /* Product Form image selection styles (From Boutique Ado walkthrough) */
 
 .btn-file {
