@@ -8,8 +8,8 @@ from django.contrib import messages
 @login_required
 def profile(request):
     """
-    A view to show the User profile
-    Credit : Code Institutes Boutique Ado project
+    A view to show the User profile.
+    From CI Boutique Ado walkthrough.
     """
     profile = get_object_or_404(Profile, user=request.user)
 
