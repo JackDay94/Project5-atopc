@@ -1,11 +1,11 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
 
 from .forms import OrderForm
 from bag.contexts import bag_contents
 from products.models import Product
-from . import OrderLineItem
+from .models import OrderLineItem, Order
 
 import stripe
 
@@ -36,11 +36,7 @@ def checkout(request):
         order_form = OrderForm(form_data)
 
         if order_form.is_valid():
-            order = order_form.save(commit=False)
-            pid = request.POST.get('client_secret').split('_secret')[0]
-            order.stripe_pid = pid
-            order.original_bag = json.dumps(bag)
-            order.save()
+            order = order_form.save()
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
@@ -96,6 +92,28 @@ def checkout(request):
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
+    }
+
+    return render(request, template, context)
+
+
+def checkout_success(request, order_number):
+    """
+    A view to handle successful checkouts.
+    From CI Boutique Ado walkthrough.
+    """
+    save_info = request.session.get('save_info')
+    order = get_object_or_404(Order, order_number=order_number)
+    messages.success(request, f'Order successfully processed! \
+        Your order number is {order_number}. A confirmation \
+        email will be sent to {order.email}.')
+
+    if 'bag' in request.session:
+        del request.session['bag']
+
+    template = 'checkout/checkout_success.html'
+    context = {
+        'order': order,
     }
 
     return render(request, template, context)
