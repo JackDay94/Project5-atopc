@@ -36,4 +36,4 @@ def add_remove_wishlist(request, product_id):
         product.wishlist.add(request.user)
         messages.success(request, f'Added {product.name} to your WishList!')
 
-    return redirect(reverse('product_detail', args=[product.id]))
+    return redirect(reverse('wishlist'))
