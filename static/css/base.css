@@ -18,6 +18,10 @@ input {
     border: 1px solid #000 !important;
 }
 
+.btn {
+    border: none !important;
+}
+
 /* Navbar and header */
 
 .top-header,
