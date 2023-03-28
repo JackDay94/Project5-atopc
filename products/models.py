@@ -40,6 +40,8 @@ class Product(models.Model):
     image = models.ImageField(null=True, blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
     specification = models.TextField()
+    wishlist = models.ManyToManyField(User, blank=True, default=None,
+                                      related_name='wishlist')
 
     def __str__(self):
         return self.name
