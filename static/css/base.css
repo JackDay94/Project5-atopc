@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: 'Lato', sans-serif !important;
     background-color: #e0e0e0 !important;
@@ -11,6 +12,10 @@ body {
 
 a {
     text-decoration: none !important;
+}
+
+input {
+    border: 1px solid #000 !important;
 }
 
 /* Navbar and header */
