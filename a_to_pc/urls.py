@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import handler404, handler403, handler500, handler400
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,3 +29,8 @@ urlpatterns = [
     path('checkout/', include('checkout.urls')),
     path('summernote/', include('django_summernote.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler400 = 'a_to_pc.views.handler400'
+handler403 = 'a_to_pc.views.handler403'
+handler404 = 'a_to_pc.views.handler404'
+handler500 = 'a_to_pc.views.handler500'

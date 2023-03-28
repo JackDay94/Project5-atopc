@@ -160,3 +160,12 @@ input {
 .remove-item {
     cursor: pointer;
 }
+
+/* Media Queries */
+
+/* Move bag popup to center of the screen on small screens */
+@media (max-width: 600px) {
+    .bag-notification-container {
+        right: calc(50vw - 150px);
+    }
+}

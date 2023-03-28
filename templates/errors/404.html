@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %}
+404 - Page Not Found
+{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="fw-bold mb-5">Page Not Found!</h1>
+    <p class="fs-4">We could not find the page you were looking for.</p>
+    <a href="{% url 'home' %}" class="btn btn-dark">
+        Return to Home
+    </a>
+</div>
+{% endblock %}
