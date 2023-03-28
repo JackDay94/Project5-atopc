@@ -169,3 +169,10 @@ input {
         right: calc(50vw - 150px);
     }
 }
+
+/* Move bag popup up to prevent checkout button being unclickable */
+@media (max-height: 450px) {
+    .bag-notification-container {
+        top: 20px;
+    }
+}
