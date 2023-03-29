@@ -2,9 +2,10 @@ from django.forms import ModelForm
 from .models import NewsletterSignup
 
 
-class NewsletterSignup(ModelForm):
+class NewsletterSignupForm(ModelForm):
     """
     Displays the Newsletter signup form.
     """
-    model = NewsletterSignup
-    exclude = ('date_added',)
+    class Meta:
+        model = NewsletterSignup
+        exclude = ('date_added',)
