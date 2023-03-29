@@ -52,7 +52,7 @@ class PostDetail(DetailView):
             comment.save()
             messages.success(request, 'Comment added successfully!')
         else:
-            comment_form = CommentForm()
+            comment_form = BlogCommentForm()
             messages.error(request, 'Error! Comment was not added.')
 
         return render(
@@ -61,7 +61,7 @@ class PostDetail(DetailView):
             {
                 "blog_post": post,
                 "comments": comments,
-                "comment_form": CommentForm()
+                "comment_form": BlogCommentForm()
             },
         )
 
@@ -123,3 +123,26 @@ class DeletePost(UserPassesTestMixin, DeleteView):
         messages.success(self.request, self.success_message, 'danger')
 
         return super(DeletePost, self).delete(request, *args, **kwargs)
+
+
+class EditComment(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+    """Allows a user to edit their comment"""
+    model = BlogComment
+
+    fields = [
+        'content',
+    ]
+
+    template_name = 'blog/edit_comment.html'
+    success_url = reverse_lazy('blog')
+    success_message = 'Updated Comment successfully!'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['post_title'] = self.object.post
+
+        return context
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)

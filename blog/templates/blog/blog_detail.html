@@ -20,7 +20,7 @@
     {% if request.user.is_superuser %}
     <div class="text-center mb-3">
         <a href="{% url 'edit_post' blog_post.slug %}" class="btn btn-warning me-1" role="button" aria-label="Go to blog post edit page">Edit</a>
-        <a href="#" class="ms-1 btn btn-danger" role="button" aria-label="Go to blog post delete page">Delete</a>
+        <a href="{% url 'delete_post' blog_post.slug %}" class="ms-1 btn btn-danger" role="button" aria-label="Go to blog post delete page">Delete</a>
     </div>
     {% endif %}
     <div class="col-12 col-md-6 pb-4 ">
@@ -64,14 +64,14 @@
     {% else %}
     <div class="col-12">
         {% for comment in comments %}
-        <div class="card pb-3">
+        <div class="card mb-3">
             <div class="card-body">
                 <div class="row">
                     <p class="col-md-2 col-6 fw-semibold">{{ comment.author }}</p>
                     <p class="col-md-2 col-6">Created: {{ comment.created_on }}</p>
                     <p class="col-md-2 col-6">Edited: {{ comment.edited_on }}</p>
                     {% if request.user == comment.author or request.user.is_superuser %}
-                    <p class="col-md-2 col-6"><a href="#">Edit</a></p>
+                    <p class="col-md-2 col-6"><a href="{% url 'edit_comment' comment.id %}">Edit</a></p>
                     <p class="col-md-2 col-6"><a href="#" class="text-danger">Delete</a></p>
                     {% endif %}
                 </div>

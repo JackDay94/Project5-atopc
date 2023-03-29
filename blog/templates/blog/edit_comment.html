@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block extra_title %}
+Edit Comment
+{% endblock %}
+
+{% block content %}
+
+<!-- Checks the current user is same as the comment author or is a superuser -->
+{% if request.user == blogcomment.author or request.user.is_superuser %}
+<!-- Edit Comment title-->
+<div class="row">
+    <div class="col-12 text-center pt-3">
+        <h4 class="fw-semibold">Editing comment for: {{ post_title }}</h4>
+    </div>
+</div>
+<!-- Edit Comment form -->
+<div class="row">
+    <div class="col-12">
+        <form action="" method="post" class="pt-3">
+        {% csrf_token %}
+        {{ form | crispy | safe }}
+        <button type="submit" class="btn btn-success float-end">Submit</button>
+        <a href="{% url 'blog' %}" class="btn btn-danger float-end me-2">Cancel</a>
+        </form>
+    </div>
+</div>
+<!-- Displays message if the current user is not the comment author -->
+{% else %}
+<div class="text-center">
+    <h1 class="fw-bold mb-5">Access Denied</h1>
+    <p class="fs-4">You do not have permission to access this.</p>
+    <a href="{% url 'home' %}" class="btn btn-dark">
+        Return to Home
+    </a>
+</div>
+{% endif %}
+
+{% endblock %}
