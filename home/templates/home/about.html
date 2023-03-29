@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
+{% block extra_title %}
+About Us
+{% endblock %}
+
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+        <img src="{% static '../media/logo-removebg.png' %}" class="img-fluid" alt="A to PC">
+        <h2 class="fw-bold mt-3">About Us</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <ul class="about-us-list">
+            <li>
+                <h4 class="mt-3 fw-semibold">Who Are we?</h4>
+                <p>We are A to PC, an online retailer for PC peripherals, PC monitors and PC storage.</p>
+                <p>We aim to bring you the latest and best deals for tech products, with a fast reliable service and
+                    free delivery offers on orders over £100!</p>
+            </li>
+
+            <li>
+                <h4 class="mt-3 fw-semibold">How do we do it?</h4>
+                <p>We work tirelessly to find you the best prices and products by working in close partnership with the
+                    industry's top brands.</p>
+                <p>Stay in touch on Social Media to see some behind the scenes with the team!</p>
+            </li>
+
+            <li>
+                <h4 class="mt-3 fw-semibold">What are our goals?</h4>
+                <p>We want to provide our customers with the best possible online shopping experience, keeping things
+                    simple and hassle free.</p>
+                <p>Anybody can shop on our site, provided they provide a valid shipping address and card details. No
+                    Sign Up's are required!</p>
+                <p>However, if you do sign up you will be able to fast track your shopping experience with your own
+                    profile and see your previous orders. Not only that, but you can also leave reviews on products and
+                    comment on our blog, and even start your own wishlist!</p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

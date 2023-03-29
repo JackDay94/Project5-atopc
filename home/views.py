@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from products.models import Product
+from blog.models import BlogPost
 
 
 class HomeView(ListView):
     """
     Displays the Home page.
     """
-    model = Product
+    model = Product, BlogPost
     template_name = 'home/index.html'
     context_object_name = 'products'
 
@@ -29,5 +30,16 @@ class HomeView(ListView):
                 Product.objects.filter(category__name="hard_drives") |
                 Product.objects.filter(category__name="solid_state_drives")
                 ).order_by('-average_rating')[0:4],
+            'latest_posts': (
+                BlogPost.objects.filter(status=1).order_by('-date_added')[:4]
+            )
         }
         return queryset
+
+
+def about(request):
+    """
+    Displays the about us page.
+    """
+
+    return render(request, "home/about.html")

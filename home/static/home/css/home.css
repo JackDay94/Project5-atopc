@@ -4,3 +4,7 @@
     min-height: 150px;
     max-width: 100%;
 }
+
+.about-us-list {
+    list-style-type: none;
+}

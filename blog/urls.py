@@ -1,5 +1,12 @@
 from django.urls import path
-from .views import PostList, PostDetail, AddPost, EditPost, DeletePost, EditComment, DeleteComment
+from .views import (
+    PostList,
+    PostDetail,
+    AddPost,
+    EditPost,
+    DeletePost,
+    EditComment,
+    DeleteComment)
 
 urlpatterns = [
     path('', PostList.as_view(), name='blog'),

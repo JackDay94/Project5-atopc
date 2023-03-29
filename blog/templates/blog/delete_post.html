@@ -17,7 +17,7 @@ Delete Blog Post
         <form action="" method="post">
             {% csrf_token %}
             <div class="text-center">
-                <a href="{% url 'blog' %}" class="btn btn-primary">Cancel</a>
+                <a href="{% url 'blog' %}" class="btn btn-primary" rel="nofollow">Cancel</a>
                 <button class="btn btn-danger" type="submit">Delete</button>
             </div>
         </form>
