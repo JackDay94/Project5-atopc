@@ -2,7 +2,7 @@
 <div class="offcanvas offcanvas-start" id="main-nav">
     <div class="offcanvas-header">
         <a href="{% url 'home' %}" class="nav-link">
-            <img src="{% static '../media/logo-removebg.png' %}" class="logo-img offcanvas-title"
+            <img src="{{ MEDIA_URL }}logo-removebg.png" class="logo-img offcanvas-title"
                 id="offcanvasNavbarLabel" alt="A to PC" aria-label="Go to home page">
         </a>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
