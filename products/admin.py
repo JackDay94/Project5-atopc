@@ -36,7 +36,6 @@ class ProductAdmin(SummernoteModelAdmin):
 
     summernote_fields = (
         'description',
-        'specification',
     )
 
 

@@ -39,7 +39,6 @@ class Product(models.Model):
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
-    specification = models.TextField()
     wishlist = models.ManyToManyField(User, blank=True, default=None,
                                       related_name='wishlist')
 

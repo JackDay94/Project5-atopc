@@ -28,7 +28,6 @@ class ProductForm(ModelForm):
         exclude = ('average_rating', 'wishlist',)
         widgets = {
             'description': SummernoteWidget(),
-            'specification': SummernoteWidget(),
         }
 
     image = forms.ImageField(label='Image', required=False,
