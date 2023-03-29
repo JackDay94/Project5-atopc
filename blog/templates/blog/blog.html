@@ -13,7 +13,7 @@ Welcome to our blog
 <div class="row">
     {% if request.user.is_superuser %}
     <div class="text-center mb-3">
-        <a href="#" class="btn btn-success">Add Post</a>
+        <a href="{% url 'add_post' %}" class="btn btn-success">Add Post</a>
     </div>
     {% endif %}
     {% for post in blog_posts %}
@@ -42,4 +42,16 @@ Welcome to our blog
     </div>
     {% endfor %}
 </div>
+{% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center pb-3">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="btn btn-dark">&laquo; PREV </a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="btn btn-dark"> NEXT &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endif %}
 {% endblock %}

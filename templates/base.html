@@ -155,16 +155,16 @@
                     <h1 class="text-uppercase fw-bold fs-3 font-monospace">Stay Connected!</h1>
                     <ul class="list-inline" id="social-icons">
                         <li class="list-inline-item pe-3"><a href="https://www.facebook.com" target="_blank"
-                                aria-label="Open Facebook in a new tab" rel="noopener"><i
+                                aria-label="Open Facebook in a new tab" rel="noopener nofollow"><i
                                     class="fa-brands fa-facebook fa-xl"></i></a></li>
                         <li class="list-inline-item pe-3"><a href="https://www.twitter.com" target="_blank"
-                                aria-label="Open Twitter in a new tab" rel="noopener"><i
+                                aria-label="Open Twitter in a new tab" rel="noopener nofollow"><i
                                     class="fa-brands fa-twitter fa-xl"></i></a></li>
                         <li class="list-inline-item pe-3"><a href="https://www.youtube.com" target="_blank"
-                                aria-label="Open Youtube in a new tab" rel="noopener"><i
+                                aria-label="Open Youtube in a new tab" rel="noopener nofollow"><i
                                     class="fa-brands fa-youtube fa-xl"></i></a></li>
                         <li class="list-inline-item"><a href="https://www.instagram.com" target="_blank"
-                                aria-label="Open Instagram in a new tab" rel="noopener"><i
+                                aria-label="Open Instagram in a new tab" rel="noopener nofollow"><i
                                     class="fa-brands fa-instagram fa-xl"></i></a></li>
                     </ul>
                 </div>
@@ -179,7 +179,7 @@
                         <li><a href="{% url 'profile' %}">My Profile</a></li>
                         {% endif %}
                         <li><a href="#">About Us</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="{% url 'blog' %}">Blog</a></li>
                         <li><a href="#">Brands</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                     </ul>
