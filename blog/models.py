@@ -16,7 +16,7 @@ class BlogPost(models.Model):
     blog_image = models.ImageField(null=True, blank=True)
     image_url = models.URLField(null=True, blank=True)
     post_content = models.TextField(max_length=2000)
-    status = models.IntegerChoices(choices=STATUS, default=0)
+    status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
         ordering = ['-date_added']
