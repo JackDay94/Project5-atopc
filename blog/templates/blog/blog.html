@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block extra_title %}
+Welcome to our blog
+{% endblock %}
+
+{% block content %}
+<h2 class="text-center fw-bold mb-3">
+    Blog
+</h2>
+<div class="row">
+    {% if request.user.is_superuser %}
+    <div class="text-center mb-3">
+        <a href="#" class="btn btn-success">Add Post</a>
+    </div>
+    {% endif %}
+    {% for post in blog_posts %}
+    <div class="col-6 col-lg-3 pb-4">
+        <div class="card h-100 text-center border-0">
+            <a href="{% url 'post_detail' post.slug %}">
+                {% if post.image %}
+                <img src="{{ post.image.url }}" alt="{{ post.title }}" class="card-img-top img-fluid">
+                {% else %}
+                <img src="{{ MEDIA_URL }}placeholder-img.png" alt="{{ post.title }}" class="card-img-top img-fluid">
+                {% endif %}
+            </a>
+            <p class="card-body fw-bold product-name mb-0">{{ post.title }}</p>
+            <p class="text-start text-muted ps-2 lead mb-0">{{ post.subtitle }}</p>
+            {% if request.user.is_superuser %}
+            <small>
+                <a href="#">Edit</a>
+                |
+                <a href="#" class="text-danger">Delete</a>
+            </small>
+            {% endif %}
+            <div class="card-footer bg-white pt-2 border-0">
+                <a href="#" class="btn btn-success w-100">View Post</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

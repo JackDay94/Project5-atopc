@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block extra_title %}
+{{ blog_post.title }}
+{% endblock %}
+
+{% block content %}
+<!-- Post title -->
+<h2 class="text-center fw-bold mb-3">
+    {{ blog_post.title }}
+</h2>
+<!-- Post body -->
+<div class="row justify-content-center">
+    {% if request.user.is_superuser %}
+    <div class="text-center mb-3">
+        <a href="#" class="btn btn-warning me-1" role="button" aria-label="Go to blog post edit page">Edit</a>
+        <a href="#" class="ms-1 btn btn-danger" role="button" aria-label="Go to blog post delete page">Delete</a>
+    </div>
+    {% endif %}
+    <div class="col-12 col-md-6 pb-4 ">
+        <div class="card h-100 text-center border-0">
+            {% if blog_post.image %}
+            <img src="{{ blog_post.image.url }}" alt="{{ blog_post.title }}" class="card-img-top img-fluid">
+            {% else %}
+            <img src="{{ MEDIA_URL }}placeholder-img.png" alt="{{ blog_post.title }}" class="card-img-top img-fluid">
+            {% endif %}
+            <p class="text-muted ps-2 lead mb-0">{{ blog_post.subtitle }}</p>
+            <small>Created: {{ blog_post.date_added }}</small>
+            <small>Edited: {{ blog_post.edited_on }}</small>
+            <small>By: {{ blog_post.author }}</small>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="card-footer text-start bg-white ps-md-3 pe-md-3 pt-2 border-black rounded">
+            {{ blog_post.post_content | safe | linebreaks }}
+        </div>
+    </div>
+</div>
+<!-- Post comment form -->
+{% if user.is_authenticated %}
+<div class="row mt-5">
+    <h4 class="fw-semibold">Post a comment</h4>
+    <div class="col-12 pb-3">
+        <h5>Posting as: <strong>{{ user.username }}</strong></h3>
+            <form action="" method="post">
+                {{ comment_form | crispy }}
+                {% csrf_token%}
+                <button type="submit" class="btn btn-success mt-2 float-end">Submit</button>
+            </form>
+    </div>
+</div>
+{% endif %}
+<!-- Comments -->
+<div class="row">
+    <h4 class="fw-semibold">Comments</h4>
+    {% if comments.count == 0 %}
+    <h5 class="fw-semibold">No Comments Yet!</h5>
+    {% else %}
+    <div class="col-12">
+        {% for comment in comments %}
+        <div class="card pb-3">
+            <div class="card-body">
+                <div class="row">
+                    <p class="col-md-2 col-6 fw-semibold">{{ comment.author }}</p>
+                    <p class="col-md-2 col-6">Created: {{ comment.created_on }}</p>
+                    <p class="col-md-2 col-6">Edited: {{ comment.edited_on }}</p>
+                    {% if request.user == comment.author or request.user.is_superuser %}
+                    <p class="col-md-2 col-6"><a href="#">Edit</a></p>
+                    <p class="col-md-2 col-6"><a href="#" class="text-danger">Delete</a></p>
+                    {% endif %}
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-12">
+                        {{ comment.content | safe | linebreaks }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

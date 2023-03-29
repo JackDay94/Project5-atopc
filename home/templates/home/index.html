@@ -40,7 +40,7 @@ Welcome!
             {% else %}
             <small class="text-muted text-start ps-2">No Rating</small>
             {% endif %}
-            <p class="text-start ps-2 mb-0"><a href="#" class="text-muted fs-6 category-tag"><i
+            <p class="text-start ps-2 mb-0"><a href="{% url 'products' %}?category={{ product.category.name }}" class="text-muted fs-6 category-tag"><i
                         class="fa-solid fa-tags mr-2"></i> {{ product.category.friendly_name }}</a></p>
             {% if request.user.is_superuser %}
             <small>
@@ -94,7 +94,7 @@ Welcome!
             {% else %}
             <small class="text-muted text-start ps-2">No Rating</small>
             {% endif %}
-            <p class="text-start ps-2"><a href="#" class="text-muted fs-6 category-tag"><i
+            <p class="text-start ps-2"><a href="{% url 'products' %}?category={{ product.category.name }}" class="text-muted fs-6 category-tag"><i
                         class="fa-solid fa-tags mr-2"></i> {{ product.category.friendly_name }}</a></p>
             {% if request.user.is_superuser %}
             <small>
@@ -148,7 +148,7 @@ Welcome!
             {% else %}
             <small class="text-muted text-start ps-2">No Rating</small>
             {% endif %}
-            <p class="text-start ps-2"><a href="#" class=" text-muted fs-6 category-tag"><i
+            <p class="text-start ps-2"><a href="{% url 'products' %}?category={{ product.category.name }}" class=" text-muted fs-6 category-tag"><i
                         class="fa-solid fa-tags mr-2"></i> {{ product.category.friendly_name }}</a></p>
             {% if request.user.is_superuser %}
             <small>
@@ -202,7 +202,7 @@ Welcome!
             {% else %}
             <small class="text-muted text-start ps-2">No Rating</small>
             {% endif %}
-            <p class="text-start ps-2"><a href="#" class=" text-muted fs-6 category-tag"><i
+            <p class="text-start ps-2"><a href="{% url 'products' %}?category={{ product.category.name }}" class=" text-muted fs-6 category-tag"><i
                         class="fa-solid fa-tags mr-2"></i> {{ product.category.friendly_name }}</a></p>
             {% if request.user.is_superuser %}
             <small>
