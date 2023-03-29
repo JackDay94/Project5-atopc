@@ -146,3 +146,18 @@ class EditComment(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
+
+
+class DeleteComment(LoginRequiredMixin, DeleteView):
+    """Allows a user to delete their comment"""
+    model = BlogComment
+    template_name = 'blog/delete_comment.html'
+    success_url = reverse_lazy('blog')
+    success_message = 'Review deleted succesfully!'
+
+    # Success message on delete taken from:
+    # https://stackoverflow.com/questions/48777015/djangos-successmessagemixin-not-working-with-deleteview
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message, 'danger')
+
+        return super(DeleteComment, self).delete(request, *args, **kwargs)
