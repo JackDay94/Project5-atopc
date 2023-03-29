@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import (
+    ListView, DetailView, CreateView, UpdateView, DeleteView)
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.messages.views import SuccessMessageMixin
 from django.template.defaultfilters import slugify
 from django.urls import reverse_lazy
 
@@ -64,7 +66,7 @@ class PostDetail(DetailView):
         )
 
 
-class AddPost(UserPassesTestMixin, LoginRequiredMixin, CreateView):
+class AddPost(UserPassesTestMixin, CreateView):
     """
     Allows a superuser to add a blog post
     """
@@ -93,5 +95,31 @@ class AddPost(UserPassesTestMixin, LoginRequiredMixin, CreateView):
         return self.request.user.is_superuser
 
 
-class EditPost(UserPassesTestMixin, LoginRequiredMixin, UpdateView):
+class EditPost(UserPassesTestMixin, SuccessMessageMixin, UpdateView):
     """Allows a superuser to edit a blog post"""
+    model = BlogPost
+    form_class = BlogPostForm
+    template_name = 'blog/edit_post.html'
+    success_url = reverse_lazy('blog')
+    success_message = 'You have updated the post successfully!'
+
+    def test_func(self):
+        return self.request.user.is_superuser
+
+
+class DeletePost(UserPassesTestMixin, DeleteView):
+    """Allows a superuser to delete a blog post"""
+    model = BlogPost
+    template_name = 'blog/delete_post.html'
+    success_url = reverse_lazy('blog')
+    success_message = 'You have deleted the Blog post successfully!'
+
+    def test_func(self):
+        return self.request.user.is_superuser
+
+    # Success message on delete taken from:
+    # https://stackoverflow.com/questions/48777015/djangos-successmessagemixin-not-working-with-deleteview
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message, 'danger')
+
+        return super(DeletePost, self).delete(request, *args, **kwargs)

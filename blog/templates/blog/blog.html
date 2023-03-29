@@ -7,9 +7,11 @@ Welcome to our blog
 {% endblock %}
 
 {% block content %}
+<!-- Blog page title-->
 <h2 class="text-center fw-bold mb-3">
     Blog
 </h2>
+<!-- Blog page list -->
 <div class="row">
     {% if request.user.is_superuser %}
     <div class="text-center mb-3">
@@ -20,8 +22,8 @@ Welcome to our blog
     <div class="col-6 col-lg-3 pb-4">
         <div class="card h-100 text-center border-0">
             <a href="{% url 'post_detail' post.slug %}">
-                {% if post.image %}
-                <img src="{{ post.image.url }}" alt="{{ post.title }}" class="card-img-top img-fluid">
+                {% if post.blog_image %}
+                <img src="{{ post.blog_image.url }}" alt="{{ post.title }}" class="card-img-top img-fluid">
                 {% else %}
                 <img src="{{ MEDIA_URL }}placeholder-img.png" alt="{{ post.title }}" class="card-img-top img-fluid">
                 {% endif %}
@@ -30,18 +32,19 @@ Welcome to our blog
             <p class="text-start text-muted ps-2 lead mb-0">{{ post.subtitle }}</p>
             {% if request.user.is_superuser %}
             <small>
-                <a href="#">Edit</a>
+                <a href="{% url 'edit_post' post.slug %}">Edit</a>
                 |
-                <a href="#" class="text-danger">Delete</a>
+                <a href="{% url 'delete_post' post.slug %}" class="text-danger">Delete</a>
             </small>
             {% endif %}
             <div class="card-footer bg-white pt-2 border-0">
-                <a href="#" class="btn btn-success w-100">View Post</a>
+                <a href="{% url 'post_detail' post.slug %}" class="btn btn-success w-100">View Post</a>
             </div>
         </div>
     </div>
     {% endfor %}
 </div>
+<!-- Pagination -->
 {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center pb-3">
