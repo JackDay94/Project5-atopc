@@ -67,6 +67,10 @@ select {
     font-size: clamp(10px, calc(10px + 0.5vw), 18px);
 }
 
+.mobile-list {
+    width: 80%;
+}
+
 /* Site Footer */
 
 #social-icons a,

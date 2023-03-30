@@ -186,7 +186,7 @@
                 </div>
                 <!-- Newsletter Signup -->
                 <div class="col-lg-4 col-md-12 text-center">
-                    <h1 class="text-uppercase fs-3 fw-bold font-monospace">Sign up to our Newsletter!</h2>
+                    <h1 class="text-uppercase fs-3 fw-bold font-monospace">Sign up to our Newsletter!</h1>
                     <p>Get the latest Tech news!</p>
                     <a href="{% url 'newsletter' %}" class="btn btn-warning mb-2">
                         <i class="fa-solid fa-newspaper me-2"></i>Sign up
@@ -213,18 +213,17 @@
         {% endfor %}
     {% endif %}
 
-</body>
-
-{% block postloadjs %}
 <!-- Messages/Toast js -->
-<script type="text/javascript">
+{% block postloadjs %}
+<script>
     const toastElList = $('.toast');
     for (let toastEl of toastElList) {
         const toast = new bootstrap.Toast(toastEl);
         toast.show();
     }
 </script>
-
 {% endblock %}
+
+</body>
 
 </html>

@@ -13,6 +13,7 @@ Checkout
 {% endblock %}
 
 {% block content %}
+<!-- Checkout title -->
 <div class="row">
     <div class="col">
         <h2 class="fw-bold mb-4 text-center">Checkout</h2>
@@ -21,6 +22,7 @@ Checkout
 </div>
 
 <div class="row">
+    <!-- Order summary titles -->
     <div class="col-12 col-lg-6 order-lg-last mb-5">
         <p class="text-muted">Order Summary ({{ product_count }})</p>
         <div class="row">
@@ -32,6 +34,7 @@ Checkout
             </div>
         </div>
         {% for item in bag_items %}
+        <!-- Product Info in checkout -->
         <div class="row">
             <div class="col-2 mb-1">
                 <a href="{% url 'product_detail' item.product.id %}">
@@ -53,6 +56,7 @@ Checkout
         {% endfor %}
         <hr class="my-0">
         <div class="row text-black text-end">
+            <!-- Total cost information -->
             <div class="col-7 offset-2">
                 <p class="my-0">Order Total:</p>
                 <p class="my-0">Delivery:</p>
@@ -67,6 +71,7 @@ Checkout
     </div>
     <div class="col-12 col-lg-6">
         <p class="text-muted">Please fill out the form below to complete your order</p>
+        <!-- Form for delivery information -->
         <form action="{% url 'checkout' %}" method="post" id="payment-form">
             {% csrf_token %}
             <fieldset class="rounded px-3 mb-5">
@@ -85,11 +90,13 @@ Checkout
                 {{ order_form.county | as_crispy_field }}
                 <div class="form-check form-check-inline float-start me-0">
                     {% if user.is_authenticated %}
+                    <!-- Save checkbox for delivery information -->
                     <label class="form-check-label" for="id-save-info">Save this delivery information to my
                         profile</label>
                     <input class="form-check-input ms-0 me-2" type="checkbox" id="id-save-info" name="save-info"
                         checked>
                     {% else %}
+                    <!-- Login and signup links for users not authenticated -->
                     <label class="form-check-label" for="id-save-info">
                         <a class="text-primary" href="{% url 'account_signup' %}">Create an account</a> or
                         <a class="text-primary" href="{% url 'account_login' %}">login</a> to save this information
@@ -106,7 +113,7 @@ Checkout
                 <!-- Pass the client secret to the view so we can get the payment intent id -->
                 <input type="hidden" value="{{ client_secret }}" name="client_secret">
             </fieldset>
-
+            <!-- Buttons to go back to bag and complete order -->
             <div class="submit-button text-end mt-5 mb-2">
                 <a href="{% url 'view_bag' %}" class="btn btn-primary">
                     <span class="icon">
@@ -130,6 +137,7 @@ Checkout
         </form>
     </div>
 </div>
+<!-- Overlay during form processing -->
 <div id="loading-overlay">
     <h1 class="text-light logo-font loading-spinner">
         <span class="icon">

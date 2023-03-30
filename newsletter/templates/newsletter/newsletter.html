@@ -7,10 +7,12 @@ Newsletter
 {% endblock %}
 
 {% block content %}
+<!-- Newsletter title and subtitle -->
 <div class="text-center">
     <h2 class="fw-bold">Subscribe</h2>
     <h5 class="text-muted mb-2">Enter your details below to subscribe to our mailing list.</h5>
 </div>
+<!-- Newsletter form -->
 <div class="row justify-content-center">
     <div class="col-12 col-sm-6 col-lg-4">
         <form action="{% url 'newsletter' %}" method="post" id="newsletter-form">

@@ -146,14 +146,15 @@ Browse Our Store
 
 {% block postloadjs%}
 {{ block.super }}
-<script type="text/javascript">
+<script>
     // Scroll to top of the page on click
     $('.btt-link').click(function (e) {
         window.scrollTo(0, 0)
     })
 </script>
 
-<script type="text/javascript">
+<script>
+    // Sets the url for different sort queries
     $('#sort-selector').change(function () {
         var selector = $(this);
         var currentUrl = new URL(window.location);

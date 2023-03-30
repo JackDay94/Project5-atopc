@@ -5,6 +5,7 @@ from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(BlogPost)
 class BlogPostAdmin(SummernoteModelAdmin):
+    """Admin for BlogPost"""
     list_display = (
         'title',
         'author',
@@ -32,6 +33,7 @@ class BlogPostAdmin(SummernoteModelAdmin):
 
 @admin.register(BlogComment)
 class BlogCommentAdmin(admin.ModelAdmin):
+    """Admin for BlogComment"""
     list_display = (
         'author',
         'post',

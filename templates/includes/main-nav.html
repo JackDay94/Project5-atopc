@@ -27,7 +27,7 @@
                             aria-label="Go to products sorted by rating">By Rating</a></li>
                     <li><a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item"
                             aria-label="Go to products sorted by category">By Category</a></li>
-                    <hr class="dropdown-divider">
+                    <li><hr class="dropdown-divider"></li>
                     <li><a href="{% url 'products' %}" class="dropdown-item" aria-label="Go to all Products page">All
                             Products</a></li>
                 </ul>
@@ -45,7 +45,7 @@
                             aria-label="Go to mice page">Mice</a></li>
                     <li><a href="{% url 'products' %}?category=headphones" class="dropdown-item"
                             aria-label="Go to headphones page">Headphones</a></li>
-                    <hr class="dropdown-divider">
+                    <li><hr class="dropdown-divider"></li>
                     <li><a href="{% url 'products' %}?category=keyboards,mice,headphones" class="dropdown-item"
                             aria-label="Go to all peripherals page">All
                             Peripherals</a></li>
@@ -64,7 +64,7 @@
                             aria-label="Go to 1440p monitors page">1440p</a></li>
                     <li><a href="{% url 'products' %}?category=4k_monitors" class="dropdown-item"
                             aria-label="Go to 4k monitors page">4k</a></li>
-                    <hr class="dropdown-divider">
+                    <li><hr class="dropdown-divider"></li>
                     <li><a href="{% url 'products' %}?category=1080p_monitors,1440p_monitors,4k_monitors"
                             class="dropdown-item" aria-label="Go to all monitors page">All Monitors</a></li>
                 </ul>
@@ -81,7 +81,7 @@
                     <li><a href="{% url 'products' %}?category=solid_state_drives" class="dropdown-item"
                             aria-label="Go to solid state drives page">Solid State
                             Drives</a></li>
-                    <hr class="dropdown-divider">
+                    <li><hr class="dropdown-divider"></li>
                     <li><a href="{% url 'products' %}?category=hard_drives,solid_state_drives" class="dropdown-item"
                             aria-label="Go to all storage page">All
                             Storage</a></li>

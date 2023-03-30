@@ -5,6 +5,7 @@ from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
+    """Admin for Category"""
     list_display = (
         'friendly_name',
         'name',
@@ -13,6 +14,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(SummernoteModelAdmin):
+    """Admin for Product"""
     list_display = (
         'sku',
         'name',
@@ -41,6 +43,7 @@ class ProductAdmin(SummernoteModelAdmin):
 
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
+    """Admin for Review"""
     list_display = (
         'author',
         'product',

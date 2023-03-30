@@ -52,7 +52,7 @@ Welcome!
             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                 {% csrf_token %}
                 <div class="card-footer bg-white pt-2 border-0">
-                    <input type="hidden" name="quantity" type="Number" value="1">
+                    <input name="quantity" type="Number" value="1" class="d-none">
                     <input type="submit" class="btn btn-success w-100" value="Add to Bag">
                 </div>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
@@ -107,7 +107,7 @@ Welcome!
             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                 {% csrf_token %}
                 <div class="card-footer bg-white pt-2 border-0">
-                    <input type="hidden" name="quantity" type="Number" value="1">
+                    <input name="quantity" type="Number" value="1" class="d-none">
                     <input type="submit" class="btn btn-success w-100" value="Add to Bag">
                 </div>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
@@ -161,7 +161,7 @@ Welcome!
             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                 {% csrf_token %}
                 <div class="card-footer bg-white pt-2 border-0">
-                    <input type="hidden" name="quantity" type="Number" value="1">
+                    <input name="quantity" type="Number" value="1" class="d-none">
                     <input type="submit" class="btn btn-success w-100" value="Add to Bag">
                 </div>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
@@ -215,7 +215,7 @@ Welcome!
             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                 {% csrf_token %}
                 <div class="card-footer bg-white pt-2 border-0">
-                    <input type="hidden" name="quantity" type="Number" value="1">
+                    <input name="quantity" type="Number" value="1" class="d-none">
                     <input type="submit" class="btn btn-success w-100" value="Add to Bag">
                 </div>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
