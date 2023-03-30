@@ -6,6 +6,7 @@ Delete Product
 {% endblock %}
 
 {% block content %}
+<!-- Delete Product form and title -->
 <div class="row">
     <div class="col-12 text-center">
         <h2 class="fw-bold mb-4 text-center">Product Management</h2>
@@ -22,6 +23,7 @@ Delete Product
         <hr>
     </div>
 </div>
+<!-- Product Preview -->
 <div class="row">
     <div class="col-12 col-md-6 col-lg-6">
         <div class="image-container mt-2">
@@ -50,14 +52,9 @@ Delete Product
             {% else %}
             <small class="text-muted">No Rating</small>
             {% endif %}
+            <hr>
+            <p class="mt-1">{{ product.description | safe }}</p>
         </div>
-    </div>
-</div>
-<hr>
-<div class="row">
-    <div class="col-12">
-        <h3 class="text-start fw-bold fs-4">Technical Specification</h3>
-        {{ product.specification | safe }}
     </div>
 </div>
 

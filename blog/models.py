@@ -15,7 +15,7 @@ class BlogPost(models.Model):
     edited_on = models.DateTimeField(auto_now=True)
     blog_image = models.ImageField(null=True, blank=True)
     image_url = models.URLField(null=True, blank=True)
-    post_content = models.TextField(max_length=2000)
+    post_content = models.TextField()
     status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
