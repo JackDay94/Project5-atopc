@@ -14,21 +14,23 @@
 </h2>
 <!-- Post body -->
 <div class="row justify-content-center">
-    <div class="text-center mb-3">
-        <a href="{% url 'blog' %}" class="btn btn-primary">Back to Blog</a>
+    <div class="mb-3">
+        <a href="{% url 'blog' %}" class="btn btn-primary"><i class="fa fa-chevron-left me-2"></i>Back to Blog</a>
     </div>
-    {% if request.user.is_superuser %}
-    <div class="text-center mb-3">
-        <a href="{% url 'edit_post' blog_post.slug %}" class="btn btn-warning me-1" role="button" aria-label="Go to blog post edit page">Edit</a>
-        <a href="{% url 'delete_post' blog_post.slug %}" class="ms-1 btn btn-danger" role="button" aria-label="Go to blog post delete page">Delete</a>
-    </div>
-    {% endif %}
-    <div class="col-12 col-md-6 pb-4 ">
+    <div class="col-12 col-md-6 pb-4">
         <div class="card h-100 text-center border-0">
             {% if blog_post.blog_image %}
             <img src="{{ blog_post.blog_image.url }}" alt="{{ blog_post.title }}" class="card-img-top img-fluid">
             {% else %}
             <img src="{{ MEDIA_URL }}placeholder-img.png" alt="{{ blog_post.title }}" class="card-img-top img-fluid">
+            {% endif %}
+            <!-- Edit/Delete blog post visible to superuser -->
+            {% if request.user.is_superuser %}
+            <small class>
+                <a href="{% url 'edit_post' blog_post.slug %}">Edit</a>
+                |
+                <a href="{% url 'delete_post' blog_post.slug %}" class="text-danger">Delete</a>
+            </small>
             {% endif %}
             <p class="text-muted ps-2 lead mb-0">{{ blog_post.subtitle }}</p>
             <small>Created: {{ blog_post.date_added }}</small>

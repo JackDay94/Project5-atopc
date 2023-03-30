@@ -11,16 +11,41 @@ Delete Blog Post
 <div class="row">
     <div class="col-12 text-center">
         <h2 class="fw-bold mb-4 text-center">Delete Blog Post</h2>
-        <h5 class="text-muted">You are about to delete {{ blogpost.title }}.</h5>
+        <h5 class="text-muted">You are about to delete {{ blogpost.title }}</h5>
         <p class="mt-2 text-black">Are you sure? This <strong class="text-danger text-uppercase">cannot</strong> be
             undone!</p>
-        <form action="" method="post">
+        <form method="post">
             {% csrf_token %}
             <div class="text-center">
                 <a href="{% url 'blog' %}" class="btn btn-primary" rel="nofollow">Cancel</a>
                 <button class="btn btn-danger" type="submit">Delete</button>
             </div>
         </form>
+    </div>
+</div>
+<hr>
+<!-- Post Preview -->
+<h2 class="text-center fw-bold mb-3">
+    {{ blogpost.title }}
+</h2>
+<div class="row justify-content-center">
+    <div class="col-12 col-md-6 pb-4">
+        <div class="card h-100 text-center border-0">
+            {% if blogpost.blog_image %}
+            <img src="{{ blogpost.blog_image.url }}" alt="{{ blogpost.title }}" class="card-img-top img-fluid">
+            {% else %}
+            <img src="{{ MEDIA_URL }}placeholder-img.png" alt="{{ blogpost.title }}" class="card-img-top img-fluid">
+            {% endif %}
+            <p class="text-muted ps-2 lead mb-0">{{ blogpost.subtitle }}</p>
+            <small>Created: {{ blogpost.date_added }}</small>
+            <small>Edited: {{ blogpost.edited_on }}</small>
+            <small>By: {{ blogpost.author }}</small>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card-footer text-start bg-white ps-md-3 pe-md-3 pt-2 border-black rounded">
+            {{ blogpost.post_content | safe }}
+        </div>
     </div>
 </div>
 
