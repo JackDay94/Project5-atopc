@@ -90,6 +90,7 @@
                                 aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-lg"></i>
                                 <p>Account</p>
                             </a>
+                            <!-- Account dropdown links -->
                             <div class="dropdown-menu" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}

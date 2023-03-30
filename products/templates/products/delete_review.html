@@ -8,10 +8,12 @@ Delete Review
 {% block content %}
 <div class="row text-center">
     <div class="col-12">
+        <!-- Delete review confirmation -->
         <h2 class="fw-bold mb-4 text-center">Delete Review</h2>
         <h5 class="text-muted">You are about to delete your review for {{ product.name }}.</h5>
         <p class="mt-2 text-black">Are you sure? This <strong class="text-danger text-uppercase">cannot</strong> be
             undone!</p>
+        <!-- Delete review submit -->
         <form action="{% url 'delete_review' review.id %}" method="post">
             {% csrf_token %}
             <div class="text-center">
@@ -22,6 +24,7 @@ Delete Review
         <hr>
     </div>
 </div>
+<!-- Review preview -->
 <div class="col-12">
     <div class="card mb-3">
         <div class="card-body">

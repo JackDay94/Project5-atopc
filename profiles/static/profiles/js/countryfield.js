@@ -1,3 +1,4 @@
+// Sets the colour of the country field to match other elements
 let countrySelected = $('#id_default_country').val();
 if (!countrySelected) {
     $('#id_default_country').css('color', '#aab7c4');

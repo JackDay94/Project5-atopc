@@ -1,6 +1,8 @@
 {% load static %}
+<!-- Offcanvas Navbar -->
 <div class="offcanvas offcanvas-start" id="main-nav">
     <div class="offcanvas-header">
+        <!-- Logo  -->
         <a href="{% url 'home' %}" class="nav-link">
             <img src="{{ MEDIA_URL }}logo1.png" class="logo-img offcanvas-title"
                 id="offcanvasNavbarLabel" alt="A to PC" aria-label="Go to home page">
@@ -16,6 +18,7 @@
             </li>
 
             <li class="nav-item dropdown">
+                <!-- Links to all products sorted by price, rating and category -->
                 <a class="fw-bold text-black nav-link me-5" href="#" role="button" id="all-products-link"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     All Products
@@ -34,6 +37,7 @@
             </li>
 
             <li class="nav-item dropdown">
+                <!-- Links to all peripherals categorised by keyboards, mice and headphones -->
                 <a class="fw-bold text-black nav-link me-5" href="#" role="button" id="peripherals-link"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Peripherals
@@ -53,6 +57,7 @@
             </li>
 
             <li class="nav-item dropdown">
+                <!-- Links to all monitors categorised by 1080p, 1440p and 4k -->
                 <a class="fw-bold text-black nav-link me-5" href="#" role="button" id="monitors-link"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Monitors
@@ -71,6 +76,7 @@
             </li>
 
             <li class="nav-item dropdown">
+                <!-- Links to all storage categorised by hard drives and solid state drives -->
                 <a class="fw-bold text-black nav-link me-5" href="#" role="button" id="storage-link"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Storage
@@ -89,6 +95,7 @@
             </li>
 
             <li class="nav-item dropdown">
+                <!-- Links to all deals categorised by latest deals and clearance -->
                 <a class="fw-bold text-danger nav-link" href="#" role="button" id="deals-link" data-bs-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     Deals
@@ -106,7 +113,7 @@
                 </ul>
             </li>
         </ul>
-
+        <!-- Search bar form -->
         <form class="d-flex mt-3 nav-item d-md-none" role="search" method="get" action="{% url 'products' %}">
             <div class="input-group border-black nav-item">
                 <input class="form-control" type="search" name="q" placeholder="Search for products"

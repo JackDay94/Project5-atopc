@@ -103,6 +103,13 @@ class EditPost(UserPassesTestMixin, SuccessMessageMixin, UpdateView):
     success_url = reverse_lazy('blog')
     success_message = 'You have updated the post successfully!'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['post_title'] = self.object.title
+        messages.info(self.request, f'You are editing {self.object.title}')
+
+        return context
+
     def test_func(self):
         return self.request.user.is_superuser
 
@@ -140,6 +147,8 @@ class EditComment(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['post_title'] = self.object.post
+        messages.info(self.request, f'You are editing your comment for \
+                     {self.object.post}')
 
         return context
 

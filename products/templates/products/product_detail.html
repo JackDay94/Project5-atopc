@@ -8,6 +8,7 @@
 
 {% block content %}
 <div class="row">
+    <!-- Product image -->
     <div class="col-12 col-md-6 col-lg-6">
         <div class="image-container mt-2">
             {% if product.image %}
@@ -21,6 +22,7 @@
             {% endif %}
         </div>
     </div>
+    <!-- Product details -->
     <div class="col-12 col-md-6 col-lg-6">
         <div class="mb-5 mt-md-5">
             <p class="mb-0 fw-bold fs-4">{{ product.name }}</p>
@@ -50,6 +52,7 @@
             {% endif %}
             <hr>
             <p class="mt-1">{{ product.description | safe }}</p>
+            <!-- Quantity buttons and add to basket form -->
             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                 {% csrf_token %}
                 <div class="col-12">
@@ -79,7 +82,7 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- Wishlist button -->
                 <div class="col{% if s %}-12 mt-2{% endif %}">
                     <a href="{% url 'add_remove_wishlist' product.id %}" class="btn mt-5 fw-bold">
                         <span class="icon">
@@ -96,6 +99,7 @@
 </div>
 <hr>
 {% if user.is_authenticated %}
+<!-- Product review form for authenticated users -->
 <div class="row">
     <h4 class="text-start fw-semibold fs-4">Review this Product</h4>
     <div class="col-12 pb-0">
@@ -103,12 +107,12 @@
             <form action="{% url 'product_detail' product.id %}" method="post" class="text-start">
                 {{ review_form | crispy }}
                 {% csrf_token %}
-                <button type="submit" name="review-submit" class="btn btn-dark mt-2">Submit</button>
+                <button type="submit" name="review-submit" class="btn btn-success float-end mt-2">Submit</button>
             </form>
-            <hr>
     </div>
 </div>
 {% endif %}
+<!-- All Product reviews -->
 <div class="row">
     <h4 class="text-start fw-semibold mb-3">Reviews for this Product: {{ reviews.count }}</h4>
     {% if reviews.count == 0 %}

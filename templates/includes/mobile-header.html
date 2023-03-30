@@ -1,5 +1,6 @@
 <ul class="list-inline d-inline-flex justify-content-evenly mobile-list d-md-none">
     <li class="list-inline-item mx-0">
+        <!-- Search bar dropdown -->
         <a class="text-black nav-link d-block d-md-none" href="#" id="mobile-search" data-bs-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
@@ -9,6 +10,7 @@
                 </p>
             </div>
         </a>
+        <!-- Search bar form -->
         <div class="dropdown-menu rounded-0 border-0 w-100 p-3 my-0" aria-labelledby="mobile-search">
             <form class="d-flex nav-item d-md-none" role="search" method="get" action="{% url 'products' %}">
                 <div class="input-group border-black nav-item">
@@ -19,6 +21,7 @@
             </form>
         </div>
     </li>
+    <!-- Wishlist -->
     <li class="list-inline-item mx-0">
         <a class="text-black nav-link d-block d-md-none" href="{% url 'wishlist' %}">
             <div class="text-center">
@@ -29,6 +32,7 @@
             </div>
         </a>
     </li>
+    <!-- Account -->
     <li class="list-inline-item dropdown">
         <a class="text-black nav-link d-block d-md-none" href="#" id="user-options-mobile" data-bs-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
@@ -39,6 +43,7 @@
                 </p>
             </div>
         </a>
+        <!-- Account dropdown options -->
         <ul class="dropdown-menu" aria-labelledby="user-options-mobile">
             {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
@@ -54,6 +59,7 @@
             {% endif %}
         </ul>
     </li>
+    <!-- Shopping bag -->
     <li class="list-inline-item">
         <a class="nav-link d-block d-md-none {% if grand_total %}text-primary{% else %}text-black{% endif %}"
             href="{% url 'view_bag' %}">

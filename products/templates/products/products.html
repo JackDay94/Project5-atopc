@@ -10,10 +10,12 @@ Browse Our Store
 {% endblock %}
 
 {% block content %}
+<!-- Products page title -->
 <h2 class="text-center fw-bold">
     Products
 </h2>
 <div class="row">
+    <!-- Category badge for filtered categories -->
     <div class="col text-center mt-2 mb-2">
         {% for c in current_categories %}
         <a class="category-badge" href="{% url 'products' %}?category={{ c.name }}">
@@ -32,6 +34,7 @@ Browse Our Store
         <div class="row mt-1 mb-2">
             <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                 <div class="sort-select-wrapper w-50">
+                    <!-- Sort by... selector for product sorting -->
                     <select id="sort-selector"
                         class="w-100 form-select form-select-sm border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                         <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
@@ -55,6 +58,7 @@ Browse Our Store
                     </select>
                 </div>
             </div>
+            <!-- Total products found and link back to all products -->
             <div class="col-12 col-md-6 order-md-first">
                 <p class="text-muted mt-3 text-center text-md-start">
                     {% if search_term or current_categories or current_sorting != 'None_None' %}
@@ -66,6 +70,7 @@ Browse Our Store
             </div>
         </div>
         {% if products.count == 0 %}
+        <!-- No products found -->
         <div class="row mt-2">
             <div class="col-12">
                 <h2 class="fw-bold text-center">No Products Found!</h2>
@@ -74,6 +79,7 @@ Browse Our Store
         {% endif %}
         <div class="row">
             {% for product in products %}
+            <!-- Product list -->
             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                 <div class="card h-100 text-center border-0">
                     {% if product.image %}
@@ -106,13 +112,14 @@ Browse Our Store
                     <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                         {% csrf_token %}
                         <div class="card-footer bg-white pt-2 border-0">
-                            <input type="hidden" name="quantity" type="Number" value="1">
+                            <input name="quantity" type="Number" value="1" class="d-none">
                             <input type="submit" class="btn btn-success w-100" value="Add to Bag">
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </form>
                 </div>
             </div>
+            <!-- hr display for different screen sizes -->
             {% if forloop.counter|divisibleby:1 %}
             <div class="col-12 d-sm-none mb-5">
                 <hr>
@@ -137,6 +144,7 @@ Browse Our Store
         </div>
     </div>
 </div>
+<!-- Back to top button -->
 <div class="btt-button shadow-sm border border-black">
     <a class="btt-link d-flex h-100">
         <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>

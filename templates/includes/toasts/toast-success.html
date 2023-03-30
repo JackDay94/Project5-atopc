@@ -1,4 +1,5 @@
 {% if not on_profile_page and grand_total %}
+<!-- Displays success messages and items in the bag -->
 <div class="bag-notification-container">
     <div class="toast custom-toast bag-toast" data-bs-autohide="false">
         <div class="toast-header bg-success text-light">
@@ -55,6 +56,7 @@
     </div>
 </div>
 {% else %}
+<!-- Standard toast success message -->
 <div class="message-container">
     <div class="toast custom-toast" data-bs-autohide="true">
         <div class="toast-header bg-success text-light">

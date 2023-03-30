@@ -6,13 +6,14 @@ Delete Product
 {% endblock %}
 
 {% block content %}
-<!-- Delete Product form and title -->
 <div class="row">
     <div class="col-12 text-center">
+        <!-- Delete product confirmation -->
         <h2 class="fw-bold mb-4 text-center">Product Management</h2>
         <h5 class="text-muted">You are about to delete {{ product.name }}.</h5>
         <p class="mt-2 text-black">Are you sure? This <strong class="text-danger text-uppercase">cannot</strong> be
             undone!</p>
+        <!-- Delete product submit -->
         <form action="{% url 'delete_product' product.id%}" method="post">
             {% csrf_token %}
             <div class="text-center">
