@@ -49,8 +49,8 @@
 <div class="row mt-5">
     <h4 class="fw-semibold">Post a comment</h4>
     <div class="col-12 pb-3">
-        <h5>Posting as: <strong>{{ user.username }}</strong></h3>
-            <form action="" method="post">
+        <h5>Posting as: <strong>{{ user.username }}</strong></h5>
+            <form method="post">
                 {{ comment_form | crispy }}
                 {% csrf_token%}
                 <button type="submit" class="btn btn-success mt-2 float-end">Submit</button>

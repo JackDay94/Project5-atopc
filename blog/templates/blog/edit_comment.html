@@ -18,7 +18,7 @@ Edit Comment
 <!-- Edit Comment form -->
 <div class="row">
     <div class="col-12">
-        <form action="" method="post" class="pt-3">
+        <form method="post" class="pt-3">
         {% csrf_token %}
         {{ form | crispy | safe }}
         <button type="submit" class="btn btn-success float-end">Submit</button>

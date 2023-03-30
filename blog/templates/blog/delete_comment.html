@@ -16,7 +16,7 @@ Delete Comment
         <h5 class="text-muted">You are about to delete your comment.</h5>
         <p class="mt-2 text-black">Are you sure? This <strong class="text-danger text-uppercase">cannot</strong> be
             undone!</p>
-        <form action="" method="post">
+        <form method="post">
             {% csrf_token %}
             <div class="text-center mb-3">
                 <a href="{% url 'blog' %}" class="btn btn-primary">Cancel</a>

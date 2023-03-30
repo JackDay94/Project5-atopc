@@ -25,7 +25,7 @@ class ProductForm(ModelForm):
     class Meta:
         model = Product
         fields = '__all__'
-        exclude = ('average_rating', 'wishlist',)
+        exclude = ('rating', 'wishlist',)
         widgets = {
             'description': SummernoteWidget(),
         }

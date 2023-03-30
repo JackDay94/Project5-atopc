@@ -18,7 +18,7 @@ Edit a Blog Post
     <div class="col-12 col-md-8">
         <h5 class="text-muted">Edit an existing Blog Post</h5>
         <hr>
-        <form action="" method="POST" class="form mb-2" enctype="multipart/form-data">
+        <form method="POST" class="form mb-2" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form | crispy }}
             <div class="text-center">
