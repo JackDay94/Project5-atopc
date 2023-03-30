@@ -20,7 +20,7 @@ class ProductAdmin(SummernoteModelAdmin):
         'name',
         'category',
         'price',
-        'average_rating',
+        'rating',
         'image',
     )
 

@@ -34,8 +34,8 @@ class Product(models.Model):
     name = models.CharField(max_length=254)
     description = models.TextField(max_length=500)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    average_rating = models.DecimalField(max_digits=6, decimal_places=1,
-                                         null=True, blank=True, default=0)
+    rating = models.DecimalField(max_digits=6, decimal_places=1,
+                                 null=True, blank=True, default=0)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
@@ -55,7 +55,7 @@ class Product(models.Model):
         self.average_rating = reviews.aggregate(models.Avg('rating')).get(
             'rating__avg'
             )
-        self.save(update_fields=['average_rating'])
+        self.save(update_fields=['rating'])
 
 
 class Review(models.Model):
