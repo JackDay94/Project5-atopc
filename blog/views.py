@@ -124,6 +124,14 @@ class DeletePost(UserPassesTestMixin, DeleteView):
     def test_func(self):
         return self.request.user.is_superuser
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['post_title'] = self.object.title
+        messages.info(self.request, f'You are about to delete \
+                     {self.object.title}')
+
+        return context
+
     # Success message on delete taken from:
     # https://stackoverflow.com/questions/48777015/djangos-successmessagemixin-not-working-with-deleteview
     def delete(self, request, *args, **kwargs):
@@ -163,6 +171,14 @@ class DeleteComment(LoginRequiredMixin, DeleteView):
     template_name = 'blog/delete_comment.html'
     success_url = reverse_lazy('blog')
     success_message = 'Review deleted succesfully!'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['post_title'] = self.object.post
+        messages.info(self.request, f'You are deleting your comment for \
+                     {self.object.post}')
+
+        return context
 
     # Success message on delete taken from:
     # https://stackoverflow.com/questions/48777015/djangos-successmessagemixin-not-working-with-deleteview
