@@ -43,3 +43,11 @@ def about(request):
     """
 
     return render(request, "home/about.html")
+
+
+def privacy_policy(request):
+    """
+    Displays the privacy policy page.
+    """
+
+    return render(request, "home/privacy_policy.html")
