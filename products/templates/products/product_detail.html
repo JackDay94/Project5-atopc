@@ -51,7 +51,7 @@
             </small>
             {% endif %}
             <hr>
-            <p class="mt-1">{{ product.description | safe }}</p>
+            {{ product.description | safe }}
             <!-- Quantity buttons and add to basket form -->
             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                 {% csrf_token %}
@@ -93,8 +93,8 @@
                     <input type="submit" class="btn btn-success text-uppercase mt-5" value="Add to Bag">
                 </div>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
+            </form>
         </div>
-        </form>
     </div>
 </div>
 <hr>
@@ -103,7 +103,7 @@
 <div class="row">
     <h4 class="text-start fw-semibold fs-4">Review this Product</h4>
     <div class="col-12 pb-0">
-        <h5>Reviewing as: <strong>{{ user.username }}</strong></h3>
+        <h5>Reviewing as: <strong>{{ user.username }}</strong></h5>
             <form action="{% url 'product_detail' product.id %}" method="post" class="text-start">
                 {{ review_form | crispy }}
                 {% csrf_token %}
