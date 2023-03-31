@@ -16,7 +16,7 @@ Edit a Blog Post
 <!-- Edit Post Form -->
 <div class="row justify-content-center">
     <div class="col-12 col-md-8">
-        <h5 class="text-muted">Edit an existing Blog Post</h5>
+        <h5 class="text-muted">Editing {{ post_title }}</h5>
         <hr>
         <form method="POST" class="form mb-2" enctype="multipart/form-data">
             {% csrf_token %}

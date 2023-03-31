@@ -67,9 +67,7 @@ class PostDetail(DetailView):
 
 
 class AddPost(UserPassesTestMixin, CreateView):
-    """
-    Allows a superuser to add a blog post
-    """
+    """Allows a superuser to add a blog post"""
     model = BlogPost
     form_class = BlogPostForm
     form = BlogPostForm()
@@ -140,7 +138,7 @@ class DeletePost(UserPassesTestMixin, DeleteView):
         return super(DeletePost, self).delete(request, *args, **kwargs)
 
 
-class EditComment(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+class EditComment(UserPassesTestMixin, SuccessMessageMixin, UpdateView):
     """Allows a user to edit their comment"""
     model = BlogComment
 
@@ -164,8 +162,12 @@ class EditComment(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
         form.save()
         return super().form_valid(form)
 
+    def test_func(self):
+        author = self.get_object().author
+        return self.request.user.is_superuser or self.request.user == author
 
-class DeleteComment(LoginRequiredMixin, DeleteView):
+
+class DeleteComment(UserPassesTestMixin, DeleteView):
     """Allows a user to delete their comment"""
     model = BlogComment
     template_name = 'blog/delete_comment.html'
@@ -186,3 +188,7 @@ class DeleteComment(LoginRequiredMixin, DeleteView):
         messages.success(self.request, self.success_message, 'danger')
 
         return super(DeleteComment, self).delete(request, *args, **kwargs)
+
+    def test_func(self):
+        author = self.get_object().author
+        return self.request.user.is_superuser or self.request.user == author
