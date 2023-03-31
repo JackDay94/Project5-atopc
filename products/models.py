@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 RATING = (
-    (0, 0),
     (1, 1),
     (2, 2),
     (3, 3),
@@ -45,16 +44,15 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-    def update_review_fields(self):
+    def update_product_rating(self):
         """
-        Updates the average_rating field depending on average user rating.
-        Taken from:
-        https://www.reddit.com/r/django/comments/kp6rz4/which_is_the_proper_way_of_calculating_average/
+        Sets the rating for a product as an average of the ratings from reviews
+        and sets the value to 0 if there is none
         """
-        reviews = self.reviews.all()
-        self.average_rating = reviews.aggregate(models.Avg('rating')).get(
-            'rating__avg'
-            )
+        reviews = Review.objects.filter(product=self)
+        self.rating = reviews.aggregate(models.Avg('rating'))['rating__avg']
+        if self.rating is None:
+            self.rating = 0
         self.save(update_fields=['rating'])
 
 
@@ -74,12 +72,6 @@ class Review(models.Model):
     def __str__(self):
         return f"Product review for {self.product} by {self.author}"
 
-    def save(self, *args, **kwargs):
-        """
-        Overwrites the save method in Review and calls update_review_fields
-        method after saving the object.
-        Taken from:
-        https://www.reddit.com/r/django/comments/kp6rz4/which_is_the_proper_way_of_calculating_average/
-        """
-        super(Review, self).save(*args, **kwargs)
-        self.product.update_review_fields()
+    def save(self):
+        super(Review, self).save()
+        self.product.update_product_rating()
