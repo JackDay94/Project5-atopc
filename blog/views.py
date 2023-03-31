@@ -75,7 +75,7 @@ class AddPost(UserPassesTestMixin, CreateView):
 
     def post(self, request):
         if request.method == "POST":
-            form = BlogPostForm(request.POST)
+            form = BlogPostForm(request.POST, request.FILES)
             if form.is_valid():
                 new_post = form.save(commit=False)
                 new_post.author = self.request.user
