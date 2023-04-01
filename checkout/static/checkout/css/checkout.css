@@ -1,3 +1,4 @@
+/* Stripe element styles */
 .StripeElement,
 .stripe-style-input {
   box-sizing: border-box;
@@ -36,6 +37,7 @@
     border: 1px solid #000;
 } 
 
+/* Loading spinner and overlay */
 #loading-overlay {
   display: none;
   position: fixed;
@@ -55,6 +57,7 @@
   height: 100%;
 }
 
+/* Country field select box */
 select,
 select option {
     color: #000000;

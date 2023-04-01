@@ -98,7 +98,6 @@ class EditPost(UserPassesTestMixin, SuccessMessageMixin, UpdateView):
     model = BlogPost
     form_class = BlogPostForm
     template_name = 'blog/edit_post.html'
-    success_url = reverse_lazy('blog')
     success_message = 'You have updated the post successfully!'
 
     def get_context_data(self, **kwargs):
@@ -110,6 +109,9 @@ class EditPost(UserPassesTestMixin, SuccessMessageMixin, UpdateView):
 
     def test_func(self):
         return self.request.user.is_superuser
+
+    def get_success_url(self):
+        return reverse_lazy('post_detail', args=[self.object.slug])
 
 
 class DeletePost(UserPassesTestMixin, DeleteView):
