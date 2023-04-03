@@ -14,7 +14,7 @@ class TestBlogViews(TestCase):
             title='post1',
             slug='post1',
             status=1,
-            )
+        )
 
         self.comment1 = BlogComment.objects.create(
             author=User.objects.create_user(
@@ -52,10 +52,11 @@ class TestBlogViews(TestCase):
         User.objects.create_superuser(
             username='admin',
             email='admin@test.com', password='admintest'
-            )
+        )
         self.client.login(
             username='admin',
-            email='admin@test.com', password='admintest')
+            email='admin@test.com', password='admintest'
+        )
 
         response = self.client.get(self.add_post_url)
 
@@ -67,7 +68,7 @@ class TestBlogViews(TestCase):
         self.client.login(
             username='test',
             email='test@test.com', password='test'
-            )
+        )
 
         response = self.client.get(self.add_post_url)
 
@@ -87,10 +88,11 @@ class TestBlogViews(TestCase):
         User.objects.create_superuser(
             username='admin',
             email='admin@test.com', password='admintest'
-            )
+        )
         self.client.login(
             username='admin',
-            email='admin@test.com', password='admintest')
+            email='admin@test.com', password='admintest'
+        )
 
         response = self.client.get(self.edit_post_url)
 
@@ -102,7 +104,7 @@ class TestBlogViews(TestCase):
         self.client.login(
             username='test',
             email='test@test.com', password='test'
-            )
+        )
 
         response = self.client.get(self.edit_post_url)
 
@@ -122,10 +124,11 @@ class TestBlogViews(TestCase):
         User.objects.create_superuser(
             username='admin',
             email='admin@test.com', password='admintest'
-            )
+        )
         self.client.login(
             username='admin',
-            email='admin@test.com', password='admintest')
+            email='admin@test.com', password='admintest'
+        )
 
         response = self.client.get(self.delete_post_url)
 
@@ -137,7 +140,7 @@ class TestBlogViews(TestCase):
         self.client.login(
             username='test',
             email='test@test.com', password='test'
-            )
+        )
 
         response = self.client.get(self.delete_post_url)
 
@@ -157,10 +160,11 @@ class TestBlogViews(TestCase):
         User.objects.create_superuser(
             username='admin',
             email='admin@test.com', password='admintest'
-            )
+        )
         self.client.login(
             username='admin',
-            email='admin@test.com', password='admintest')
+            email='admin@test.com', password='admintest'
+        )
 
         response = self.client.get(self.edit_comment_url)
 
@@ -172,7 +176,7 @@ class TestBlogViews(TestCase):
         self.client.login(
             username='test',
             email='test@test.com', password='test'
-            )
+        )
 
         response = self.client.get(self.edit_comment_url)
 
@@ -187,11 +191,11 @@ class TestBlogViews(TestCase):
         User.objects.create_user(
             username='test2',
             email='test2@test.com', password='test2'
-            )
+        )
         self.client.login(
             username='test2',
             email='test2@test.com', password='test2'
-            )
+        )
 
         response = self.client.get(self.edit_comment_url)
 
@@ -207,14 +211,15 @@ class TestBlogViews(TestCase):
         self.assertEquals(response.status_code, 302)
 
     def test_delete_comment_user_is_superuser_GET(self):
-        """Test GET edit comment view for logged in superuser"""
+        """Test GET delete comment view for logged in superuser"""
         User.objects.create_superuser(
             username='admin',
             email='admin@test.com', password='admintest'
-            )
+        )
         self.client.login(
             username='admin',
-            email='admin@test.com', password='admintest')
+            email='admin@test.com', password='admintest'
+        )
 
         response = self.client.get(self.delete_comment_url)
 
@@ -222,11 +227,11 @@ class TestBlogViews(TestCase):
         self.assertTemplateUsed(response, 'blog/delete_comment.html')
 
     def test_delete_comment_user_not_superuser_GET(self):
-        """Test GET edit comment view for logged in user"""
+        """Test GET delete comment view for logged in user"""
         self.client.login(
             username='test',
             email='test@test.com', password='test'
-            )
+        )
 
         response = self.client.get(self.delete_comment_url)
 
@@ -235,17 +240,17 @@ class TestBlogViews(TestCase):
 
     def test_delete_comment_user_not_author_GET(self):
         """
-        Test GET edit comment view for logged in user that is not the
+        Test GET delete comment view for logged in user that is not the
         comment author
         """
         User.objects.create_user(
             username='test2',
             email='test2@test.com', password='test2'
-            )
+        )
         self.client.login(
             username='test2',
             email='test2@test.com', password='test2'
-            )
+        )
 
         response = self.client.get(self.delete_comment_url)
 
@@ -253,7 +258,7 @@ class TestBlogViews(TestCase):
         self.assertTemplateUsed(response, 'errors/403.html')
 
     def test_delete_comment_user_not_authenticated_GET(self):
-        """Test GET edit comment view for unauthenticated user"""
+        """Test GET delete comment view for unauthenticated user"""
         self.client.logout()
 
         response = self.client.get(self.delete_comment_url)
