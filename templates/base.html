@@ -12,7 +12,8 @@
     <meta name="description"
         content="Shop online today for the best deals on the latest PC peripherals, monitors & storage. Fast delivery worldwide!">
     <meta name="keywords"
-        content="PC parts, Computer parts, PC peripherals, PC monitors, Keyboards, Computer mouse, PC storage, PC peripheral deals, PC storage deals, Cheap computer monitors, Tech deals">
+        content="PC parts, Computer parts, PC peripherals, PC monitors, Keyboards, Computer mouse, PC storage, PC peripheral deals, PC storage deals, Cheap computer monitors,
+                 Buy PC peripherals online, Buy computer monitors online">
     {% endblock %}
 
     {% block extra_meta %}
@@ -31,7 +32,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
     <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
-
     {% endblock %}
 
     {% block extra_css %}
@@ -107,7 +107,9 @@
                             </div>
                         </li>
                         <li class="list-inline-item">
-                            <a href="{% url 'view_bag' %}" class="nav-link {% if grand_total %}text-primary{% else %}text-black{% endif %}"><i class="fas fa-shopping-bag fa-lg"></i>
+                            <a href="{% url 'view_bag' %}"
+                                class="nav-link {% if grand_total %}text-primary{% else %}text-black{% endif %}"><i
+                                    class="fas fa-shopping-bag fa-lg"></i>
                                 <p>
                                     {% if grand_total %}
                                     £{{ grand_total|floatformat:2 }}
@@ -206,31 +208,31 @@
 
     <!-- Messages (From CI Boutique Ado walkthrough) -->
     {% if messages %}
-        {% for message in messages %}
-            {% with message.level as level %}
-                {% if level == 40 %}
-                    {% include 'includes/toasts/toast-error.html' %}
-                {% elif level == 30 %}
-                    {% include 'includes/toasts/toast-warning.html' %}
-                {% elif level == 25 %}
-                    {% include 'includes/toasts/toast-success.html' %}
-                {% else %}
-                    {% include 'includes/toasts/toast-info.html' %}
-                {% endif %}
-            {% endwith %}
-        {% endfor %}
+    {% for message in messages %}
+    {% with message.level as level %}
+    {% if level == 40 %}
+    {% include 'includes/toasts/toast-error.html' %}
+    {% elif level == 30 %}
+    {% include 'includes/toasts/toast-warning.html' %}
+    {% elif level == 25 %}
+    {% include 'includes/toasts/toast-success.html' %}
+    {% else %}
+    {% include 'includes/toasts/toast-info.html' %}
+    {% endif %}
+    {% endwith %}
+    {% endfor %}
     {% endif %}
 
-<!-- Messages/Toast js -->
-{% block postloadjs %}
-<script>
-    const toastElList = $('.toast');
-    for (let toastEl of toastElList) {
-        const toast = new bootstrap.Toast(toastEl);
-        toast.show();
-    }
-</script>
-{% endblock %}
+    <!-- Messages/Toast js -->
+    {% block postloadjs %}
+    <script>
+        const toastElList = $('.toast');
+        for (let toastEl of toastElList) {
+            const toast = new bootstrap.Toast(toastEl);
+            toast.show();
+        }
+    </script>
+    {% endblock %}
 
 </body>
 

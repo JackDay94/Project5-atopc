@@ -149,7 +149,6 @@ class EditComment(UserPassesTestMixin, SuccessMessageMixin, UpdateView):
     ]
 
     template_name = 'blog/edit_comment.html'
-    success_url = reverse_lazy('blog')
     success_message = 'Updated Comment successfully!'
 
     def get_context_data(self, **kwargs):
@@ -167,6 +166,9 @@ class EditComment(UserPassesTestMixin, SuccessMessageMixin, UpdateView):
     def test_func(self):
         author = self.get_object().author
         return self.request.user.is_superuser or self.request.user == author
+
+    def get_success_url(self):
+        return reverse_lazy('post_detail', args=[self.object.post.slug])
 
 
 class DeleteComment(UserPassesTestMixin, DeleteView):
