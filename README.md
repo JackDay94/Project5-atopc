@@ -12,6 +12,12 @@ A to PC is an online E-commerce store that is focused on selling PC monitors, st
     - [Target Audience](#target-audience)
     - [User Stories](#user-stories)
     - [Unfinished User Stories](#unfinished-user-stories)
+    - [Scope](#scope)
+2. [Design](#design)
+    - [Colours](#colours)
+    - [Font Style](#font-style)
+    - [Wireframes](#wireframes)
+    - [Database Schema](#database-schema)
 
 ## User Experience
 
@@ -96,3 +102,110 @@ For this project I employed an Agile approach through the use of github projects
 Unfortunately, due to time constraints, I was unable to complete 3 of my user stories. However, these are not required for the site to function as needed and were considered a lower priority.
 
 ![User Stories](assets/readme-images/user-stories.PNG)
+
+### Scope
+With the target audience and business goals in mind, I set out to create a site that will function to meet their needs. To do this I chose to include the following features:
+
+- Product page with a list of products on sale that can be sorted and filtered.
+- Product detail page with a detail view of a chosen product showing product information, price etc.
+- Responsive navbar with links to other pages in the store.
+- Account creation and ability to login/logout for users.
+- Profile page with default delivery/billing info and order history for users.
+- Ability to add products to a bag and proceed to checkout to purchase items.
+- Users can leave product reviews and ratings.
+- Users can sign up to a newsletter mailing list.
+- Home page to entice users to browse the rest of the store.
+
+## Design
+
+### Colours
+To help users navigate the site better I wanted to ensure that the colour scheme was pleasant and not distracting from the main site content. I chose to use a mix of light and dark colours for the site, with the main content body having a white background and the top info banner and footer using darker backgrounds to seperate the content. The site uses mostly primary colours with the buttons and links, such as submit buttons for forms using a green colour to signify they are for submitting. I tried to keep a consistent colour scheme throughout the pages of the site to help provide a sense of fluidity when exploring the site.
+
+### Font Style
+I wanted to use a simple and easily readable font for the site, since the main purpose of the site is to provide products for a user to purchase. For this I chose the 'Lato' font style from Google Fonts as it is easy to read and clear on different screen sizes. I used a bold font weight for headings and some sub-headings to distinguish them from the rest of the content on the page.
+
+### Wireframes
+I used Balsamiq wireframes to create a set of basic wireframes for this project. I used the layouts from the wireframes as reference when creating the pages for the site and then adjusted content on the pages to make them fit better. For this reason, the wireframes do not 100% portray the end product.
+
+<details>
+<summary>Desktop</summary>
+Home
+
+![Desktop Wireframe home](assets/readme-images/desktop-home-wf.PNG)
+
+All Products
+
+![Desktop Wireframe all products](assets/readme-images/desktop-all-products-wf.PNG)
+
+Product detail
+
+![Desktop Wireframe product detail](assets/readme-images/desktop-product-wf.PNG)
+
+Add Product
+
+![Desktop Wireframe add product](assets/readme-images/desktop-add-product-wf.PNG)
+
+Edit Product
+
+![Desktop Wireframe edit product](assets/readme-images/desktop-edit-product-wf.PNG)
+
+Register and Login
+
+![Desktop Wireframe register and login](assets/readme-images/desktop-register-login-wf.PNG)
+
+Bag
+
+![Desktop Wireframe bag](assets/readme-images/desktop-bag-wf.PNG)
+
+Checkout
+
+![Desktop Wireframe checkout](assets/readme-images/desktop-checkout-wf.PNG)
+
+Profile
+
+![Desktop Wireframe profile](assets/readme-images/desktop-profile-wf.PNG)
+
+</details>
+
+<details>
+<summary>Mobile</summary>
+
+Home
+
+![Mobile Wireframe home](assets/readme-images/mobile-home-wf.PNG)
+
+All Products
+
+![Mobile Wireframe all products](assets/readme-images/mobile-all-products-wf.PNG)
+
+Product detail
+
+![Mobile Wireframe product detail](assets/readme-images/mobile-product-wf.PNG)
+
+Add Product
+
+![Mobile Wireframe add product](assets/readme-images/mobile-add-product-wf.PNG)
+
+Edit Product
+
+![Mobile Wireframe edit product](assets/readme-images/mobile-edit-product-wf.PNG)
+
+Register and Login
+
+![Mobile Wireframe register and login](assets/readme-images/mobile-register-login-wf.PNG)
+
+Bag
+
+![Mobile Wireframe bag](assets/readme-images/mobile-bag-wf.PNG)
+
+Checkout
+
+![Mobile Wireframe checkout](assets/readme-images/mobile-checkout-wf.PNG)
+
+Profile
+
+![Mobile Wireframe profile](assets/readme-images/mobile-profile-wf.PNG)
+
+</details>
+
+### Database Schema
