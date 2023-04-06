@@ -18,6 +18,40 @@ A to PC is an online E-commerce store that is focused on selling PC monitors, st
     - [Font Style](#font-style)
     - [Wireframes](#wireframes)
     - [Database Schema](#database-schema)
+3. [Marketing](#marketing)
+    - [Business Model](#business-model)
+    - [Search Engine Optimization (SEO)](#search-engine-optimization-seo)
+    - [Facebook Mockup](#facebook-mockup)
+    - [Newsletter](#newsletter)
+4. [Features](#features)
+    - [Navbar](#navbar)
+    - [Promotion banner](#promotion-banner)
+    - [Footer](#footer)
+    - [Home](#home)
+    - [About us](#about-us)
+    - [Privacy Policy](#privacy-policy)
+    - [All Products](#all-products)
+    - [Product Detail](#product-detail)
+    - [Add Product](#add-product)
+    - [Edit Product](#edit-product)
+    - [Delete Product](#delete-product)
+    - [Edit Review](#edit-review)
+    - [Delete Review](#delete-review)
+    - [Shopping Bag](#shopping-bag)
+    - [Checkout](#checkout)
+    - [Wishlist](#wishlist)
+    - [Profile](#profile)
+    - [Blog](#blog)
+    - [Blog Post](#blog-post)
+    - [Add Blog Post](#add-blog-post)
+    - [Edit Blog Post](#edit-blog-post)
+    - [Delete Blog Post](#delete-blog-post)
+    - [Edit Comment](#edit-comment)
+    - [Delete Comment](#delete-comment)
+    - [Newsletter Page](#newsletter-page)
+    - [Sign Up, Sign In and Sign Out](#sign-up-sign-in-and-sign-out)
+    - [Error Pages](#error-pages)
+5. [Future Features](#future-features)
 
 ## User Experience
 
@@ -209,3 +243,319 @@ Profile
 </details>
 
 ### Database Schema
+I used LucidChart to draw an entity relationship diagram to show how the models of my project relate to each other as seen below.
+
+![ER Diagram](assets/readme-images/er-diagram.PNG)
+
+## Marketing
+
+### Business Model
+A to PC is designed a Business-to-Customer (B2C) application that sells products, and I therefore wanted to give the site a design and feature set that appealed to customers wanting to make online purchases. This included features such as:
+
+- Simple and easy payment system
+- Clear product descriptions and images
+- Ability to search for products and filter results
+- Ability to add products to a bag and view them
+- Review and rating system to find products with high ratings
+- Authentication system for users to create accounts
+- Wishlist functionality for products
+
+### Search Engine Optimization (SEO)
+To help A to PC appear higher in searches I conducted some research into SEO to improve its search ranking. In order to do so I thought about what keywords my target audience would search for when looking to purchase products. Once I had an idea of some keywords, I began searching them in Google to see if the results showed similar e-commerce websites and took note of keywords which gave higher quality results. I also used [wordtracker.com](https://www.wordtracker.com/) to look at search traffic for keywords and find alternate keywords. Once I had a mixture of short-tail and long-tail keywords I then included them in my meta keywords tag in base.html.
+
+<details>
+<summary>Keywords</summary>
+
+- PC parts
+- Computer parts
+- PC peripherals
+- PC monitors
+- Keyboards
+- Computer mouse
+- PC storage
+- PC peripheral deals
+- PC storage deals
+- Cheap computer monitors
+- Buy PC peripherals online
+- Buy computer monitors online
+
+</details>
+
+To provide further SEO, I also included a meta description tag with a short description of the site that uses some of the keywords from above to help draw users to the site and provide better search results. Unique page titles were also used for each page of the site, with product pages using the product name as the page title. This was intended to help search engines rank the site higher for when users search for specific products.
+
+![Description](assets/readme-images/description.PNG)
+
+I also included a sitemap.xml and a robots.txt file for search engines to crawl essential pages on the website and speed up content discovery and to prevent them from going to areas of the site that are disallowed.
+
+### Facebook Mockup
+To help boost the online presence of the store and potentially attract new customers, I created a mockup Facebook page for the store using the CI Facebook template. Other social media applications such as Twitter, Instagram and Youtube were also considered to help market the site and increase its influence on social media, but these were not included yet.
+
+![Facebook Mockup](assets/readme-images/facebook-mockup.PNG)
+
+### Newsletter
+I included a newsletter signup for users to register their name and email address to receive updates and offers from the site to increase their chances of returning. When a user enters their email and name into the newsletter signup form and submits, their email is then added to mailing list database, ready to receive emails from the site. Currently no emails are sent from the site, but this could be changed in the future.
+
+![Email Signup](assets/readme-images/email-signup.PNG)
+![Newsletter Signup](assets/readme-images/newsletter-signups.PNG)
+
+## Features
+
+### Navbar
+- The navbar is fixed to the top of the screen and allows users to easily reach other pages of the site using the dropdown options, or search the site with the search bar.
+
+![Navbar full](assets/readme-images/navbar-full.PNG)
+
+- The Account dropdown changes depending on whether the user is signed in or is a superuser.
+
+![Account signout](assets/readme-images/account-signout.PNG)
+![Account user](assets/readme-images/account-user.PNG)
+![Account superuser](assets/readme-images/account-superuser.PNG)
+
+- The navbar is fully responsive and collapses to a menu on smaller screens.
+
+![Navbar small](assets/readme-images/navbar-small.PNG)
+![Navbar collapse](assets/readme-images/navbar-collapse.PNG)
+
+### Promotion banner
+- Directly below the navbar is a promotion banner advertising the site and enticing users to stay and explore. This is also fixed to the top and present on all pages.
+
+![Promotion banner](assets/readme-images/promotion-banner.PNG)
+
+### Footer
+- The Footer is split into 3 sections: social media links, site information links, newsletter signup. If a user is signed in the 'My Profile' link becomes visible, and if a superuser is signed in the 'Admin' link becomes visible. The footer is visible on all pages.
+
+![Footer](assets/readme-images/footer.PNG)
+
+### Home
+- The first thing users see when they enter the home page of the site is a large splash image advertising the deals on sale with a link to products filtered by deals. This was done to make users click into the site and start exploring the products on sale.
+
+![Home splash](assets/readme-images/home-splash.PNG)
+
+- Below the splash image is a list of products filtered and ordered by different criteria. There is the 4 newest products to the site, top 4 rated peripherals, top 4 rated monitors and the top 4 rated storage. This was done to give users quick access to products based on ratings and advertise the newest products in store.
+
+![Home products](assets/readme-images/home-products.PNG)
+
+- At the bottom of the home page is a preview of the 4 latest blog posts from the site blog, with a button taking users to the rest of the blog.
+
+![Blog preview](assets/readme-images/blog-preview.PNG)
+
+### About Us
+- The about us page gives a brief overview of the site goals and what it is all about.
+
+![About](assets/readme-images/about-us.PNG)
+
+### Privacy Policy
+- The privacy policy for the site was generated using [privacypolicygenerator](https://www.privacypolicygenerator.info/). This details how the data of users who visit the site will be used.
+
+![Privacy policy](assets/readme-images/privacy-policy.PNG)
+
+### All Products
+- The all products page displays a list of all the products on sale. At the top of the page is a selection box for sorting products in different ways, such as name, rating, price and category. Each product shown in the list shows an image, name, price, rating, category and an 'add to bag' button which adds the product to the users bag when clicked. If a superuser is logged in, there are also edit and delete buttons just above the 'add to bag' button.
+
+![All products](assets/readme-images/all-products.PNG)
+
+- If there are no products available, the user is informed that no products were found.
+
+![No products](assets/readme-images/no-products.PNG)
+
+### Product Detail
+- The product detail page gives an overview of a product and allows users to add it to enter a quantity to purchase or add to their wishlist with the wishlist button.
+
+![Product detail](assets/readme-images/product-detail.PNG)
+
+- At the bottom of the product detail page are the reviews for the product. When a user is signed in they have the option to leave a review on the product, otherwise the reviews from all other users are shown.
+
+![Review product](assets/readme-images/review-product.PNG)
+
+### Add Product
+- The add product page allows superusers to add a new product to the store by filling out the form on the page.
+- This page can only be accessed by superusers and any other user trying to access it will be redirected with a 403 error.
+- When the form is submitted, the page is redirected to the new product page and a success message is displayed.
+
+![Add product](assets/readme-images/add-product.PNG)
+
+### Edit Product
+- This page displays the current products details in a form and allows a superuser to edit them.
+- When a superuser enters this page, a message is displayed informing them that they are editing the product.
+- This page can only be accessed by superusers and any other user trying to access it will be redirected with a 403 error.
+- When the form is submitted, the page is redirected to the product page and a success message is displayed.
+
+![Edit product](assets/readme-images/edit-product.PNG)
+
+### Delete Product
+- This page displays a confirmation message to delete an existing product.
+- Below the submission button is a preview of the product that is about to be deleted.
+- An alert message is displayed when entering this page, informing the superuser of the product they are about to delete.
+- This page can only be accessed by superusers and any other user trying to access it will be redirected with a 403 error.
+- When the delete button is clicked the product is deleted from the database and store. The user is then redirected to the home page with a success message displayed.
+
+![Delete product](assets/readme-images/delete-product.PNG)
+
+### Edit Review
+- Users can edit their review for a product from this page.
+- A user is given an alert message informing them of the product for which they are about to edit their review for.
+- Only the user who wrote the review or superusers can access this.
+- The user is redirected back to the product page and given a success message when they submit.
+
+![Edit review](assets/readme-images/edit-review.PNG)
+
+### Delete Review
+- This page asks the user if they really want to delete their review and gives them the option to delete or cancel.
+- Below the delete button is a preview of their review that they are about to delete.
+- The user is given an alert message when they enter this page, informing them that they are about to delete their review.
+- Only the user who wrote the review or superusers can access this.
+- The user is redirected back to the product page and given a success message when they submit.
+
+![Delete review](assets/readme-images/delete-review.PNG)
+
+### Shopping Bag
+- Items that the user adds to their bag are shown on this page.
+- Users can update the quantity of items or remove them from their bag.
+- The price of individual items is shown and the subtotal, delivery fees and grand total for all items is shown.
+- Users can choose to continue to checkout or return to the all products page using the relevant buttons.
+
+![Shopping bag](assets/readme-images/bag.PNG)
+
+- If no items are present the user is informed this and given an option to explore the products on sale.
+
+![Bag no items](assets/readme-images/bag-empty.PNG)
+
+- The bag icon in the top nav changes colour and shows the current total of items in the bag if anything is added.
+- A message with a bag preview is also displayed when the user adds an item to the bag.
+
+![Bag preview](assets/readme-images/bag-preview.PNG)
+
+### Checkout
+- The checkout page lets users enter their delivery and billing details in order to complete their purchase.
+- A summary of their order is presented to them so that they can confirm they are happy with their order.
+- If a user is signed in and has saved their default delivery info in their profile page, the relevant fields in the form will be pre-populated.
+- The card payment system is powered by Stripe.
+- If a user tries to access the checkout page without anything in their bag, they are redirected to the all products page and an error message is displayed.
+
+![Checkout](assets/readme-images/checkout.PNG)
+
+- When a user completes their order they are redirected to the checkout success page which gives them an overview of their order.
+- If a user is signed in, this order is saved to their order history.
+- An email is sent to the email address confirming the order has been made.
+
+![Checkout success](assets/readme-images/checkout-success.PNG)
+
+### Wishlist
+- The wishlist page shows users a list of items that they have added to their wishlist.
+- From this page, users can choose to go to the item product page, add the item to their bag or remove it from their wishlist.
+- Removing an item reloads the page and displays a success message.
+- If no items are in the users wishlist, they are informed that their wishlist is empty and a button to explore the store is displayed.
+
+![Wishlist](assets/readme-images/wishlist.PNG)
+
+### Profile
+- The user has their own profile page which is created when they complete account registration.
+- The profile page displays default delivery information and an order history for past orders.
+- The user can update their default delivery information using the form.
+- Clicking on a past order number will take the user to the previous order confirmation, and clicking the name of a product takes them to that products page.
+- Only signed in users can access the profile page.
+
+![Profile](assets/readme-images/profile.PNG)
+
+### Blog
+- The blog page displays a list of blog posts from the site.
+- Blog posts are sorted by the date they were created, with the newest post being the first on the page.
+- Users can select to view blog posts and superusers are given the option to edit or delete them, or add a new post.
+- The blog post list is paginated by 8 posts.
+
+![Blog](assets/readme-images/blog-list.PNG)
+
+### Blog Post
+- Users can view the details of a blog post from this page.
+- Superusers have the option to edit or delete the blog post using the relevant buttons.
+
+![Blog post](assets/readme-images/blog-post.PNG)
+
+- Below the post content is a comment section for signed in users to post comments on the blog post.
+- If the user is signed in a comment form will be displayed above the existing comments, otherwise only the comments will be displayed.
+
+![Blog comment](assets/readme-images/blog-comment.PNG)
+
+### Add Blog post
+- Superusers can add new blog posts by filling out and submitting the form on this page.
+- This page can only be accessed by superusers and any other user trying to access it will be redirected with a 403 error.
+- When the form is submitted, the user is redirected to the new blog page and a success message is displayed.
+
+![Add blog post](assets/readme-images/add-blog-post.PNG)
+
+### Edit Blog post
+- This page displays the current blog post details in a form and allows a superuser to edit them.
+- When a superuser enters this page, a message is displayed informing them that they are editing the blog post.
+- This page can only be accessed by superusers and any other user trying to access it will be redirected with a 403 error.
+- When the form is submitted, the user is redirected to the blog post page and a success message is displayed.
+
+![Edit blog post](assets/readme-images/edit-blog-post.PNG)
+
+### Delete Blog post
+- This page displays a confirmation to delete an existing blog post.
+- Below the submission button is a preview of the blog post that is about to be deleted.
+- An alert message is displayed when entering this page, informing the superuser of the blog post they are about to delete.
+- This page can only be accessed by superusers and any other user trying to access it will be redirected with a 403 error.
+- When the delete button is clicked the blog post is deleted from the database and blog. The user is then redirected to the blog list with a success message displayed.
+
+![Delete blog post](assets/readme-images/delete-blog-post.PNG)
+
+### Edit Comment
+- Users can edit their comment for a blog post from this page.
+- A user is given an alert message informing them of the blog post for which they are about to edit their comment for.
+- Only the user who wrote the comment or superusers can access this. Other users are redirected with a 403 error.
+- The user is redirected back to the blog post and given a success message when they submit.
+
+![Edit comment](assets/readme-images/edit-comment.PNG)
+
+### Delete Comment
+- This page asks the user if they really want to delete their comment and gives them the option to delete or cancel.
+- Below the delete button is a preview of their comment that they are about to delete.
+- The user is given an alert message when they enter this page, informing them that they are about to delete their comment.
+- Only the user who wrote the comment or superusers can access this. Other users are redirected with a 403 error.
+- The user is redirected back to the blog post and given a success message when they submit.
+
+![Delete comment](assets/readme-images/delete-comment.PNG)
+
+### Newsletter Page
+- The newsletter page is a simple sign up form that allows users to enter their name and email to signup to the site mailing list.
+- When a user submits the form they are given a success message telling them they were successfully added to the mailing list.
+- If their email is already on the mailing list, an error message is displayed and they are notified that the email already exists.
+
+![Newsletter](assets/readme-images/newsletter.PNG)
+
+![Newsletter fail](assets/readme-images/newsletter-fail.PNG)
+
+### Sign Up, Sign In and Sign Out
+- The sign up page allows new users to register their details to create an account for the site.
+- To confirm their account, users must verify their email address used to sign up.
+
+![Sign up](assets/readme-images/sign-up.PNG)
+
+- The sign in page allows existing users to enter their account details to sign in.
+- If a user has forgotten their password they can click the 'Forgot password?' link to reset their password. 
+
+![Sign In](assets/readme-images/sign-in.PNG)
+
+- The sign out page allows a signed in user to logout of their account.
+
+![Sign out](assets/readme-images/sign-out.PNG)
+
+### Error Pages
+- The site uses custom error pages for 400, 403, 404 and 500 errors, which match the design of the site and allow users to return to the home page.
+
+![403](assets/readme-images/403-error.PNG)
+
+![404](assets/readme-images/404-error.PNG)
+
+## Future Features
+There are some features that I did not get the time to include in this project that I feel would make great future features to help improve the site. 
+
+- Add a discount and coupon system to the checkout to allow discount codes to be applied to products.
+- Add pagination to the all products page to make browsing easier.
+- Allow users to register and sign in using their social media accounts.
+- Expand the social media presence of the site to other platforms such as Instagram, Twitter and Youtube.
+- Adding product stock to track the stock of different items and prevent users from buying out of stock items.
+- Add additional methods of payment such as Paypal to give users different options of payment at checkout.
+- Expand the newsletter system to send out newsletters to those on the mailing list.
+- Create advertisements to advertise the site on different web pages and expand its reach.

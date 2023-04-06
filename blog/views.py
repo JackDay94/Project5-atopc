@@ -175,7 +175,6 @@ class DeleteComment(UserPassesTestMixin, DeleteView):
     """Allows a user to delete their comment"""
     model = BlogComment
     template_name = 'blog/delete_comment.html'
-    success_url = reverse_lazy('blog')
     success_message = 'Review deleted succesfully!'
 
     def get_context_data(self, **kwargs):
@@ -196,3 +195,6 @@ class DeleteComment(UserPassesTestMixin, DeleteView):
     def test_func(self):
         author = self.get_object().author
         return self.request.user.is_superuser or self.request.user == author
+
+    def get_success_url(self):
+        return reverse_lazy('post_detail', args=[self.object.post.slug])
