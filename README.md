@@ -591,3 +591,145 @@ There are some features that I did not get the time to include in this project t
     - [Image Resizer](https://imageresizer.com/) - Used for image resizing and compression.
     - [Firefox Dev Tools](https://firefox-source-docs.mozilla.org/devtools-user/) - Used for testing different screen sizes to find issues in responsiveness and spacing.
     - [Stripe](https://stripe.com/gb) - Used to manage the payment system at checkout and listening for webhooks.
+
+## Testing
+
+### Validator Testing
+I used the following validators to test my site:
+<details>
+<summary>W3C HTML Validator</summary>
+Home page
+
+![Home w3c](assets/readme-images/index-w3c.PNG)
+
+About us
+
+![About w3c](assets/readme-images/about-w3c.PNG)
+
+Privacy Policy
+
+![Policy w3c](assets/readme-images/privacy-policy-w3c.PNG)
+
+Sign In
+
+![Login w3c](assets/readme-images/login-w3c.PNG)
+
+Sign out
+
+![Logout w3c](assets/readme-images/sign-out-w3c.PNG)
+
+Register
+
+![Register w3c](assets/readme-images/register-w3c.PNG)
+
+Password Change
+
+![Password change w3c](assets/readme-images/password-change-w3c.PNG)
+
+Password Reset
+
+![Password reset w3c](assets/readme-images/password-reset-w3c.PNG)
+
+Newsletter
+
+![Newsletter w3c](assets/readme-images/newsletter-w3c.PNG)
+
+All Products
+
+![All products w3c](assets/readme-images/products-w3c.PNG)
+
+Product Detail
+
+![Product detail w3c](assets/readme-images/product-detail-w3c.PNG)
+
+Add Product (Errors ignored due to being caused by elements required by summernote editor)
+
+![Add product w3c](assets/readme-images/add-product-w3c.PNG)
+
+Edit Product (Errors ignored due to being caused by elements required by summernote editor)
+
+![Edit product w3c](assets/readme-images/edit-product-w3c.PNG)
+
+Delete Product
+
+![Delete product w3c](assets/readme-images/delete-product-w3c.PNG)
+
+Edit Review
+
+![Edit Review w3c](assets/readme-images/edit-review-w3c.PNG)
+
+Delete Review
+
+![Delete review w3c](assets/readme-images/delete-review-w3c.PNG)
+
+Bag
+
+![Bag w3c](assets/readme-images/bag-w3c.PNG)
+
+Checkout
+
+![Checkout w3c](assets/readme-images/checkout-w3c.PNG)
+
+Checkout Success
+
+![Checkout success w3c](assets/readme-images/checkout-success-w3c.PNG)
+
+Profile
+
+![Profile w3c](assets/readme-images/profile-w3c.PNG)
+
+Blog
+
+![Blog w3c](assets/readme-images/blog-w3c.PNG)
+
+Blog Post
+
+![Blog post w3c](assets/readme-images/blog-post-w3c.PNG)
+
+Add Post
+
+![Add post w3c](assets/readme-images/add-post-w3c.PNG)
+
+Edit Post
+
+![Edit post w3c](assets/readme-images/edit-post-w3c.PNG)
+
+Delete Post
+
+![Delete post w3c](assets/readme-images/delete-post-w3c.PNG)
+
+Edit Comment
+
+![Edit comment w3c](assets/readme-images/edit-comment-w3c.PNG)
+
+Delete Comment
+
+![Delete comment w3c](assets/readme-images/delete-comment-w3c.PNG)
+
+</details>
+
+<details>
+<summary>W3C CSS Validator</summary>
+base.css
+
+![Base.css test](assets/readme-images/base-css-validation.PNG)
+
+home.css
+
+![Home.css test](assets/readme-images/home-css-validation.PNG)
+
+products.css
+
+![Products.css test](assets/readme-images/products-css-validation.PNG)
+
+checkout.css
+
+![Checkout.css test](assets/readme-images/checkout-css-validation.PNG)
+
+</details>
+
+<details>
+<summary>CI Python linter</summary>
+Bag app
+
+</details>
