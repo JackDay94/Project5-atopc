@@ -52,6 +52,7 @@ A to PC is an online E-commerce store that is focused on selling PC monitors, st
     - [Sign Up, Sign In and Sign Out](#sign-up-sign-in-and-sign-out)
     - [Error Pages](#error-pages)
 5. [Future Features](#future-features)
+6. [Technologies](#technologies)
 
 ## User Experience
 
@@ -559,3 +560,34 @@ There are some features that I did not get the time to include in this project t
 - Add additional methods of payment such as Paypal to give users different options of payment at checkout.
 - Expand the newsletter system to send out newsletters to those on the mailing list.
 - Create advertisements to advertise the site on different web pages and expand its reach.
+
+## Technologies
+- Languages
+    - [HTML5](https://en.wikipedia.org/wiki/HTML5)
+    - [CSS3](https://en.wikipedia.org/wiki/CSS)
+    - [Python 3.8.11](https://www.python.org/downloads/)
+    - [JavaScript](https://www.javascript.com/)
+- Databases
+    - [ElephantSQL](https://www.elephantsql.com/) - To host the database for the deployed site.
+- Frameworks and Libraries
+    - [Bootstrap5](https://getbootstrap.com/) - Used for its mobile first approach to design.
+    - [Django 3.2](https://www.djangoproject.com/) - Core framework for the project and its apps.
+    - [Django allauth 0.41.0](https://django-allauth.readthedocs.io/en/latest/index.html) - Used for user authentication.
+    - [Django-crispy-forms 2.0](https://django-crispy-forms.readthedocs.io/en/latest/) - Used to make forms use Bootstrap styling.
+    - [Crispy-bootstrap5](https://pypi.org/project/crispy-bootstrap5/) - Extension to crispy forms to work with Bootstrap5.
+- Storage
+    - [Amazon Web Services (AWS)](https://aws.amazon.com/) - Used to store and serve the media files for the project.
+- Other
+    - [Summernote](https://summernote.org/) - WYSIWYG text editor used in product and blog forms.
+    - [Gitpod](https://www.gitpod.io/) - Used as the editing environment.
+    - [Github](https://github.com/) - Used for version control of the project.
+    - [Google Fonts](https://fonts.google.com/) - Used for the font style of the site.
+    - [Font Awesome](https://fontawesome.com/) - Used for various icons through the site.
+    - [Heroku](https://www.heroku.com/) - Used for deployment of the site.
+    - [Balsamiq Wireframes](https://balsamiq.com/wireframes/) - Used to create the wireframes and Facebook mockup for the project.
+    - [LucidChart](https://www.lucidchart.com/pages/) - Used to create the database ER Diagram.
+    - [Real favicon generator](https://realfavicongenerator.net/) - Used to generate the favicon for the site.
+    - [Gunicorn 20.1.0](https://gunicorn.org/)
+    - [Image Resizer](https://imageresizer.com/) - Used for image resizing and compression.
+    - [Firefox Dev Tools](https://firefox-source-docs.mozilla.org/devtools-user/) - Used for testing different screen sizes to find issues in responsiveness and spacing.
+    - [Stripe](https://stripe.com/gb) - Used to manage the payment system at checkout and listening for webhooks.
