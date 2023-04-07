@@ -13,4 +13,4 @@ class ProfileAdmin(admin.ModelAdmin):
     list_display = (
         'user',
         )
-    search_fields = ['user__username',]
+    search_fields = ['user__username', ]
