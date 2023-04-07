@@ -53,6 +53,12 @@ A to PC is an online E-commerce store that is focused on selling PC monitors, st
     - [Error Pages](#error-pages)
 5. [Future Features](#future-features)
 6. [Technologies](#technologies)
+7. [Testing]
+    - [Validator Testing](#validator-testing)
+    - [Lighthouse Testing](#lighthouse-testing)
+    - [Responsiveness Testing](#responsiveness-testing)
+    - [Automated Testing](#automated-testing)
+    - [Manual Testing](#manual-testing)
 
 ## User Experience
 
@@ -861,3 +867,64 @@ Wishlist app
 ![Wishlist views test](assets/readme-images/wishlist-views-test.PNG)
 
 </details>
+
+<details>
+<summary>JSHint</summary>
+Toast script
+
+![Toast test](assets/readme-images/toast-test.PNG)
+
+Back to top button script
+
+![Btt test](assets/readme-images/btt-test.PNG)
+
+Countryfield script
+
+![Countryfield test](assets/readme-images/countryfield-test.PNG)
+
+New Image script
+
+![New image test](assets/readme-images/new-image-test.PNG)
+
+Quantity Input script
+
+![Quantity input test](assets/readme-images/quantity-input-test.PNG)
+
+Quantity Update script
+
+![Quantity update test](assets/readme-images/quantity-update-test.PNG)
+
+Sorting script
+
+![Sorting test](assets/readme-images/sorting-test.PNG)
+
+Stripe element script
+
+![Stripe element test](assets/readme-images/stripe-element-test.PNG)
+
+</details>
+
+### Lighthouse Testing
+<details>
+<summary>Desktop</summary>
+
+![Desktop lighthouse test](assets/readme-images/lighthouse-desktop.PNG)
+
+</details>
+
+<details>
+<summary>Mobile</summary>
+
+![Mobile lighthouse test](assets/readme-images/lighthouse-mobile.PNG)
+
+- The low performance score on Mobile is mostly due to unused bootstrap and stripe JS and due to images not being served at different sizes for smaller screens. If I had the time to serve different image sizes for different screen sizes, I would do so, but due to the time limit on this project and the large quantity of images, I opted not to.
+
+</details>
+
+### Responsiveness Testing
+To test the responsiveness of my site throughout development, I used Mozilla Dev tools to resize and test pages at different screen sizes. The smallest screen size I tested the site at was 320x480px. I also tested the site on my personal phone, which is a Samsung Galaxy S20 Ultra 5G, to ensure everything worked the same. I tested the site using different browsers (Chrome, Firefox, Edge) to check for any errors between the different browsers.
+
+### Automated Testing
+I incorporated some automated tests using django's built in unit tests to test some of the apps on my site. The apps that I wrote tests for are: bag, blog, checkout, home and newsletter. These tests were first written to ensure that they fail and were then written to pass so that I could ensure the tests were operating as expected. Unfortunately I did not get the time to write tests for all aspects, and those that are missing are instead covered by manual tests.
+
+### Manual Testing
