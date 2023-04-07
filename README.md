@@ -678,6 +678,10 @@ Profile
 
 ![Profile w3c](assets/readme-images/profile-w3c.PNG)
 
+Wishlist
+
+![Wishlist w3c](assets/readme-images/wishlist-w3c.PNG)
+
 Blog
 
 ![Blog w3c](assets/readme-images/blog-w3c.PNG)
@@ -686,11 +690,11 @@ Blog Post
 
 ![Blog post w3c](assets/readme-images/blog-post-w3c.PNG)
 
-Add Post
+Add Post (Errors ignored due to being caused by elements required by summernote editor)
 
 ![Add post w3c](assets/readme-images/add-post-w3c.PNG)
 
-Edit Post
+Edit Post (Errors ignored due to being caused by elements required by summernote editor)
 
 ![Edit post w3c](assets/readme-images/edit-post-w3c.PNG)
 
@@ -730,6 +734,130 @@ checkout.css
 
 <details>
 <summary>CI Python linter</summary>
+Main project
+
+![Main urls](assets/readme-images/urls-test.PNG)
+
+![Main views](assets/readme-images/views-test.PNG)
+
 Bag app
+
+![Bag contexts test](assets/readme-images/bag-contexts-test.PNG)
+
+![Bag urls test](assets/readme-images/bag-urls-test.PNG)
+
+![Bag views test](assets/readme-images/bag-views-test.PNG)
+
+![Bag tools test](assets/readme-images/bag-tools-test.PNG)
+
+![Bag test urls test](assets/readme-images/bag-test-urls-test.PNG)
+
+![Bag test views test](assets/readme-images/bag-test-views-test.PNG)
+
+Blog app
+
+![Blog admin test](assets/readme-images/blog-admin-test.PNG)
+
+![Blog forms test](assets/readme-images/blog-forms-test.PNG)
+
+![Blog models test](assets/readme-images/blog-models-test.PNG)
+
+![Blog urls test](assets/readme-images/blog-urls-test.PNG)
+
+![Blog views test](assets/readme-images/blog-views-test.PNG)
+
+![Blog widgets test](assets/readme-images/blog-widgets-test.PNG)
+
+![Blog test urls test](assets/readme-images/blog-test-urls-test.PNG)
+
+![Blog test forms test](assets/readme-images/blog-test-forms-test.PNG)
+
+![Blog test views test](assets/readme-images/blog-test-views-test.PNG)
+
+Checkout app
+
+![Checkout admin test](assets/readme-images/checkout-admin-test.PNG)
+
+![Checkout forms test](assets/readme-images/checkout-forms-test.PNG)
+
+![Checkout models test](assets/readme-images/checkout-models-test.PNG)
+
+![Checkout signals test](assets/readme-images/checkout-signals-test.PNG)
+
+![Checkout urls test](assets/readme-images/checkout-urls-test.PNG)
+
+![Checkout views test](assets/readme-images/checkout-views-test.PNG)
+
+![Checkout webhook handler test](assets/readme-images/checkout-webhook-handler-test.PNG)
+
+![Checkout webhooks test](assets/readme-images/checkout-webhooks-test.PNG)
+
+![Checkout test forms test](assets/readme-images/checkout-test-forms-test.PNG)
+
+![Checkout test urls test](assets/readme-images/checkout-test-urls-test.PNG)
+
+Home app
+
+![Home urls test](assets/readme-images/home-urls-test.PNG)
+
+![Home views test](assets/readme-images/home-views-test.PNG)
+
+![Home test urls test](assets/readme-images/home-test-urls-test.PNG)
+
+![Home test views test](assets/readme-images/home-test-views-test.PNG)
+
+Newsletter app
+
+![Newsletter admin test](assets/readme-images/newsletter-admin-test.PNG)
+
+![Newsletter forms test](assets/readme-images/newsletter-forms-test.PNG)
+
+![Newsletter models test](assets/readme-images/newsletter-forms-test.PNG)
+
+![Newsletter urls test](assets/readme-images/newsletter-urls-test.PNG)
+
+![Newsletter views test](assets/readme-images/newsletter-views-test.PNG)
+
+![Newsletter test forms test](assets/readme-images/newsletter-test-forms-test.PNG)
+
+![Newsletter test urls test](assets/readme-images/newsletter-test-urls-test.PNG)
+
+![Newsletter test views test](assets/readme-images/newsletter-test-views-test.PNG)
+
+Products app
+
+![Products admin test](assets/readme-images/products-admin-test.PNG)
+
+![Products forms test](assets/readme-images/products-forms-test.PNG)
+
+![Products models test](assets/readme-images/products-models-test.PNG)
+
+![Products signals test](assets/readme-images/products-signals-test.PNG)
+
+![Products urls test](assets/readme-images/products-urls-test.PNG)
+
+![Products views test](assets/readme-images/products-views-test.PNG)
+
+![Products widgets test](assets/readme-images/products-widgets-test.PNG)
+
+Profile app
+
+![Profile admin test](assets/readme-images/profile-admin-test.PNG)
+
+![Profile forms test](assets/readme-images/profile-forms-test.PNG)
+
+![Profile models test](assets/readme-images/profile-models-test.PNG)
+
+![Profile signals test](assets/readme-images/profile-signals-test.PNG)
+
+![Profile urls test](assets/readme-images/profile-urls-test.PNG)
+
+![Profile views test](assets/readme-images/profile-views-test.PNG)
+
+Wishlist app
+
+![Wishlist urls test](assets/readme-images/wishlist-urls-test.PNG)
+
+![Wishlist views test](assets/readme-images/wishlist-views-test.PNG)
 
 </details>
