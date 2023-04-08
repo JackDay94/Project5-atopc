@@ -82,8 +82,11 @@ class AddPost(UserPassesTestMixin, CreateView):
                 new_post.slug = slugify(new_post.title)
                 new_post.save()
                 messages.success(request, 'Blog post was added successfully!')
-                return redirect(reverse_lazy(
-                                'post_detail', args=[new_post.slug]))
+                if new_post.status == 1:
+                    return redirect(reverse_lazy(
+                                    'post_detail', args=[new_post.slug]))
+                else:
+                    return redirect("blog")
             else:
                 messages.error(request, 'Could not add the blog post!')
 
@@ -111,7 +114,10 @@ class EditPost(UserPassesTestMixin, SuccessMessageMixin, UpdateView):
         return self.request.user.is_superuser
 
     def get_success_url(self):
-        return reverse_lazy('post_detail', args=[self.object.slug])
+        if self.object.status == 1:
+            return reverse_lazy('post_detail', args=[self.object.slug])
+        else:
+            return reverse_lazy('blog')
 
 
 class DeletePost(UserPassesTestMixin, DeleteView):
