@@ -53,7 +53,7 @@ A to PC is an online E-commerce store that is focused on selling PC monitors, st
     - [Error Pages](#error-pages)
 5. [Future Features](#future-features)
 6. [Technologies](#technologies)
-7. [Testing]
+7. [Testing](#testing)
     - [Validator Testing](#validator-testing)
     - [Lighthouse Testing](#lighthouse-testing)
     - [Responsiveness Testing](#responsiveness-testing)
@@ -446,6 +446,14 @@ I included a newsletter signup for users to register their name and email addres
 - An email is sent to the email address confirming the order has been made.
 
 ![Checkout success](assets/readme-images/checkout-success.PNG)
+
+![Order email](assets/readme-images/email-test.PNG)
+
+- Webhooks for the order are also received by Stripe.
+
+![Stripe webhooks](assets/readme-images/stripe-webhooks.PNG)
+
+![Webhook check](assets/readme-images/webhook-check.PNG)
 
 ### Wishlist
 - The wishlist page shows users a list of items that they have added to their wishlist.
@@ -927,4 +935,5 @@ To test the responsiveness of my site throughout development, I used Mozilla Dev
 ### Automated Testing
 I incorporated some automated tests using django's built in unit tests to test some of the apps on my site. The apps that I wrote tests for are: bag, blog, checkout, home and newsletter. These tests were first written to ensure that they fail and were then written to pass so that I could ensure the tests were operating as expected. Unfortunately I did not get the time to write tests for all aspects, and those that are missing are instead covered by manual tests.
 
-### Manual Testing
+### Manual 
+As I developed the project I tested all features manually to ensure they functioned as intended. The manual tests for this project can be found in [TESTS.md].(TESTS.md)
