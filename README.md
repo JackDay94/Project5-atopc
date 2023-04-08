@@ -935,5 +935,5 @@ To test the responsiveness of my site throughout development, I used Mozilla Dev
 ### Automated Testing
 I incorporated some automated tests using django's built in unit tests to test some of the apps on my site. The apps that I wrote tests for are: bag, blog, checkout, home and newsletter. These tests were first written to ensure that they fail and were then written to pass so that I could ensure the tests were operating as expected. Unfortunately I did not get the time to write tests for all aspects, and those that are missing are instead covered by manual tests.
 
-### Manual 
-As I developed the project I tested all features manually to ensure they functioned as intended. The manual tests for this project can be found in [TESTS.md].(TESTS.md)
+### Manual Testing
+As I developed the project I tested all features manually to ensure they functioned as intended. The manual tests for this project can be found in [TESTS.md](TESTS.md).

@@ -313,3 +313,125 @@
 | Blog post preview superuser edit      | Click link      | Go to edit blog post page for relevant post                                          | Pass   |
 | Blog post preview superuser delete    | Click link      | Go to delete blog post page for relevant post                                        | Pass   |
 
+## Blog Post Page
+
+| Test                                  | Action                                | Expected result                                                                      | Result |
+|---------------------------------------|---------------------------------------|--------------------------------------------------------------------------------------|--------|
+| Blog Post Details                     | Visual check                          | Post image, title, subtitle, author, date_created, date_edited and content displayed | Pass   |
+| Blog Post Details Superuser           | Visual check                          | Edit and delete links displayed below post image                                     | Pass   |
+| Product Details superuser edit        | Click link                            | Go to edit post page for relevant post                                               | Pass   |
+| Product Details superuser delete      | Click link                            | Go to delete post page for relevant post                                             | Pass   |
+| Post Comments                         | Visual check                          | Comments for the post show author,created date, edited date and content              | Pass   |
+| Comment form                          | Visual check                          | Post comment form displayed to authenticated users                                   | Pass   |
+| Comment form                          | Submit comment form without content   | Form not submitted and message displayed asking to fill in relevant fields           | Pass   |
+| Comment form                          | Submit review form with content       | Form submitted and success message displayed, page reloaded, Comment model updated   | Pass   |
+| Comment buttons                       | Visual check                          | Edit and delete links only visible to comment author and superusers                  | Pass   |
+| Comment edit                          | Click link                            | Go to edit review page for relevant review                                           | Pass   |
+| Comment delete                        | Click link                            | Go to delete review page for relevant review                                         | Pass   |
+
+## Add Blog Post page
+
+| Test                                  | Action                                    | Expected result                                                                                                 | Result |
+|---------------------------------------|-------------------------------------------|-----------------------------------------------------------------------------------------------------------------|--------|
+| Add Blog post form                    | Visual check                              | Add blog post form displayed                                                                                    | Pass   |
+| Add Blog post form                    | Submit empty form                         | Form does not submit and message displayed asking to fill in required fields                                    | Pass   |
+| Add Blog post form                    | Submit invalid data                       | Form does not submit, error message displayed and redirected to blog post list                                  | Pass   |
+| Add Blog post form                    | Submit valid data status published        | Form submits, success message displayed and redirected to the blog post. Blog post model updated                | Pass   |
+| Add Blog post form                    | Submit valid data status draft            | Form submits, success message displayed and redirected to the blog list. Blog post model updated                | Pass   |
+| Add Blog post form                    | Submit with no image                      | Form submits and image is set to placeholder image                                                              | Pass   |
+| Add Blog post form                    | Click select image                        | User is asked to select an image file to upload an image                                                        | Pass   |
+| Cancel                                | Click button                              | User is redirected to the Blog list page                                                                        | Pass   |
+
+## Edit Blog Post page
+
+| Test                                  | Action                                    | Expected result                                                                                                 | Result |
+|---------------------------------------|-------------------------------------------|-----------------------------------------------------------------------------------------------------------------|--------|
+| Alert Message                         | Visual check                              | Alert message is displayed to user on entering page informing them of the post they are editing                 | Pass   |
+| Edit Post form                        | Visual check                              | Edit post form displayed                                                                                        | Pass   |
+| Edit Post form                        | Post data loaded                          | Form is pre-populated with the data of the post                                                                 | Pass   |
+| Edit Post form                        | Submit empty form                         | Form does not submit and message displayed asking to fill in required fields                                    | Pass   |
+| Edit Post form                        | Submit invalid data                       | Form does not submit and message displayed to correct invalid fields                                            | Pass   |
+| Edit Post form                        | Submit valid data status published        | Form submits, success message displayed and redirected to the blog post. Blog post model updated                | Pass   |
+| Edit Post form                        | Submit valid data status draft            | Form submits, success message displayed and redirected to the blog list. Blog post model updated                | Pass   |
+| Edit Post form                        | Current image displayed                   | Form displays the current post image if it has one                                                              | Pass   |
+| Edit Post form                        | Click select image                        | User is asked to select an image file to upload an image                                                        | Pass   |
+| Edit Post form                        | Submit no Image                           | Product is given a placeholder image                                                                            | Pass   |
+| Cancel                                | Click button                              | User is redirected to the relevant product page                                                                 | Pass   |
+
+## Delete Blog Post Page
+
+| Test                                  | Action                  | Expected result                                                                                                 | Result |
+|---------------------------------------|-------------------------|-----------------------------------------------------------------------------------------------------------------|--------|
+| Alert Message                         | Visual check            | Alert message is displayed to user on entering page informing them of the post they are deleting                | Pass   |
+| Post Details                          | Visual check            | Post image, title, subtitle, date created, date edited, author and content displayed                            | Pass   |
+| Delete                                | Click button            | Post is deleted from the blog and blog posts model, user redirected to post list with success message           | Pass   |
+| Cancel                                | Click button            | User is redirected to the relevant blog post                                                                    | Pass   |
+
+## Edit Comment Page
+
+| Test                                  | Action                  | Expected result                                                                                                                                            | Result |
+|---------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|
+| Alert Message                         | Visual check            | Alert message is displayed to user on entering page informing them of the comment they are editing                                                         | Pass   |
+| Edit Comment form                     | Visual check            | Edit comment form displayed                                                                                                                                | Pass   |
+| Edit Comment form                     | Comment data loaded     | Form is pre-populated with the data of the comment                                                                                                         | Pass   |
+| Edit Comment form                     | Submit empty form       | Form does not submit and message displayed asking to fill in required fields                                                                               | Pass   |
+| Edit Comment form                     | Submit required fields  | Form submits and user redirected to post page with success message. Comment updated in Blog Comments model and 'edited on' value changed to current time   | Pass   |
+| Cancel                                | Click button            | User is redirected to the post list page                                                                                                                   | Pass   |
+
+## Delete Comment Page
+
+| Test                                  | Action                  | Expected result                                                                                                                                            | Result |
+|---------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|
+| Alert Message                         | Visual check            | Alert message is displayed to user on entering page informing them of the comment they are deleting                                                        | Pass   |
+| Comment details                       | Visual check            | Comment content for the related post is displayed                                                                                                          | Pass   |
+| Delete                                | Click button            | Comment is deleted from the post and Blog comments model, user redirected to post page with success message                                                | Pass   |
+| Cancel                                | Click button            | User is redirected to the post list page                                                                                                                   | Pass   |
+
+## Register Page
+
+| Test                                  | Action                  | Expected result                                                                                                 | Result |
+|---------------------------------------|-------------------------|-----------------------------------------------------------------------------------------------------------------|--------|
+| Register Form                         | Visual check            | Register form shows email, email confirmation, username, password, password confirmation                        | Pass   |
+| Register Form                         | Submit empty form       | Form does not submit and message displayed asking to fill in required fields                                    | Pass   |
+| Register Form                         | Submit invalid form     | Form does not submit and message displayed to correct invalid fields                                            | Pass   |
+| Register Form                         | Submit valid data       | User is redirected to confirm email page and confirmation email sent to their sign up email                     | Pass   |
+| Verifies Email                        | User verifies email     | User email is given verified status and they can now sign in                                                    | Pass   |
+| Sign In link                          | Click link              | Go to sign in page                                                                                              | Pass   |
+
+## Sign In Page
+
+| Test                                  | Action                  | Expected result                                                                                                 | Result |
+|---------------------------------------|-------------------------|-----------------------------------------------------------------------------------------------------------------|--------|
+| Sign in Form                          | Visual check            | Sign in form shows login and password fields                                                                    | Pass   |
+| Sign in Form                          | Submit empty form       | Form does not submit and message displayed asking to fill in required fields                                    | Pass   |
+| Sign in Form                          | Submit invalid form     | Form does not submit and message displayed to correct invalid fields                                            | Pass   |
+| Sign in Form                          | Submit valid data       | User is logged into their account and redirected to home page with a success message                            | Pass   |
+| Sign up link                          | Click link              | Go to Register page                                                                                             | Pass   |
+| Forgotten password link               | Click link              | Go to password reset page                                                                                       | Pass   |
+
+## Sign Out Page
+
+| Test                                  | Action                  | Expected result                                                                                                 | Result |
+|---------------------------------------|-------------------------|-----------------------------------------------------------------------------------------------------------------|--------|
+| Sign out button                       | Click button            | User signed out of their account and redirected to the home page                                                | Pass   |
+| Cancel button                         | Click button            | Go to Home page                                                                                                 | Pass   |
+
+## Password reset Page
+
+| Test                                  | Action                  | Expected result                                                                                                 | Result |
+|---------------------------------------|-------------------------|-----------------------------------------------------------------------------------------------------------------|--------|
+| Password reset form                   | Visual check            | Password reset form shows email field                                                                           | Pass   |
+| Password reset Form                   | Submit empty form       | Form does not submit and message displayed asking to fill in required fields                                    | Pass   |
+| Password reset Form                   | Submit invalid form     | Form does not submit and message displayed to correct invalid fields                                            | Pass   |
+| Password reset Form                   | Submit valid data       | User is sent a password reset email to their registered email address                                           | Pass   |
+| Back to login button                  | Click button            | Go to sign in page                                                                                              | Pass   |
+
+## Change Password Page
+
+| Test                                  | Action                  | Expected result                                                                                                 | Result |
+|---------------------------------------|-------------------------|-----------------------------------------------------------------------------------------------------------------|--------|
+| Change password Form                  | Visual check            | Change Password form shows current password, new password and new password (again) fields                       | Pass   |
+| Change password Form                  | Submit empty form       | Form does not submit and message displayed asking to fill in required fields                                    | Pass   |
+| Change password Form                  | Submit invalid form     | Form does not submit and message displayed to correct invalid fields                                            | Pass   |
+| Password reset Form                   | Submit valid data       | User password is updated to the new password                                                                    | Pass   |
+| Cancel button                         | Click button            | Go to Home page                                                                                                 | Pass   |

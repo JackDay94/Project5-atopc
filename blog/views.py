@@ -181,7 +181,7 @@ class DeleteComment(UserPassesTestMixin, DeleteView):
     """Allows a user to delete their comment"""
     model = BlogComment
     template_name = 'blog/delete_comment.html'
-    success_message = 'Review deleted succesfully!'
+    success_message = 'Comment deleted succesfully!'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
