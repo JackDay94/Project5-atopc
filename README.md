@@ -68,7 +68,7 @@ A to PC is an online E-commerce store that is focused on selling PC monitors, st
     - [Heroku](#heroku)
     - [Amazon Web Services](#amazon-web-services)
     - [Stripe](#stripe)
-9. [Credits]
+9. [Credits](#credits)
 
 ## User Experience
 
