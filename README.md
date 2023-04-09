@@ -66,7 +66,9 @@ A to PC is an online E-commerce store that is focused on selling PC monitors, st
         - [Cloning the repository](#cloning-the-repository)
     - [ElephantSQL](#elephantsql)
     - [Heroku](#heroku)
-
+    - [Amazon Web Services](#amazon-web-services)
+    - [Stripe](#stripe)
+9. [Credits]
 
 ## User Experience
 
@@ -598,7 +600,7 @@ There are some features that I did not get the time to include in this project t
     - [Django-crispy-forms 2.0](https://django-crispy-forms.readthedocs.io/en/latest/) - Used to make forms use Bootstrap styling.
     - [Crispy-bootstrap5](https://pypi.org/project/crispy-bootstrap5/) - Extension to crispy forms to work with Bootstrap5.
 - Storage
-    - [Amazon Web Services (AWS)](https://aws.amazon.com/) - Used to store and serve the media files for the project.
+    - [Amazon Web Services (AWS)](https://aws.amazon.com/) - Used to store and serve the static and media files for the project.
 - Other
     - [Summernote](https://summernote.org/) - WYSIWYG text editor used in product and blog forms.
     - [Gitpod](https://www.gitpod.io/) - Used as the editing environment.
@@ -1021,7 +1023,7 @@ Now we need to connect the project database to the ElephantSQL database to conti
 8. Update requirements.txt with 'pip freeze > requirements.txt'
 9. In settings.py import dj_database_url underneath the import for os
 10. Scroll to the DATABASES section and update it to the following code, so that the original connection to sqlite3 is commented out and we connect to the new ElephantSQL database instead. Paste in your ElephantSQL database URL in the position indicated
-
+```
   DATABASES = {
       'default': {
           'ENGINE': 'django.db.backends.sqlite3',
@@ -1032,11 +1034,11 @@ Now we need to connect the project database to the ElephantSQL database to conti
  DATABASES = {
      'default': dj_database_url.parse('your-database-url-here')
  }
-    
+```    
 11. Migrate the database models using 'python3 manage.py migrate'
 12. Create a new superuser using 'python3 manage.py createsuperuser' and enter a username and password
 13. Change the DATABASES section to 
-
+```
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
@@ -1048,7 +1050,7 @@ else:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-
+```
 14. Install gunicorn using 'pip3 install gunicorn'
 15. Create a Procfile in the base directory
 16. Add 'web: gunicorn a_to_pc.wsgi:application' to the Procfile and save
@@ -1059,3 +1061,160 @@ else:
 21. For Final deployment ensure that the DEBUG is removed from the env variables!
 
 ### Amazon Web services
+To setup AWS for hosting media and static files I done the following:
+
+1. Sign into your AWS account
+2. Go to the AWS Console
+3. Search for 's3' in the search bar
+4. Click on s3 in the results
+5. Click on the 'create bucket' button 
+6. Give a name for the bucket, select a region, ensure ACLs are enabled, tick 'bucket owner preferred', untick 'Block all public access' and tick the acknowledgment
+7. Click 'create bucket'
+8. Now click the bucket that was created
+9. Go to the properties tab and scroll down to 'static website hosting' and click edit
+10. Tick 'enable' and enter 'index.html' and 'error.html' in Index document and error document and click save
+11. Go to the permissions tab and scroll down to 'CORS' click 'edit' and paste the following into the text field
+```
+[
+    {
+        "AllowedHeaders": [
+            "Authorization"
+        ],
+        "AllowedMethods": [
+            "GET"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": []
+    }
+]
+```
+12. Click Save
+13. Go to 'Bucket policy' on the permissions tab and click 'Edit'
+14. Copy the Bucket ARN and then click 'policy generator'
+15. For type of policy select 's3 bucket policy'
+16. Add a * to principles
+17. Select 'GetObject' in the actions dropdown
+18. Paste the ARN from earlier into the ARN field
+19. Click 'add statement' and then 'generate policy'
+20. Copy the policy generated
+21. Paste the generated policy into the 'edit bucket policy' text field
+22. Add a /* onto the end of the resource key and click save
+23. On the permissions tab click 'edit' on the ACL section
+24. Enable 'List for Everyone (public access)' and accept the warning box and click save
+25. From the services menu select 'IAM'
+26. From the sidebar select 'user groups'
+27. Click 'create group'
+28. Choose a name for the group and click next and next again and then 'create group'
+29. Click 'policies' from the sidebar
+30. Click 'create policy'
+31. Go to the JSON tab and select 'import managed policy'
+32. Search 's3' in the search bar and select 'AmazonS3FullAccess' and click import
+33. Copy the bucket ARN from the bucket policy page in s3
+34. Paste in the bucket ARN and then the bucket ARN again followed by /* in 'Resources'
+35. Click 'Review policy' and choose a name and description and click 'create policy'
+36. Select 'user groups' from the sidebar
+37. Select the group made earlier
+38. Go to the permissions tab and click 'add permissions'
+39. Click 'attach policies' and select the policy
+40. Click 'add permissions' at the bottom
+41. Go to 'users' in the sidebar
+42. Select 'Add Users'
+43. Enter a username and then select next
+44. Add user to the group and click next
+45. Click 'create user'
+46. From the sidebar click 'users'
+47. Click the username of the user that you created
+48. Below the user summary, click on the tab 'security credentials'
+49. Scroll down to 'access keys' and click 'create access key'
+50. Select 'other' for the options and click next and next again
+51. Download and save the .csv for the access key and secret access key pair
+
+#### Connecting Django
+
+1. Install boto3 and django-storages using 'pip3 install boto3' and 'pip3 install django-storages'
+2. Update requirements.txt with 'pip3 freeze > requirenets.txt'
+3. In settings.py add 'storages' to installed apps
+4. In settings.py add the following:
+```
+if 'USE_AWS' in os.environ:
+    # Bucket config
+    AWS_STORAGE_BUCKET_NAME = 'atopc'
+    AWS_S3_REGION_NAME = 'eu-west-2'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+```
+5. Go to Heroku and open the config vars for the app
+6. Add 'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY' and paste in the access key and secret key from the .csv
+7. Add 'USE_AWS':'True'
+8. Back in Gitpod in the Base directory create 'custom_storages.py' file
+9. Add the following to the file:
+```
+from django.conf import settings
+from storages.backends.s3boto3 import S3Boto3Storage
+
+
+class StaticStorage(S3Boto3Storage):
+    location = settings.STATICFILES_LOCATION
+
+
+class MediaStorage(S3Boto3Storage):
+    location = settings.MEDIAFILES_LOCATION
+```
+10. Back in settings.py add the following to the if statement in step 4:
+```
+    # Static and Media files
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+    # Override static and media URLs in production
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+```
+11. Add, commit and push to github and Heroku
+12. In settings.py add the following to the top of the if statement:
+```
+    # Cache control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+```
+13. Add, commit and push again
+14. Go back to s3 and select the bucket created earlier
+15. On the objects tab select 'create folder' and name it media and click 'create'
+16. Click the media folder and then 'upload'
+17. Click 'add files' and then select the images required
+18. In permissions select 'Grant public-read access' and check the acknowledgement
+19. Select 'upload'
+20. The image files should now be uploaded to s3 and ready to use in the project
+
+### Stripe
+To ensure stripe works with the deployed site, config vars must be added to Heroku.
+
+1. Sign into your Stripe account
+2. From the dashboard click 'Developers'
+3. Click 'API keys' from the menu
+4. Copy 'Publishable key' and 'Secret key' token
+5. Go to the app Config vars in Heroku
+6. Add 'STRIPE_PUBLIC_KEY' and 'STRIPE_SECRET_KEY' and paste in the copied tokens
+7. Go back to Stripe and go to 'webhooks'
+8. Click 'add endpoint'
+9. Add the endpoint url as: 'https://atopc.herokuapp.com/checkout/wh/'
+10. Select 'all events' and then 'add endpoint'
+11. Reveal and Copy the 'signing secret' for the webhook
+12. In the Heroku config vars add 'STRIPE_WH_SECRET' and paste the signing secret
+
+## Credits
+- [Code Institute](https://codeinstitute.net/) Course Material - I used boilerplate from the 'Boutique Ado' walkthrough project to help me with many aspects of my site and credited the code were applicable.
+- [Very Academy](https://www.youtube.com/@veryacademy) - Used for guidance on adding a wishlist.
+- [Stackoverflow](https://stackoverflow.com/questions/48777015/djangos-successmessagemixin-not-working-with-deleteview) - Used to help with sending a success message on Delete views.
+- [Django docs](https://www.djangoproject.com/) - For various troubleshooting and information.
+- [Bootstrap docs](https://getbootstrap.com/) - Documentation used to help with using bootstrap elements.
+- [Unsplash](https://unsplash.com/) and [Pexels](https://www.pexels.com/) - Used to get the product images.
+- My mentor Reuben Ferante - For his help with providing suggestions and helping me with ideas on what to include in my project.
+- Tutor support - For helping me when I had trouble migrating my database to ElephantSQL.
