@@ -16,7 +16,18 @@
 13. [Profile page](#profile-page)
 14. [Wishlist page](#wishlist-page)
 15. [Newsletter page](#newsletter-page)
-16. 
+16. [Blog Page](#blog-page)
+17. [Blog post page](#blog-post-page)
+18. [Add blog post page](#add-blog-post-page)
+19. [Edit blog post page](#edit-blog-post-page)
+20. [Delete blog post page](#delete-blog-post-page)
+21. [Edit comment page](#edit-comment-page)
+22. [Delete comment page](#delete-comment-page)
+23. [Register page](#register-page)
+24. [Sign in page](#sign-in-page)
+25. [Sign out page](#sign-out-page)
+26. [Password reset page](#password-reset-page)
+27. [Change password page](#change-password-page)
 
 ## Navigation
 

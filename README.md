@@ -59,6 +59,14 @@ A to PC is an online E-commerce store that is focused on selling PC monitors, st
     - [Responsiveness Testing](#responsiveness-testing)
     - [Automated Testing](#automated-testing)
     - [Manual Testing](#manual-testing)
+    - [Bugs](#bugs)
+8. [Deployment](#deployment)
+    - [Github](#github)
+        - [Forking the repository](#forking-the-repository)
+        - [Cloning the repository](#cloning-the-repository)
+    - [ElephantSQL](#elephantsql)
+    - [Heroku](#heroku)
+
 
 ## User Experience
 
@@ -937,3 +945,117 @@ I incorporated some automated tests using django's built in unit tests to test s
 
 ### Manual Testing
 As I developed the project I tested all features manually to ensure they functioned as intended. The manual tests for this project can be found in [TESTS.md](TESTS.md).
+
+### Bugs
+Over the course of developing this project I ran into a few bugs, some of which I was unable to resolve due to time constraints. These bugs do not severely impact the functionality of the site but may worsen the user experience. The bugs that I am currently aware of are:
+- Users can leave multiple reviews on the same product, impacting its overall rating. - Unfixed
+- Leaving the input of the quantity input blank and submitting causes a 500 error. - Unfixed
+- Submitting a blog post with the status set to draft would result in a 404 error. - Fixed by setting the url redirect to the blog post list when status is draft.
+- Deleting a product review does not update the average review score until a new review is added. - Fixed by using signals to update on delete.
+- Products without reviews have their rating score set to null causing the rating sorting to not work. - Fixed by setting the rating of products with no reviews to 0 by default.
+
+## Deployment
+
+I deployed this project using the following:
+- Github to host the code repository
+- Gitpod as the IDE to commit and push changes
+- ElephantSQL to host the database
+- Heroku for to host the deployed site
+- Amazon Web Services (AWS) to host the static and media files
+
+### Github
+To create the repository for my project I done the following:
+
+1. Log into Github
+2. From your Profile dashboard click the 'Repositories' tab
+3. Click the green 'New' button
+4. Select the repository template to the CI gitpod-full-template
+5. Select a name for the repository
+6. Select the green 'Create repository' button
+7. Open the repository and click the green 'Gitpod' button to open a Gitpod workspace
+
+#### Forking the repository
+To fork the repository the following steps can be taken:
+
+1. Go to the relevant repository
+2. Click the fork icon at the top of the page
+3. Change the name if required
+4. Click 'Create fork' to finish creating a fork of the repository
+
+#### Cloning the repository
+To clone the repository the following steps can be taken:
+
+1. Go to the repository page
+2. Click the green 'Code' icon at the top of the repository
+3. Copy the HTTPS link
+4. Open Gitpod and select a directory for the clone to be created
+5. Type 'git clone' followed by the link you copied
+6. The repository will now be cloned to the directory selected
+
+### ElephantSQL
+To create a database using ElephantSQL I done the following:
+
+1. Go to [ElephantSQL](https://www.elephantsql.com/)
+2. Login or create an account by connecting the github account
+3. From the dashboard click the green 'Create instance' button
+4. Give the plan a name and select the 'Tiny turtle (Free)' plan
+5. Click 'Select region' and choose a data center close to you
+6. Click 'Review'
+7. Check your details and then click 'Create instance'
+8. Go to your dashboard and click the name of the instance you just created
+9. In the URL section click the copy icon to copy the database url to clipboard
+
+### Heroku
+To create an app on Heroku and use it to host the site I done the following:
+
+1. Login to Heroku
+2. From your Heroku dashboard click 'New' and 'create a new app'
+3. Give the app a name and choose a region, then click 'create app' to confirm
+4. Open the settings tab
+5. Select 'Reveal config vars'
+6. Add 'DATABASE_URL' to the KEY field and then paste in the database url from ElephantSQL in the VALUE field
+
+Now we need to connect the project database to the ElephantSQL database to continue.
+
+7. Open Gitpod and enter 'pip3 install dj_database_url==0.5.0 psycopg2' in the terminal
+8. Update requirements.txt with 'pip freeze > requirements.txt'
+9. In settings.py import dj_database_url underneath the import for os
+10. Scroll to the DATABASES section and update it to the following code, so that the original connection to sqlite3 is commented out and we connect to the new ElephantSQL database instead. Paste in your ElephantSQL database URL in the position indicated
+
+  DATABASES = {
+      'default': {
+          'ENGINE': 'django.db.backends.sqlite3',
+          'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+      }
+  }
+     
+ DATABASES = {
+     'default': dj_database_url.parse('your-database-url-here')
+ }
+    
+11. Migrate the database models using 'python3 manage.py migrate'
+12. Create a new superuser using 'python3 manage.py createsuperuser' and enter a username and password
+13. Change the DATABASES section to 
+
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+
+14. Install gunicorn using 'pip3 install gunicorn'
+15. Create a Procfile in the base directory
+16. Add 'web: gunicorn a_to_pc.wsgi:application' to the Procfile and save
+17. Update requirements.txt using 'pip freeze > requirements.txt'
+18. Ensure that the ALLOWED_HOSTS in settings.py is set to: ['atopc.herokuapp.com', 'localhost']
+19. Change DEBUG in settings.py to 'DEBUG = 'DEVELOPMENT' in os.environ' so that debug mode is only true when DEBUG is in the env files.
+20. Make sure to add the 'SECRET_KEY' for Django to the env variables in Heroku too.
+21. For Final deployment ensure that the DEBUG is removed from the env variables!
+
+### Amazon Web services
